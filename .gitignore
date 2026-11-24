@@ -1,0 +1,9 @@
+# Raw teacher runs: every ask with its reply, accepted or not. Only filtered examples under data/ are committed.
+capture/
+# Weights and checkpoints.
+*.gguf
+*.safetensors
+checkpoints/
+runs/
+.venv/
+__pycache__/
