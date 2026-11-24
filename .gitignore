@@ -7,3 +7,6 @@ checkpoints/
 runs/
 .venv/
 __pycache__/
+
+# API keys.
+.env
