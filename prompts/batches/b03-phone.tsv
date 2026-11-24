@@ -1,0 +1,41 @@
+# family	label	prompt -- batch 03: needs the phone; run on the phone (bench.sh) to record its lookups, then on the host with --lookups
+phone-calendar	phone-calendar-01	study plan added to calendar
+phone-calendar	phone-calendar-02	gym days into my calendar
+phone-calendar	phone-calendar-03	exam countdown with calendar event
+phone-calendar	phone-calendar-04	birthday list with calendar reminders
+phone-alarm	phone-alarm-01	wake up alarm from sleep cycles
+phone-alarm	phone-alarm-02	nap timer that sets an alarm
+phone-alarm	phone-alarm-03	medicine schedule with alarms
+phone-alarm	phone-alarm-04	shift schedule with morning alarms
+phone-torch	phone-torch-01	flashlight sos signal
+phone-torch	phone-torch-02	morse code with the flashlight
+phone-torch	phone-torch-03	strobe light party mode
+phone-torch	phone-torch-04	night walk torch timer
+phone-message	phone-message-01	running late message to my boss
+phone-message	phone-message-02	share shopping list by message
+phone-message	phone-message-03	text my score to a friend
+phone-message	phone-message-04	group dinner poll by message
+phone-call	phone-call-01	quick dial for family
+phone-call	phone-call-02	call the doctor reminder
+phone-call	phone-call-03	emergency contacts card
+phone-call	phone-call-04	call back list for today
+phone-maps	phone-maps-01	walk to the nearest pharmacy
+phone-maps	phone-maps-02	route to my saved places
+phone-maps	phone-maps-03	trip stops opened in maps
+phone-maps	phone-maps-04	find coffee near me
+phone-settings	phone-settings-01	bedtime mode switches
+phone-settings	phone-settings-02	focus mode for studying
+phone-settings	phone-settings-03	screen brightness for reading
+phone-settings	phone-settings-04	wifi and bluetooth toggles
+phone-vibrate	phone-vibrate-01	metronome that vibrates
+phone-vibrate	phone-vibrate-02	breathing guide with vibration
+phone-vibrate	phone-vibrate-03	silent interval timer with buzz
+phone-vibrate	phone-vibrate-04	posture reminder buzz
+phone-sound	phone-sound-01	white noise sleep timer
+phone-sound	phone-sound-02	tuning fork a 440
+phone-sound	phone-sound-03	drum beat maker
+phone-sound	phone-sound-04	countdown beeps for a race start
+phone-media	phone-media-01	photo of the day journal
+phone-media	phone-media-02	scan a receipt for expenses
+phone-media	phone-media-03	play my workout playlist
+phone-media	phone-media-04	voice memo list

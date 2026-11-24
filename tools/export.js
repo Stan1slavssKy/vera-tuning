@@ -80,12 +80,18 @@ function main() {
       if (!family) { drop('label in no batch file'); continue }
       const events = fs.readFileSync(file, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l))
       let group = []
+      let missed = 0
       for (const e of events) {
         if (e.kind === 'ask' && e.task === 'section') { group.push(e); continue }
+        // A phone lookup the replayed cache did not hold: the writer was shown nothing where the phone would show functions.
+        if (e.kind === 'lookup' && !e.hit) { missed++; continue }
         if (e.kind !== 'hole') continue
         stats.holes++
         const asks = group
+        const misses = missed
         group = []
+        missed = 0
+        if (misses > 0) { drop('lookup not in the cache'); continue }
         const last = asks[asks.length - 1]
         if (!last) { drop('hole with no call (known from an earlier hole)'); continue }
         if (e.whole) { drop('whole screen'); continue }
