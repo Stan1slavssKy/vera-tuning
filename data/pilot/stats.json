@@ -1,0 +1,45 @@
+{
+ "requests": 80,
+ "holes": 52,
+ "kept": {
+  "first": 22,
+  "repair": 16
+ },
+ "dropped": {
+  "partial": 6,
+  "scene": 7,
+  "reported: failed": 1
+ },
+ "bySplit": {
+  "train": 34,
+  "test": 4
+ },
+ "byFamily": {
+  "date-math": 3,
+  "flashcards": 3,
+  "guess-game": 3,
+  "grades": 3,
+  "category": 2,
+  "quiz": 2,
+  "streak": 2,
+  "challenge": 2,
+  "ciphers": 2,
+  "custom-filter": 1,
+  "dice-cards": 1,
+  "journal-stats": 1,
+  "loans": 1,
+  "memory-games": 1,
+  "pickers": 1,
+  "rotation": 2,
+  "since-last": 1,
+  "sports-score": 1,
+  "text-tools": 1,
+  "typing": 2,
+  "uneven-split": 1,
+  "word-games": 2
+ },
+ "runs": [
+  "b01",
+  "b02"
+ ]
+}
