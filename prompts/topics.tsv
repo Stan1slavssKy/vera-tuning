@@ -1,0 +1,27 @@
+# topic	status	why	example 1	example 2
+# status: b01-hole = gave holes in batch 01; b01-none = composed from parts, dropped; new = not run yet
+quiz	b01-hole	questions, answer check, score	capital cities quiz	multiplication quiz for kids
+flashcards	b01-hole	deck, flip, missed words	spanish flashcards with flip	flashcards that track missed words
+guess-game	b01-hole	game rules, turns, result	guess the number game	rock paper scissors game
+grades	b01-hole	weighted rules, categories	weighted grade calculator	gpa calculator with credits
+date-math	b01-hole	days between dates	days until my birthday	age in days calculator
+streak	b01-hole	streak from dated entries	habit streak with longest streak	no sugar day counter
+challenge	b01-hole	day-by-day goal check	plank challenge day tracker	30 day pushup challenge
+category	b01-hole	value to band/label	bmi with category	blood pressure category checker
+custom-filter	b01-hole	list filtered by a rule	contacts list filtered by name	books filtered by unread
+word-games	new	letters, guesses, rules	hangman word game	word scramble game
+text-tools	new	text in, figures out	word and character counter	password strength checker
+ciphers	new	text transformed by rules	morse code translator	roman numeral converter
+dice-cards	new	random with history	dice roller with history	coin flip streak stats
+pickers	new	random without repeats	name picker without repeats	lottery numbers picker
+rotation	new	who is next, by turns	chore rotation for roommates	dishwashing turn tracker
+sports-score	new	scoring rules	golf scorecard against par	tennis score keeper
+time-plans	new	times worked out from rules	sleep cycle wake up times	pomodoro with long breaks
+pace	new	rate and finish date	reading pace finish date	running pace calculator
+loans	new	month-by-month schedule	loan payoff months	compound interest by year
+next-due	new	next date from an interval	next watering date per plant	next dose time tracker
+since-last	new	time since an entry	time since last feeding	hours since last coffee
+journal-stats	new	averages by group	mood journal average by weekday	sleep log weekly average
+uneven-split	new	shares by rules	split rent by room size	split bill by what each ate
+memory-games	new	matching, sequence	memory card matching game	simon says color sequence
+typing	new	timed input check	typing speed test	math facts speed drill

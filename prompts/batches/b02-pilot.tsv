@@ -1,0 +1,51 @@
+# family	label	prompt -- batch 02: pilot, 25 topics x 2, none repeats topics.tsv's examples
+quiz	quiz-03	flags of europe quiz
+quiz	quiz-04	true or false science quiz
+flashcards	flashcards-03	periodic table flashcards
+flashcards	flashcards-04	french verbs flashcards with score
+guess-game	guess-game-03	higher or lower card game
+guess-game	guess-game-04	guess the animal in questions
+grades	grades-03	final exam grade needed
+grades	grades-04	letter grade from percent
+date-math	date-math-03	weeks until due date
+date-math	date-math-04	working days between two dates
+streak	streak-03	daily reading streak tracker
+streak	streak-04	meditation streak with best run
+challenge	challenge-03	squat challenge for a month
+challenge	challenge-04	10000 steps a day challenge
+category	category-03	wind speed to beaufort scale
+category	category-04	uv index risk level
+custom-filter	custom-filter-03	recipes filtered by ingredient
+custom-filter	custom-filter-04	tasks filtered by priority
+word-games	word-games-03	anagram checker game
+word-games	word-games-04	guess the word in five tries
+text-tools	text-tools-03	reading time of a text
+text-tools	text-tools-04	text case converter
+ciphers	ciphers-03	caesar cipher encoder
+ciphers	ciphers-04	binary to decimal converter
+dice-cards	dice-cards-03	two dice sum odds
+dice-cards	dice-cards-04	draw a random playing card
+pickers	pickers-03	random restaurant picker from list
+pickers	pickers-04	who goes first picker
+rotation	rotation-03	carpool driver rotation
+rotation	rotation-04	weekly cleaning duty rotation
+sports-score	sports-score-03	bowling score calculator
+sports-score	sports-score-04	basketball game score keeper
+time-plans	time-plans-03	bedtime from wake up time
+time-plans	time-plans-04	interval run walk plan
+pace	pace-03	savings goal finish date
+pace	pace-04	cycling speed from distance and time
+loans	loans-03	credit card payoff time
+loans	loans-04	car loan monthly payment table
+next-due	next-due-03	next oil change mileage
+next-due	next-due-04	next haircut date reminder
+since-last	since-last-03	days since last workout
+since-last	since-last-04	time since last cigarette
+journal-stats	journal-stats-03	gratitude journal entries per week
+journal-stats	journal-stats-04	headache log by time of day
+uneven-split	uneven-split-03	split taxi fare by distance
+uneven-split	uneven-split-04	split groceries by share
+memory-games	memory-games-03	remember the number sequence
+memory-games	memory-games-04	spot the difference word game
+typing	typing-03	spelling test with timer
+typing	typing-04	mental math race
