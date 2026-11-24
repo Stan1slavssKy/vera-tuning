@@ -1,0 +1,31 @@
+# family	label	prompt -- batch 01: does a topic the catalogue lacks give a hole? 2 prompts per topic.
+quiz	quiz-01	capital cities quiz
+quiz	quiz-02	multiplication quiz for kids
+flashcards	flash-01	spanish flashcards with flip
+flashcards	flash-02	flashcards that track missed words
+randomizer	rand-01	pick a random dinner idea
+randomizer	rand-02	split friends into random teams
+scorekeeper	score-01	board game score keeper
+scorekeeper	score-02	darts score counter from 501
+converter	conv-01	cooking units converter
+converter	conv-02	shoe size converter
+grader	grade-01	weighted grade calculator
+grader	grade-02	gpa calculator with credits
+streak	streak-01	habit streak with longest streak
+streak	streak-02	no sugar day counter
+workout	work-01	workout set and rep counter
+workout	work-02	plank challenge day tracker
+scaler	scale-01	recipe scaler by servings
+scaler	scale-02	paint needed for a room
+budget	budget-01	monthly budget left to spend
+budget	budget-02	savings goal with weekly deposits
+countdown	count-01	days until my birthday
+countdown	count-02	age in days calculator
+game	game-01	rock paper scissors game
+game	game-02	guess the number game
+health	health-01	bmi with category
+health	health-02	water intake by body weight
+list-filter	filt-01	movie watchlist with search
+list-filter	filt-02	contacts list filtered by name
+timer-action	tact-01	tea timer that rings when done
+timer-action	tact-02	parking meter timer with alarm
