@@ -1,4 +1,4 @@
-# vera-holes-tuning
+# vera-tuning
 
 Data and training for a local Qwen2.5-Coder-0.5B that fills VERA holes on the phone in place of DeepSeek.
 
