@@ -46,8 +46,8 @@ function families() {
 }
 
 /** label -> accept | reject | ask, from review/verdicts.tsv: a person's (or a reviewer's) word on a refusal. */
-function verdicts() {
-  const file = path.join(root, 'review', 'verdicts.tsv')
+function verdicts(name = 'verdicts.tsv') {
+  const file = path.join(root, 'review', name)
   const map = new Map()
   if (!fs.existsSync(file)) return map
   for (const line of fs.readFileSync(file, 'utf8').split('\n')) {
@@ -104,6 +104,8 @@ const sameBodies = (a, b) => JSON.stringify(Object.entries(a || {}).sort()) === 
 function main() {
   const familyOf = families()
   const verdictOf = verdicts()
+  // tools/refusal-check.js: rules for a program's refusal, a strict judge for a section's; a person's verdict wins.
+  const autoOf = verdicts('auto-verdicts.tsv')
   const rows = {train: [], validation: [], test: []}
   const review = []
   const seen = new Set()
@@ -167,12 +169,14 @@ function main() {
         const refused = edit.cannot || (edit.declined || []).length > 0
         if (refused && last0 && language !== null && last0.system.startsWith(language) && !SCENE.test(last0.reply)) {
           const system = last0.system.slice(language.length).trimStart() || EDIT_SYSTEM
-          const verdict = verdictOf.get(label + ' ' + edit.change) || 'unread'
+          const key = label + ' ' + route + ' ' + edit.change
+          const verdict = verdictOf.get(key) || autoOf.get(key) || 'unread'
           if (verdict === 'accept') {
             keep(family, system, last0.user, last0.reply, {task, turn: 'refine-decline', label, run: path.basename(run), change: edit.change,
-              calls: asks.length, teacher: last0.model || TEACHER, usage: last0.usage || null, checks: ['refusal read']})
+              calls: asks.length, teacher: last0.model || TEACHER, usage: last0.usage || null,
+              checks: [verdictOf.has(key) ? 'refusal read' : (route === 'program' ? 'refusal rules' : 'refusal judge')]})
           } else {
-            review.push({kind: 'impossible change', verdict, key: label + ' ' + edit.change, label, family, route, change: edit.change,
+            review.push({kind: 'impossible change', verdict, key, label, family, route, change: edit.change,
               cannot: edit.cannot || '', declined: edit.declined || [],
               messages: [{role: 'system', content: system}, {role: 'user', content: last0.user}, {role: 'assistant', content: last0.reply}]})
             drop(task + ': impossible, refused: ' + verdict)

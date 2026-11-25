@@ -36,7 +36,7 @@ async function judge(change, before, after) {
       const refine = path.join(run, label, 'refine')
       const base = path.join(run, label, 'program.vera')
       if (!fs.existsSync(refine) || !fs.existsSync(base)) continue
-      for (const k of fs.readdirSync(refine).filter(d => /^\d+$/.test(d))) {
+      for (const k of fs.readdirSync(refine).filter(d => /^\d+(\.\d+)*$/.test(d))) {
         const file = path.join(refine, k, 'asks.jsonl')
         if (!fs.existsSync(file)) continue
         const events = fs.readFileSync(file, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l))

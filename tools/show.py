@@ -5,6 +5,7 @@ the old section) cut to a marker, and optionally the answer. The system prompt i
     python3 tools/show.py data/v1/train.jsonl [--task section-edit] [--turn refine] [--family quiz] [-n 5] [--answer] [--system]
 """
 import argparse
+import gzip
 import json
 import random
 import re
@@ -42,7 +43,8 @@ def main():
     ap.add_argument('--system', action='store_true')
     ap.add_argument('--seed', type=int, default=0)
     a = ap.parse_args()
-    rows = [json.loads(l) for l in open(a.file, encoding='utf-8')]
+    opener = gzip.open if a.file.endswith('.gz') else open
+    rows = [json.loads(l) for l in opener(a.file, 'rt', encoding='utf-8')]
     rows = [r for r in rows if (not a.task or r['metadata']['task'] == a.task) and (not a.turn or r['metadata']['turn'] == a.turn)
             and (not a.family or r['metadata']['family'] == a.family)]
     random.Random(a.seed).shuffle(rows)

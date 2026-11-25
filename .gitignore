@@ -10,3 +10,6 @@ __pycache__/
 
 # API keys.
 .env
+
+# Splits are kept compressed in git (data/*/*.jsonl.gz, GitHub refuses files over 100 MB); gunzip -k to read.
+data/**/*.jsonl
