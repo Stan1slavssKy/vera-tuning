@@ -59,8 +59,15 @@ function verdicts(name = 'verdicts.tsv') {
   return map
 }
 
+/**
+ * Families put on a side by name, not by the hash: the hash left every phone-* family in train, so no held-out request
+ * called the phone.
+ */
+const PINNED = {'phone-call': 'test', 'phone-calendar': 'test', 'phone-vibrate': 'validation'}
+
 /** train / validation / test from the family alone, so no family is on two sides. */
 function splitOf(family) {
+  if (PINNED[family]) return PINNED[family]
   const bucket = parseInt(crypto.createHash('sha256').update(family).digest('hex').slice(0, 8), 16) % 1000
   // 80/10/10 by topic: at 85/7.5/7.5 the first 33 topics left validation empty.
   return bucket < 800 ? 'train' : bucket < 900 ? 'validation' : 'test'
@@ -112,6 +119,71 @@ function declinedIn(reply) {
 /** A declined need names the need asked: the writer often copies only its start. */
 const sameNeed = (declined, need) => declined.slice(0, 40) === need.slice(0, 40) || need.startsWith(declined) || declined.startsWith(need)
 
+/** A rule only the section contract of b01-b02 has: the phone sends today's (with the phone functions found), not it. */
+const OLD_SECTION_RULE = 'The section never calls sdk.call, except'
+
+/**
+ * A refusal that puts the limit on phones in general ("phones do not let an app...", "the phone doesn't give apps a live
+ * camera picture"): false on a phone whose camera the same data calls, and a 0.5B model learns to make such limits up.
+ * The limit is this app's.
+ */
+const PHONE_LIMIT = /\b(phones? (do(es)?n.t|do(es)? not|only|can.t|cannot|never)|a phone (only|does not|doesn.t|can.t|cannot)|no phone)\b/i
+
+const EDIT_BLOCK = /<<<<<<< SEARCH\n([\s\S]*?)\n?=======\n([\s\S]*?)\n?>>>>>>> REPLACE/g
+
+/** The text a reply's SEARCH parts are copied from, as its request quotes it; null when the request quotes none. */
+function editedText(user, task) {
+  if (task === 'program-edit' || task === 'program-repair') {
+    const made = user.match(/^The program:\n([\s\S]*?)\n\nIt was made for:/)
+    if (made) return made[1]
+    const at = user.indexOf('\n\nRequest: ')
+    return at > 0 ? user.slice(0, at) : null
+  }
+  if (user.includes(FAILED_MARK)) {
+    const failed = user.match(/(?:Your section was:\n|Your section:\n)([\s\S]*?)\n\nIt failed:/)
+    return failed ? failed[1] : null
+  }
+  const now = user.match(/The section as it is now[^\n]*\n([\s\S]*?)\n\nThe program so far/)
+  return now ? now[1] : null
+}
+
+/**
+ * What is wrong with a reply's edits, '' when nothing: markers the app's parser may forgive but a model must not learn
+ * (`<<<<<<<SEARCH`), a fence, or a SEARCH part not found exactly once in what it edits.
+ */
+function editFault(user, reply, task) {
+  if (reply.includes('```')) return 'in a code fence'
+  const markers = reply.split('\n').filter(l => /^(<{7}|={7}|>{7})/.test(l))
+  if (markers.length === 0) return ''
+  if (markers.some(l => !/^(<<<<<<< SEARCH|=======|>>>>>>> REPLACE)$/.test(l))) return 'edit markers misspelt'
+  const blocks = [...reply.matchAll(EDIT_BLOCK)]
+  if (blocks.length * 3 !== markers.length) return 'edit markers unpaired'
+  const text = editedText(user, task)
+  if (text === null) return ''
+  for (const [, search] of blocks) {
+    const n = text.split(search).length - 1
+    if (n !== 1) return n === 0 ? 'a SEARCH part not in what it edits' : 'a SEARCH part found more than once'
+  }
+  return ''
+}
+
+/**
+ * A catalogue hole whose kept bodies do not do what its request asks, though they passed the behaviour check, which reads
+ * only the filter's general behaviour: hiding the rows that match (they show them), an exact title (they match a part),
+ * spaces trimmed (no trim is among the functions allowed, so the bodies ignore it).
+ */
+function holeContradicts(user, bodies) {
+  const request = user.slice(user.lastIndexOf('Request: ') + 'Request: '.length)
+  const all = Object.values(bodies).join('\n')
+  if (/\bhide rows matching\b/i.test(request)) return 'shows the rows it was asked to hide'
+  if (/\bexact title\b/i.test(request) && !/\blabel === query\b|\bquery === label\b/.test(all)) return 'matches part of a title asked to match exactly'
+  if (/\bspaces trimmed\b/i.test(request)) return 'cannot trim with the functions allowed'
+  return ''
+}
+
+/** The same bodies kept for at most this many requests of a turn: one filter answered 69 of them alike, and b04 has a few answers in all. */
+const SAME_BODIES_AT_MOST = 10
+
 const sameBodies = (a, b) => JSON.stringify(Object.entries(a || {}).sort()) === JSON.stringify(Object.entries(b || {}).sort())
 
 function main() {
@@ -122,6 +194,8 @@ function main() {
   const rows = {train: [], validation: [], test: []}
   const review = []
   const seen = new Set()
+  // turn + catalogue answer -> how many requests it was kept for (SAME_BODIES_AT_MOST).
+  const sameAnswers = new Map()
   const stats = {requests: 0, holes: 0, kept: {}, dropped: {}, bySplit: {}, byFamily: {}}
   const drop = why => { stats.dropped[why] = (stats.dropped[why] || 0) + 1 }
   const count = (table, key) => { table[key] = (table[key] || 0) + 1 }
@@ -130,6 +204,9 @@ function main() {
     // Scenes are not in v1: neither a scene written nor anything written into a program that has one (its prompt
     // carries the scene guide).
     if (SCENE.test(reply) || SCENE.test(user)) { drop(metadata.task + ': scene in the program'); return }
+    if (system.includes(OLD_SECTION_RULE)) { drop(metadata.task + ': section contract of b01-b02'); return }
+    const fault = editFault(user, reply, metadata.task)
+    if (fault) { drop(metadata.task + ': ' + fault); return }
     const key = crypto.createHash('sha256').update(system + '\u0000' + user).digest('hex')
     if (seen.has(key)) { drop('duplicate request'); return }
     seen.add(key)
@@ -152,15 +229,23 @@ function main() {
     if (fill.behaviour !== undefined && fill.behaviour !== 'ok') return drop('catalogue hole: ' + fill.behaviour.split(',')[0])
     const first = asks[0]
     if (first.error || first.finish !== 'stop') return drop('catalogue hole: not finished')
+    const contradiction = holeContradicts(first.user, fill.bodies)
+    if (contradiction) return drop('catalogue hole: ' + contradiction)
     const kept = Object.fromEntries(Object.entries(fill.bodies).map(([k, v]) => [k, asWritten(v)]))
+    // The answer as the first try is written, for the repair too: the teacher's repair indented each line by two spaces
+    // (cleanBody's indent), the first try not, and a small model sees two forms of one answer.
+    const answer = '{"holes": {' + Object.entries(kept).map(([k, v]) => JSON.stringify(k) + ': ' + JSON.stringify(v)).join(', ') + '}}'
     const meta = turn => ({task: 'catalogue-hole', turn, label, run: path.basename(run), hole: fill.hole || null,
       calls: asks.length, teacher: first.model || TEACHER, checks: fill.behaviour !== undefined ? ['compiled', 'behaviour', 'targets found'] : ['compiled']})
-    keep(family, first.system, first.user, '{"holes": {' + Object.entries(kept).map(([k, v]) => JSON.stringify(k) + ': ' + JSON.stringify(v)).join(', ') + '}}', Object.assign(meta('first'),
+    const often = turn => { const k = turn + '\u0000' + answer; sameAnswers.set(k, (sameAnswers.get(k) || 0) + 1); return sameAnswers.get(k) > SAME_BODIES_AT_MOST }
+    if (often('first')) drop('catalogue hole: the same bodies kept for more requests')
+    else keep(family, first.system, first.user, answer, Object.assign(meta('first'),
       {source: sameBodies(first.parsed, fill.bodies) ? 'first try' : 'kept after repair'}))
     const repair = asks.slice(1).reverse().find(a => !a.error && a.finish === 'stop' && sameBodies(a.parsed, fill.bodies))
     if (repair) {
       const error = (repair.user.match(/"message": ("(?:[^"\\]|\\.)*")/) || [])[1]
-      keep(family, repair.system, repair.user, repair.reply, Object.assign(meta('repair'), {error: error ? JSON.parse(error) : null}))
+      if (often('repair')) drop('catalogue hole: the same bodies kept for more requests')
+      else keep(family, repair.system, repair.user, answer, Object.assign(meta('repair'), {error: error ? JSON.parse(error) : null}))
     }
   }
   /**
@@ -178,6 +263,24 @@ function main() {
     keep(family, last.system, last.user, last.reply, {task: 'catalogue-content', turn: 'first', label, run: path.basename(run),
       fields: note.slice('content: '.length), searched: /\bsearch=ok\b/.test(note), calls: asks.length,
       teacher: last.model || TEACHER, usage: last.usage || null, checks: ['json read', 'lists in shape']})
+  }
+  /**
+   * The assembled program repaired by edits (AgentRepair.ets's repairProgram, asked with the language alone, like a program
+   * edit's repair): the last of the asks after the last hole, when result.json says the repair mended it.
+   */
+  const programRepair = (asks, run, family, label, language) => {
+    const repairs = asks.filter(a => a.user.includes('is your previous attempt and it failed validation'))
+    if (repairs.length === 0) return
+    stats.holes++
+    const file = path.join(run, label, 'result.json')
+    const note = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')).note || '' : ''
+    if (!/; repaired by edits in \d+ round\(s\)/.test(note)) return drop('program repair: not mended')
+    const last = repairs[repairs.length - 1]
+    if (last.error || last.finish !== 'stop') return drop('program repair: not finished')
+    if (language === null || !last.system.startsWith(language)) return drop('program repair: system prompt without the language')
+    keep(family, last.system.slice(language.length).trimStart() || EDIT_SYSTEM, last.user, last.reply, {task: 'program-repair', turn: 'repair',
+      label, run: path.basename(run), rounds: repairs.length, teacher: last.model || TEACHER, usage: last.usage || null,
+      checks: ['compiled', 'smoke run']})
   }
   /**
    * Refines of a built screen (agent-run.js --refine): each change made by edits of the whole program and by the written
@@ -199,7 +302,9 @@ function main() {
         if (refused && last0 && language !== null && last0.system.startsWith(language) && !SCENE.test(last0.reply)) {
           const system = last0.system.slice(language.length).trimStart() || EDIT_SYSTEM
           const key = label + ' ' + route + ' ' + edit.change
-          const verdict = verdictOf.get(key) || autoOf.get(key) || 'unread'
+          // A person's word wins; the rules and the judge did not look for a limit put on phones in general.
+          const auto = autoOf.get(key) === 'accept' && PHONE_LIMIT.test(last0.reply) ? 'reject' : autoOf.get(key)
+          const verdict = verdictOf.get(key) || auto || 'unread'
           if (verdict === 'accept') {
             keep(family, system, last0.user, last0.reply, {task, turn: 'refine-decline', label, run: path.basename(run), change: edit.change,
               calls: asks.length, teacher: last0.model || TEACHER, usage: last0.usage || null,
@@ -341,6 +446,8 @@ function main() {
           phoneCalls: (last.reply.match(/sdk\.call\(/g) || []).length, teacher: last.model || TEACHER,
           usage: last.usage || null, checks: ['compiled', 'smoke run', 'targets found', 'Jev']})
       }
+      // What is left after the last hole is the assembled program's repair (AgentRepair.ets's settleProgram), when it took one.
+      programRepair(group, run, family, label, language)
     }
   }
   fs.mkdirSync(out, {recursive: true})

@@ -14,7 +14,9 @@ const fs = require('node:fs')
 const path = require('node:path')
 
 const CODE_WORDS = /\b(VERA|VERA-L|program|code|section|sdk|state field|function|handler|compiler|language)\b/i
-const PROMISE = /\b(it|the app|this app) (can|will) (still )?(show|remind|alert|beep|notify|display|pop)|\bkeep the app open and\b|\bwill (show|remind|alert|notify)\b/i
+// The same rule as export.js's: "phones do not let an app...", false on a phone whose camera the data calls.
+const PHONE_LIMIT = /\b(phones? (do(es)?n.t|do(es)? not|only|can.t|cannot|never)|a phone (only|does not|doesn.t|can.t|cannot)|no phone)\b/i
+const PROMISE =/\b(it|the app|this app) (can|will) (still )?(show|remind|alert|beep|notify|display|pop)|\bkeep the app open and\b|\bwill (show|remind|alert|notify)\b/i
 
 function programVerdict(item) {
   const sentence = item.cannot || ''
@@ -23,6 +25,7 @@ function programVerdict(item) {
   if (sentence.length < 50) return ['reject', 'too short to say what and why']
   if (sentence.length > 420) return ['reject', 'too long for one notice']
   if (PROMISE.test(sentence)) return ['reject', 'promises something the unchanged app does not do']
+  if (PHONE_LIMIT.test(sentence)) return ['reject', 'puts the limit on phones in general, not on this app']
   return ['accept', 'one plain sentence: what, why, and what the app still does']
 }
 
@@ -32,7 +35,8 @@ const JUDGE = 'You review an answer to a change a person asked for in a phone ap
   'guess shown as a fact); (2) a button or control is named for the impossible thing, or does not do what its label says; ' +
   '(3) it calls a phone function for nothing it explains; (4) the limit it states is false (the thing is plain code it ' +
   'could write); (5) it refuses something a phone function shown to it plainly does; (6) its sentence mentions code, the ' +
-  'language, sdk or the program; (7) the sentence does not say what cannot be done and why. Otherwise accept. Reply with ' +
+  'language, sdk or the program; (7) the sentence does not say what cannot be done and why; (8) the sentence puts the limit ' +
+  'on phones in general ("phones do not let an app...") rather than on this app. Otherwise accept. Reply with ' +
   'JSON only: {"accept": true|false, "why": "one sentence"}'
 
 async function sectionVerdict(item) {
