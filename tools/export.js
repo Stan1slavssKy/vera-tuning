@@ -28,6 +28,8 @@ const root = path.join(__dirname, '..')
 const TEACHER = 'deepseek-flash'
 const FAILED_MARK = '\n\nIt failed:\n'
 const SCENE = /\bui\.(Surface|World)\s*\(/
+/** The system prompt of a program edit once the language is cut from it: the one line the phone sends a local model. */
+const EDIT_SYSTEM = 'You change a VERA-L program as the person asks.'
 
 /** label -> family, from every batch file. */
 function families() {
@@ -136,6 +138,34 @@ function main() {
       keep(family, repair.system, repair.user, repair.reply, Object.assign(meta('repair'), {error: error ? JSON.parse(error) : null}))
     }
   }
+  /**
+   * Refines of a built screen (agent-run.js --refine): each change made by edits of the whole program and by the written
+   * section changed. A way is kept when it passed its checks and Jev reads it as making the change. Edits that served
+   * with no repair round are kept as the change's answer; after a repair, the repair that mended them is kept instead.
+   */
+  const refines = (events, family, label, run, language) => {
+    for (const route of ['program', 'section']) {
+      const task = route + '-edit'
+      const asks = events.filter(e => e.kind === 'ask' && e.task === task)
+      const edit = events.find(e => e.kind === 'edit' && e.route === route)
+      if (!edit) continue
+      stats.holes++
+      if (!edit.ok) { drop(task + ': ' + (edit.cannot ? 'declined' : 'failed')); continue }
+      if (!edit.does) { drop(task + ': Jev does not read the change'); continue }
+      const last = asks[asks.length - 1]
+      if (!last || last.error || last.finish !== 'stop') { drop(task + ': not finished'); continue }
+      if (language === null || !last.system.startsWith(language)) { drop(task + ': system prompt without the language'); continue }
+      if (SCENE.test(last.reply)) { drop(task + ': scene'); continue }
+      // The program's edits are asked with the language alone: with it cut, the request carries the rules.
+      const system = last.system.slice(language.length).trimStart() || EDIT_SYSTEM
+      // A program's served edits came from a repair when it took repair rounds; a section's, when its request quotes a failure.
+      const repaired = route === 'program' ? edit.rounds > 0 : last.user.includes(FAILED_MARK)
+      const turn = repaired ? 'refine-repair' : 'refine'
+      keep(family, system, last.user, last.reply, {task, turn, label, run: path.basename(run), change: edit.change,
+        calls: asks.length, edits: edit.edits ?? null, rounds: edit.rounds ?? null, teacher: last.model || TEACHER, usage: last.usage || null,
+        checks: ['compiled', 'smoke run', 'Jev reads the change'].concat(route === 'section' ? ['targets found'] : [])})
+    }
+  }
   for (const run of runs) {
     // Only the section writer is shown the language; a run of catalogue holes alone (hole-run.js) has none.
     const languageFile = path.join(run, 'language.txt')
@@ -146,6 +176,13 @@ function main() {
       stats.requests++
       const family = familyOf.get(label)
       if (!family) { drop('label in no batch file'); continue }
+      const refineDir = path.join(run, label, 'refine')
+      if (fs.existsSync(refineDir)) {
+        for (const k of fs.readdirSync(refineDir).filter(d => /^\d+$/.test(d)).sort((a, b) => a - b)) {
+          const refineFile = path.join(refineDir, k, 'asks.jsonl')
+          if (fs.existsSync(refineFile)) refines(fs.readFileSync(refineFile, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l)), family, label, run, language)
+        }
+      }
       const events = fs.readFileSync(file, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l))
       let group = []
       let holeAsks = []
