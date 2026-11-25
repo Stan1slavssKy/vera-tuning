@@ -5,8 +5,9 @@
 //
 // Each run is what vera-probe-dynamic's tools/vera-harness/agent-run.js wrote: <run>/language.txt and
 // <run>/<label>/asks.jsonl, where `ask` events are the calls in the order they were made and `hole` events say how the
-// calls before them ended. A section is kept when its hole was written (every need done, not the whole screen) and is
-// not a scene: the kept reply is the last call before the hole event. Its turn is `repair` when the request it answered
+// calls before them ended. A section is kept when its hole was written (every need done) and is not a scene: the kept
+// reply is the last call before the hole event. The whole screen as one hole (agent-run -r, --whole) is kept the same
+// way as task `whole-screen`, when the screen served as written. Its turn is `repair` when the request it answered
 // quotes an earlier failure. A hole reported as not possible goes to review.jsonl, to be read before it is trained on.
 //
 // The system prompt is shortened: the language (the skill with the catalogue, <run>/language.txt) is cut from its
@@ -79,6 +80,18 @@ function matchesRecord(reply, code) {
   return functions.split('\n').map(l => l.trim()).filter(Boolean).every(l => kept.has(l))
 }
 
+/**
+ * Whether the whole screen a run wrote served as its writer wrote it (result.json): built, and not mended by edits once it
+ * was assembled (AgentRepair.ets's settleProgram notes "; repaired by edits in N round(s)" just before it says so).
+ */
+function wholeServed(run, label) {
+  const file = path.join(run, label, 'result.json')
+  if (!fs.existsSync(file)) return false
+  const result = JSON.parse(fs.readFileSync(file, 'utf8'))
+  const note = result.note || ''
+  return result.route === 'agent' && /; whole screen written in /.test(note) && !/; repaired by edits in \d+ round\(s\); whole screen written in /.test(note)
+}
+
 /** A body as the model writes it: cleanBody (VeraHoles.ets) indents every line by two spaces when it keeps it. */
 function asWritten(body) {
   return body.split('\n').map(l => l.replace(/^ {2}/, '')).join('\n')
@@ -149,6 +162,22 @@ function main() {
       const error = (repair.user.match(/"message": ("(?:[^"\\]|\\.)*")/) || [])[1]
       keep(family, repair.system, repair.user, repair.reply, Object.assign(meta('repair'), {error: error ? JSON.parse(error) : null}))
     }
+  }
+  /**
+   * The text of the catalogue's sections (VeraTemplateContent.ets's fillSectionsContent), one ask, settled by the fill after
+   * it: kept when its JSON was read ("content: ...") and no list in it came back in a shape the app could not use. A field
+   * left at its default is not a failure: the eyebrow is left so on every one of b05-b07's 132.
+   */
+  const catalogueContent = (fill, asks, family, label, run) => {
+    stats.holes++
+    const last = asks[asks.length - 1]
+    const note = fill.content || ''
+    if (!note.startsWith('content: ')) return drop('catalogue content: ' + (note || 'no note'))
+    if (/=default\(bad/.test(note)) return drop('catalogue content: a list in a bad shape')
+    if (last.error || last.finish !== 'stop') return drop('catalogue content: not finished')
+    keep(family, last.system, last.user, last.reply, {task: 'catalogue-content', turn: 'first', label, run: path.basename(run),
+      fields: note.slice('content: '.length), searched: /\bsearch=ok\b/.test(note), calls: asks.length,
+      teacher: last.model || TEACHER, usage: last.usage || null, checks: ['json read', 'lists in shape']})
   }
   /**
    * Refines of a built screen (agent-run.js --refine): each change made by edits of the whole program and by the written
@@ -237,13 +266,18 @@ function main() {
       const events = fs.readFileSync(file, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l))
       let group = []
       let holeAsks = []
+      let contentAsks = []
       let missed = 0
       for (const e of events) {
         if (e.kind === 'ask' && e.task === 'section') { group.push(e); continue }
         if (e.kind === 'ask' && e.task === 'catalogue-hole') { holeAsks.push(e); continue }
+        if (e.kind === 'ask' && e.task === 'content') { contentAsks.push(e); continue }
         // A phone lookup the replayed cache did not hold: the writer was shown nothing where the phone would show functions.
         if (e.kind === 'lookup' && !e.hit) { missed++; continue }
         if (e.kind === 'fill') {
+          const asked = contentAsks
+          contentAsks = []
+          if (asked.length > 0) catalogueContent(e, asked, family, label, run)
           const asks = holeAsks
           holeAsks = []
           if (asks.length === 0) continue
@@ -261,12 +295,16 @@ function main() {
         if (misses > 0) { drop('lookup not in the cache'); continue }
         const last = asks[asks.length - 1]
         if (!last) { drop('hole with no call (known from an earlier hole)'); continue }
-        if (e.whole) { drop('whole screen'); continue }
+        // The whole screen as one hole (VeraBuildRoute.ets; agent-run -r or --whole) is a section of its own task: the
+        // same form, asked of an empty program. It is kept only when the screen served as it was written.
+        const task = e.whole ? 'whole-screen' : 'section'
+        const why = text => e.whole ? 'whole screen: ' + text : text
+        if (e.whole && !wholeServed(run, label)) { drop(why('not served as written')); continue }
         // A hole reported because every try failed is not a refusal: its `why` is the failure, which starts 'custom section'.
-        if (e.outcome === 'reported' && e.why && e.why.startsWith('custom section')) { drop('reported: failed'); continue }
+        if (e.outcome === 'reported' && e.why && e.why.startsWith('custom section')) { drop(why('reported: failed')); continue }
         if (e.outcome === 'reported' && e.why) {
           review.push({label, family, prompt: e.prompt, needs: e.needs, why: e.why, reply: last.reply})
-          drop('reported: to review')
+          drop(why('reported: to review'))
           continue
         }
         const unmet = e.missed || []
@@ -276,27 +314,29 @@ function main() {
         if (e.outcome === 'partial' && unmet.length > 0 && unmet.every(m => declined.some(d => sameNeed(d, m))) &&
             language !== null && last.system.startsWith(language) && last.finish === 'stop' && !SCENE.test(last.reply)) {
           const system = last.system.slice(language.length).trimStart()
-          const verdict = verdictOf.get(label) || 'unread'
+          // A whole screen and a section of the same request are read apart: "<label> whole" in review/verdicts.tsv.
+          const key = e.whole ? label + ' whole' : label
+          const verdict = verdictOf.get(key) || 'unread'
           if (verdict === 'accept') {
-            keep(family, system, last.user, last.reply, {task: 'section', turn: 'decline', label, run: path.basename(run), needs: e.needs,
+            keep(family, system, last.user, last.reply, {task, turn: 'decline', label, run: path.basename(run), needs: e.needs,
               declined: unmet, calls: asks.length, phoneCalls: (last.reply.match(/sdk\.call\(/g) || []).length,
               teacher: last.model || TEACHER, usage: last.usage || null, checks: ['compiled', 'smoke run', 'targets found', 'Jev', 'refusal read']})
             continue
           }
-          review.push({kind: 'partial decline', verdict, label, family, prompt: e.prompt, needs: e.needs, missed: unmet,
+          review.push({kind: 'partial decline', verdict, key, label, family, prompt: e.prompt, needs: e.needs, missed: unmet,
             messages: [{role: 'system', content: system}, {role: 'user', content: last.user}, {role: 'assistant', content: last.reply}]})
-          drop('partial decline: ' + verdict)
+          drop(why('partial decline: ' + verdict))
           continue
         }
-        if (e.outcome !== 'written') { drop(e.outcome); continue }
-        if (unmet.length > 0) { drop('missed needs'); continue }
-        if (last.error || last.finish !== 'stop') { drop('not finished'); continue }
-        if (SCENE.test(last.reply)) { drop('scene'); continue }
-        if (language === null || !last.system.startsWith(language)) { drop('system prompt without the language'); continue }
-        if (!matchesRecord(last.reply, e.code || '')) { drop('reply is not the section kept'); continue }
+        if (e.outcome !== 'written') { drop(why(e.outcome)); continue }
+        if (unmet.length > 0) { drop(why('missed needs')); continue }
+        if (last.error || last.finish !== 'stop') { drop(why('not finished')); continue }
+        if (SCENE.test(last.reply)) { drop(why('scene')); continue }
+        if (language === null || !last.system.startsWith(language)) { drop(why('system prompt without the language')); continue }
+        if (!matchesRecord(last.reply, e.code || '')) { drop(why('reply is not the section kept')); continue }
         const system = last.system.slice(language.length).trimStart()
         const turn = last.user.includes(FAILED_MARK) ? 'repair' : 'first'
-        keep(family, system, last.user, last.reply, {task: 'section', turn, label, run: path.basename(run), needs: e.needs,
+        keep(family, system, last.user, last.reply, {task, turn, label, run: path.basename(run), needs: e.needs,
           calls: asks.length, declines: (last.reply.match(/<cannot\s+need=/g) || []).length,
           phoneCalls: (last.reply.match(/sdk\.call\(/g) || []).length, teacher: last.model || TEACHER,
           usage: last.usage || null, checks: ['compiled', 'smoke run', 'targets found', 'Jev']})

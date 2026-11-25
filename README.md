@@ -4,13 +4,17 @@ Data and training for a local Qwen2.5-Coder-0.5B that fills VERA holes on the ph
 
 ## What the model is trained for
 
-Exactly the requests the app sends, in exactly the form it parses. Two tasks, in this order:
+Exactly the requests the app sends, in exactly the form it parses. Three tasks, in this order:
 
 1. **Catalogue holes** (`VeraHoles.ets` in vera-probe-dynamic): the body of a small function inside a section the
    composer already chose. The prompt comes from `buildHolePrompt` / `buildRepairPrompt`. The answer is
    `{"holes": {"<key>": "<body>"}}`, each body 600 characters at most. This is the first target.
 2. **Section holes** (`agent/AgentCustom.ets`, `writeSection`): one section with `<classes>`, `<fields>`, `<functions>`
-   and `<view>`, mended by SEARCH/REPLACE edits. Only narrow sections; the whole-screen hole stays with DeepSeek.
+   and `<view>`, mended by SEARCH/REPLACE edits.
+3. **The whole screen** (`agent/VeraBuildRoute.ets`, `writeWholeScreen`): when no part of the screen can be built from what
+   is ready, the whole program as one section in the same form, asked of a program with nothing but its header, against
+   the plan DeepSeek drew. Export task `whole-screen`, kept when an `agent-run.js -r` run writes it. Rare: 3 of 865
+   requests reached it on the host, none of 40 on the phone, so it is not captured on purpose.
 
 ## What the data holds
 
