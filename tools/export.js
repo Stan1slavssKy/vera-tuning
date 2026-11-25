@@ -203,6 +203,9 @@ function holeContradicts(user, bodies) {
 /** The same bodies kept for at most this many requests of a turn: one filter answered 69 of them alike, and b04 has a few answers in all. */
 const SAME_BODIES_AT_MOST = 10
 
+/** The most of train that program edits (program-edit refine) may be. */
+const PROGRAM_EDIT_SHARE = 0.4
+
 const sameBodies = (a, b) => JSON.stringify(Object.entries(a || {}).sort()) === JSON.stringify(Object.entries(b || {}).sort())
 
 function main() {
@@ -611,6 +614,22 @@ function main() {
       // What is left after the last hole is the assembled program's repair (AgentRepair.ets's settleProgram), when it took one.
       programRepair(group, run, family, label, language)
     }
+  }
+  // Program edits are half of what the runs give (every change is asked both ways, and most are made by edits): in train
+  // they are kept to at most PROGRAM_EDIT_SHARE of it, the changes later in a chain let go first, then by a fixed hash.
+  // Validation and test keep every one.
+  const isEdit = r => r.metadata.task === 'program-edit' && r.metadata.turn === 'refine'
+  const edits = rows.train.filter(isEdit)
+  const others = rows.train.length - edits.length
+  const room = Math.floor(PROGRAM_EDIT_SHARE / (1 - PROGRAM_EDIT_SHARE) * others)
+  if (edits.length > room) {
+    const order = r => (r.metadata.depth ? '1' : '0') + crypto.createHash('sha256').update(r.messages[1].content).digest('hex')
+    const letGo = new Set(edits.slice().sort((a, b) => order(a) < order(b) ? -1 : 1).slice(room))
+    rows.train = rows.train.filter(r => !letGo.has(r))
+    stats.kept['program-edit refine'] -= letGo.size
+    stats.bySplit.train -= letGo.size
+    for (const r of letGo) stats.byFamily[r.metadata.family]--
+    stats.dropped['program-edit: over its share of train'] = letGo.size
   }
   fs.mkdirSync(out, {recursive: true})
   for (const [split, list] of Object.entries(rows)) {
