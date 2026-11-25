@@ -29,6 +29,8 @@ const root = path.join(__dirname, '..')
 const TEACHER = 'deepseek-flash'
 const FAILED_MARK = '\n\nIt failed:\n'
 const SCENE = /\bui\.(Surface|World)\s*\(/
+/** The tasks of what a running program asks (runtime-run.js). */
+const RUNTIME_TASKS = new Set(['source-find', 'live-read', 'ask-text'])
 /** The system prompt of a program edit once the language is cut from it: the one line the phone sends a local model. */
 const EDIT_SYSTEM = 'You change a VERA-L program as the person asks.'
 /** The same for the whole program written again with a change (program-rewrite). */
@@ -261,6 +263,50 @@ function main() {
       count(stats.byFamily, family)
     }
   }
+  /**
+   * What a running program asks (runtime-run.js), each kept by what the app makes of it:
+   *   source-find -- the finder's two asks (candidate addresses from the search, where each figure is in a sample answer),
+   *                  when the host fetched the address and read every figure at the paths named;
+   *   live-read   -- Vera.Live.fetch's reading of the search, when every figure asked came back found in a result;
+   *   ask-text    -- Vera.Ask.text's words, when they are words (no error) within the word limit and not cut off.
+   */
+  const runtimeSteps = (events, family, label, run) => {
+    const asks = events.filter(e => e.kind === 'ask')
+    const plain = (e, task, turn, extra) => {
+      const m = (e.request || {}).messages || []
+      if (e.status !== 200 || m.length !== 2 || e.reply.finish !== 'stop') return drop(task + ': not answered')
+      keep(family, m[0].content, m[1].content, e.reply.content, Object.assign({task, turn, label, run: path.basename(run),
+        teacher: e.reply.model || TEACHER, usage: e.reply.usage || null}, extra))
+    }
+    const source = events.find(e => e.kind === 'source')
+    if (source) {
+      stats.holes++
+      if (!source.ok) drop('source-find: no source the host could read')
+      else {
+        const find = asks.filter(e => e.task === 'source-find' && e.request.messages[0].content.startsWith('You find a free public HTTP JSON API'))
+        const pick = asks.filter(e => e.task === 'source-find' && e.request.messages[0].content.startsWith('Given a request for live figures'))
+        if (find.length) plain(find[find.length - 1], 'source-find', 'candidates', {checks: ['address fetched', 'figures read at the paths']})
+        if (pick.length) plain(pick[pick.length - 1], 'source-find', 'paths', {checks: ['figures read at the paths']})
+      }
+    }
+    const live = events.find(e => e.kind === 'live')
+    if (live) {
+      stats.holes++
+      const lines = String(live.answer || '').split('\n')
+      const read = asks.filter(e => e.task === 'live-read')
+      if (lines[0] !== 'ok' || live.labels.some((_, i) => !(lines[i + 1] || '').trim())) drop('live-read: ' + (lines[0] === 'ok' ? 'a figure not found' : lines[0].slice(0, 40)))
+      else if (read.length) plain(read[read.length - 1], 'live-read', 'read', {checks: ['figure found in a result']})
+    }
+    const asked = events.find(e => e.kind === 'ask-result')
+    if (asked) {
+      stats.holes++
+      const text = String(asked.answer || '')
+      const writes = asks.filter(e => e.task === 'ask-text')
+      if (text.startsWith('error')) drop('ask-text: ' + text.slice(0, 40))
+      else if (text.split(/\s+/).filter(Boolean).length > Number(asked.maxWords)) drop('ask-text: over the word limit')
+      else if (writes.length) plain(writes[writes.length - 1], 'ask-text', 'write', {maxWords: Number(asked.maxWords), checks: ['words', 'within the limit']})
+    }
+  }
   /** One example, unless the same request was already kept. */
   const keep = (family, system, user, reply, metadata) => {
     // Scenes are not in v1: neither a scene written nor anything written into a program that has one (its prompt
@@ -337,6 +383,7 @@ function main() {
     const made = events.find(e => e.kind === 'rewrite')
     if (!made) return
     stats.holes++
+    if (!made.base) return drop('program-rewrite: asked of no program')
     if (!made.ok) return drop('program-rewrite: failed')
     // Jev misses removals and a new look, as it does a program edit's: the second judge (tools/rejudge.js) settles those.
     const judged = judgeOf(events, 'rewrite')
@@ -483,6 +530,7 @@ function main() {
       if (!fs.existsSync(file)) continue
       const events = fs.readFileSync(file, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l))
       if (events.some(e => e.kind === 'ask' && e.task === 'chat')) { chatSteps(events, family, label, run); continue }
+      if (events.some(e => e.kind === 'ask' && RUNTIME_TASKS.has(e.task))) { runtimeSteps(events, family, label, run); continue }
       let group = []
       let holeAsks = []
       let contentAsks = []

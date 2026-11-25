@@ -3,7 +3,7 @@
 
     python3 tools/check-data.py data/v1
 
-Must hold: every row is system/user/assistant with text (a chat row: its history, system first, the answer last); no request on two sides of the split; one system prompt per task; every
+Must hold: every row is system/user/assistant with text (a chat row: its history, system first, the answer last); no request on two sides of the split; one system prompt per task and turn; every
 SEARCH part of an answer is found exactly once in what it edits; no phone target in an answer's new code that its request does not name. Printed: examples by task, turn
 and split, and their length in tokens (chars / 3.23, the teacher's ratio on v1's answers).
 """
@@ -16,6 +16,7 @@ import sys
 EDIT = re.compile(r'<<<<<<< SEARCH\n([\s\S]*?)\n?=======\n([\s\S]*?)\n?>>>>>>> REPLACE')
 TARGET = re.compile(r'sdk\.call\(\s*"([^"]+)"')
 CHARS_PER_TOKEN = 3.23
+VARIED_SYSTEM = {'catalogue-content'}
 
 
 def edited_text(user, task):
@@ -61,11 +62,16 @@ def main():
         both = len(users['train'] & users[held])
         must(both == 0, f'{both} requests both in train and {held}')
 
+    # One system prompt per task and turn, numbers aside (Vera.Ask.text's word limit); the catalogue's text is asked with
+    # the fields of its own sections, so it has one for each kind of section by design.
     systems = collections.defaultdict(set)
     for r in every:
-        systems[r['metadata']['task']].add(r['messages'][0]['content'])
-    for task, found in sorted(systems.items()):
-        must(len(found) <= 1, f'{task}: {len(found)} system prompts')
+        m = r['metadata']
+        if m['task'] in VARIED_SYSTEM:
+            continue
+        systems[m['task'] + ' / ' + m['turn']].add(re.sub(r'\d+', 'N', r['messages'][0]['content']))
+    for key, found in sorted(systems.items()):
+        must(len(found) <= 1, f'{key}: {len(found)} system prompts')
 
     bad_edits = collections.Counter()
     invented = collections.Counter()

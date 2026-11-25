@@ -1,0 +1,297 @@
+# family	label	kind	... -- gen-runtime.js; runtime-run.js (vera-probe-distill) runs them
+live-weather	rt-live-weather-01	live	Current temperature in New York City in Fahrenheit
+live-weather	rt-live-weather-02	live	Current temperature in London in Celsius
+live-weather	rt-live-weather-03	live	Current humidity in Tokyo in percent
+live-weather	rt-live-weather-04	live	Current wind speed in Chicago in mph
+live-weather	rt-live-weather-05	live	Current UV index in Sydney
+live-weather	rt-live-weather-06	live	Current air quality index (AQI) in Beijing
+live-weather	rt-live-weather-07	live	Current barometric pressure in Denver in hPa
+live-weather	rt-live-weather-08	live	Current dew point in Miami in Fahrenheit
+live-weather	rt-live-weather-09	live	Current visibility in San Francisco in miles
+live-weather	rt-live-weather-10	live	Current precipitation chance in Seattle in percent
+live-weather	rt-live-weather-11	live	Sunrise time in Lisbon today
+live-weather	rt-live-weather-12	live	Sunset time in Reykjavik today
+live-weather	rt-live-weather-13	live	Current temperature in Dubai in Celsius
+live-weather	rt-live-weather-14	live	Current wind gust speed in Wellington in km/h
+live-weather	rt-live-weather-15	live	Current heat index in Phoenix in Fahrenheit
+live-money	rt-live-money-01	live	US Dollar to Euro exchange rate today
+live-money	rt-live-money-02	live	Bitcoin price in USD
+live-money	rt-live-money-03	live	Gold price per ounce in USD
+live-money	rt-live-money-04	live	S&P 500 index level today
+live-money	rt-live-money-05	live	10-year US Treasury yield
+live-money	rt-live-money-06	live	Federal Reserve federal funds rate
+live-money	rt-live-money-07	live	UK Bank of England base rate
+live-money	rt-live-money-08	live	US inflation rate CPI year-over-year
+live-money	rt-live-money-09	live	US unemployment rate
+live-money	rt-live-money-10	live	Japan Nikkei 225 index level today
+live-money	rt-live-money-11	live	Brent crude oil price per barrel in USD
+live-money	rt-live-money-12	live	Ethereum price in USD
+live-money	rt-live-money-13	live	Eurozone ECB deposit facility rate
+live-money	rt-live-money-14	live	US 30-year fixed mortgage rate
+live-money	rt-live-money-15	live	Copper price per pound in USD
+live-markets	rt-live-markets-01	live	S&P 500 index level today
+live-markets	rt-live-markets-02	live	Bitcoin price in USD today
+live-markets	rt-live-markets-03	live	Gold price per ounce in USD
+live-markets	rt-live-markets-04	live	US 10-year Treasury yield
+live-markets	rt-live-markets-05	live	EUR/USD exchange rate
+live-markets	rt-live-markets-06	live	Brent crude oil price per barrel in USD
+live-markets	rt-live-markets-07	live	Japan Nikkei 225 index level today
+live-markets	rt-live-markets-08	live	UK FTSE 100 index level today
+live-markets	rt-live-markets-09	live	US unemployment rate latest
+live-markets	rt-live-markets-10	live	US consumer price index inflation rate year-over-year
+live-markets	rt-live-markets-11	live	Apple stock price in USD today
+live-markets	rt-live-markets-12	live	Tesla stock price in USD today
+live-markets	rt-live-markets-13	live	Ethereum price in USD today
+live-markets	rt-live-markets-14	live	Federal funds rate target range upper bound
+live-markets	rt-live-markets-15	live	US Dollar Index (DXY) level today
+live-sports	rt-live-sports-01	live	Latest NBA score for the Los Angeles Lakers game today
+live-sports	rt-live-sports-02	live	Current FIFA world ranking points for Argentina men's national team
+live-sports	rt-live-sports-03	live	Premier League table points for Arsenal this season
+live-sports	rt-live-sports-04	live	Current UFC heavyweight champion's win count
+live-sports	rt-live-sports-05	live	Wimbledon men's singles champion's current ATP ranking
+live-sports	rt-live-sports-06	live	Paris Saint-Germain's current Ligue 1 points total
+live-sports	rt-live-sports-07	live	Current NFL passing yards leader this season
+live-sports	rt-live-sports-08	live	Formula 1 drivers' championship points for Max Verstappen this season
+live-sports	rt-live-sports-09	live	Current MLB home run leader count this season
+live-sports	rt-live-sports-10	live	Boston Celtics' current NBA Eastern Conference standings win total
+live-sports	rt-live-sports-11	live	Current world record time in the men's 100m sprint
+live-sports	rt-live-sports-12	live	Current NHL points total for the Toronto Maple Leafs
+live-sports	rt-live-sports-13	live	Indian Premier League points for Mumbai Indians this season
+live-sports	rt-live-sports-14	live	Current Tour de France general classification leader's time gap in seconds
+live-sports	rt-live-sports-15	live	Real Madrid's current La Liga points total
+live-transport	rt-live-transport-01	live	Brent crude oil price per barrel in USD
+live-transport	rt-live-transport-02	live	US national average gasoline price per gallon
+live-transport	rt-live-transport-03	live	London Congestion Charge daily rate in GBP
+live-transport	rt-live-transport-04	live	NYC subway base fare in USD
+live-transport	rt-live-transport-05	live	Tokyo taxi starting fare in JPY
+live-transport	rt-live-transport-06	live	Dubai petrol price per litre in AED
+live-transport	rt-live-transport-07	live	Uber ride price from LAX to downtown Los Angeles in USD
+live-transport	rt-live-transport-08	live	UK domestic train ticket price London to Manchester in GBP
+live-transport	rt-live-transport-09	live	US average domestic airfare in USD
+live-transport	rt-live-transport-10	live	Eurotunnel Le Shuttle car ticket price in GBP
+live-transport	rt-live-transport-11	live	Berlin single transit ticket price in EUR
+live-transport	rt-live-transport-12	live	Average US diesel price per gallon
+live-transport	rt-live-transport-13	live	India petrol price per litre in INR
+live-transport	rt-live-transport-14	live	Paris Metro single ticket price in EUR
+live-transport	rt-live-transport-15	live	Amsterdam Schiphol airport-to-city train fare in EUR
+live-energy	rt-live-energy-01	live	Brent crude oil price per barrel in USD today
+live-energy	rt-live-energy-02	live	WTI crude oil price per barrel in USD today
+live-energy	rt-live-energy-03	live	Henry Hub natural gas price per MMBtu in USD today
+live-energy	rt-live-energy-04	live	EU TTF natural gas price per MWh in EUR today
+live-energy	rt-live-energy-05	live	UK natural gas price per therm in pence today
+live-energy	rt-live-energy-06	live	US retail gasoline price per gallon in USD today
+live-energy	rt-live-energy-07	live	US average residential electricity price in cents per kWh
+live-energy	rt-live-energy-08	live	Germany day-ahead electricity price per MWh in EUR today
+live-energy	rt-live-energy-09	live	UK day-ahead electricity price per MWh in GBP today
+live-energy	rt-live-energy-10	live	US crude oil production in million barrels per day
+live-energy	rt-live-energy-11	live	OPEC crude oil production in million barrels per day
+live-energy	rt-live-energy-12	live	US natural gas storage level in billion cubic feet
+live-energy	rt-live-energy-13	live	EU natural gas storage fill level in percent
+live-energy	rt-live-energy-14	live	Global renewable electricity generation share in percent
+live-energy	rt-live-energy-15	live	World oil demand in million barrels per day
+live-space	rt-live-space-01	live	Current number of people in space
+live-space	rt-live-space-02	live	ISS altitude in kilometers
+live-space	rt-live-space-03	live	ISS orbital speed in km/h
+live-space	rt-live-space-04	live	Days until the next SpaceX Starship launch
+live-space	rt-live-space-05	live	Latest NASA Artemis program budget in USD billions
+live-space	rt-live-space-06	live	Number of active Starlink satellites in orbit
+live-space	rt-live-space-07	live	Next Falcon 9 launch countdown in hours
+live-space	rt-live-space-08	live	Moon distance from Earth in kilometers today
+live-space	rt-live-space-09	live	Current solar wind speed in km/s
+live-space	rt-live-space-10	live	Latest sunspot number today
+live-space	rt-live-space-11	live	Next total solar eclipse date countdown in days
+live-space	rt-live-space-12	live	Mars distance from Earth in million kilometers
+live-space	rt-live-space-13	live	Number of known exoplanets confirmed
+live-space	rt-live-space-14	live	Current Kp geomagnetic index
+live-space	rt-live-space-15	live	Next ISS visible pass time over New York City
+live-health	rt-live-health-01	live	US 10-year Treasury yield percentage
+live-health	rt-live-health-02	live	Bitcoin price in USD
+live-health	rt-live-health-03	live	Gold price per ounce in USD
+live-health	rt-live-health-04	live	S&P 500 index level
+live-health	rt-live-health-05	live	EUR/USD exchange rate
+live-health	rt-live-health-06	live	Brent crude oil price per barrel in USD
+live-health	rt-live-health-07	live	US national average gasoline price per gallon
+live-health	rt-live-health-08	live	Fed funds target rate upper bound
+live-health	rt-live-health-09	live	US unemployment rate
+live-health	rt-live-health-10	live	US CPI year-over-year inflation rate
+live-health	rt-live-health-11	live	Sunset time in Lisbon today
+live-health	rt-live-health-12	live	Current temperature in New York City in Fahrenheit
+live-health	rt-live-health-13	live	Current temperature in London in Celsius
+live-health	rt-live-health-14	live	Tokyo Nikkei 225 index level
+live-health	rt-live-health-15	live	US 30-year fixed mortgage rate
+live-travel	rt-live-travel-01	live	Price of a gallon of regular gasoline in California today
+live-travel	rt-live-travel-02	live	Current TSA security wait time at Atlanta Hartsfield-Jackson Airport
+live-travel	rt-live-travel-03	live	Exchange rate of 1 US dollar to euros today
+live-travel	rt-live-travel-04	live	Current air quality index (AQI) in New York City
+live-travel	rt-live-travel-05	live	Number of delayed flights at London Heathrow Airport right now
+live-travel	rt-live-travel-06	live	Current UberX fare estimate from JFK Airport to Times Square
+live-travel	rt-live-travel-07	live	Current temperature in Tokyo in Fahrenheit
+live-travel	rt-live-travel-08	live	Current wind speed in Chicago in mph
+live-travel	rt-live-travel-09	live	Sunset time in Lisbon today
+live-travel	rt-live-travel-10	live	Current flight status of American Airlines flight 100 (JFK to LHR)
+live-travel	rt-live-travel-11	live	Current price of a round-trip train ticket from London to Paris on Eurostar
+live-travel	rt-live-travel-12	live	Current number of available bike-share bikes at a station near the Eiffel Tower
+live-travel	rt-live-travel-13	live	Today's snowfall total in Denver in inches
+live-travel	rt-live-travel-14	live	Current cruise ship passenger count at PortMiami
+live-travel	rt-live-travel-15	live	Current visa processing time for US tourist visa in days
+live-news-figures	rt-live-news-figures-01	live	Bitcoin price in USD
+live-news-figures	rt-live-news-figures-02	live	S&P 500 index level
+live-news-figures	rt-live-news-figures-03	live	10-year US Treasury yield
+live-news-figures	rt-live-news-figures-04	live	EUR/USD exchange rate
+live-news-figures	rt-live-news-figures-05	live	Gold price per ounce in USD
+live-news-figures	rt-live-news-figures-06	live	Brent crude oil price per barrel
+live-news-figures	rt-live-news-figures-07	live	US national average gas price per gallon
+live-news-figures	rt-live-news-figures-08	live	UK inflation rate CPI annual
+live-news-figures	rt-live-news-figures-09	live	US unemployment rate
+live-news-figures	rt-live-news-figures-10	live	Japan Nikkei 225 index level
+live-news-figures	rt-live-news-figures-11	live	London FTSE 100 index level
+live-news-figures	rt-live-news-figures-12	live	Sunset time in Lisbon today
+live-news-figures	rt-live-news-figures-13	live	Current temperature in New York City in Fahrenheit
+live-news-figures	rt-live-news-figures-14	live	Number of active SpaceX Starlink satellites
+live-news-figures	rt-live-news-figures-15	live	US national debt in USD
+quiz	rt-ask-quiz-01	ask	40	Next question: what is the capital city of Australia? Check the answer to 'Sydney' and give the correct one if wrong.
+quiz	rt-ask-quiz-02	ask	45	Kid practice: '7 times 8'. Check the answer to '54' and, if wrong, explain the correct product briefly.
+flashcards	rt-ask-flashcards-01	ask	60	Make 8 Spanish flashcards for beginner food vocabulary, each with the Spanish word on the front and the English translation on the back, ready to flip.
+flashcards	rt-ask-flashcards-02	ask	70	Write 6 flashcards on European capitals where the front is the country and the back is the capital, and note which ones I should mark as missed if I mix up similar names.
+guess-game	rt-ask-guess-game-01	ask	80	Give a short, clear explanation of how to play a number guessing game where one player thinks of a number from 1 to 100 and the others take turns guessing with higher or lower hints.
+guess-game	rt-ask-guess-game-02	ask	90	Explain the rules of rock paper scissors, including how each turn works, what beats what, and how a tie is handled, in simple words for a beginner.
+grades	rt-ask-grades-01	ask	90	Calculate my weighted grade: homework is 40% and I have 88, quizzes are 20% and I have 75, and the final is 40% with an unknown score. What do I need on the final to get at least 85 overall?
+grades	rt-ask-grades-02	ask	80	Find my GPA from these courses: Biology 3 credits with a B, Calculus 4 credits with a C, English 2 credits with an A, and History 3 credits with a B+. Use standard 4.0 scale.
+date-math	rt-ask-date-math-01	ask	40	How many days are there between March 3, 2026 and July 19, 2026?
+date-math	rt-ask-date-math-02	ask	50	If I was born on September 14, 1987, how many days old am I on February 20, 2026?
+streak	rt-ask-streak-01	ask	60	Give a pep talk for someone on a 12-day no-sugar streak whose longest streak is 21 days.
+streak	rt-ask-streak-02	ask	50	Write a short encouraging note for someone on a 5-day meditation streak who just hit their longest streak of 5 days.
+challenge	rt-ask-challenge-01	ask	55	I finished day 12 of the 30-day plank challenge, holding 90 seconds today. Write a short encouraging check-in message for me.
+challenge	rt-ask-challenge-02	ask	60	I'm on day 8 of a 30-day pushup challenge and only managed 12 pushups today, fewer than yesterday. Write a brief motivating note to keep me going.
+category	rt-ask-category-01	ask	40	Give this blood pressure reading a category and a one-line explanation: 138 over 88.
+category	rt-ask-category-02	ask	40	Categorize this BMI and add a short note on what it means: 27.4 for an adult.
+custom-filter	rt-ask-custom-filter-01	ask	50	From my contacts list, show only the ones whose names start with 'Mar' — I typed that in the filter box and need them listed out with phone numbers.
+custom-filter	rt-ask-custom-filter-02	ask	40	Filter my books shelf to only the unread ones, then give me a short list of titles I could start this weekend.
+word-games	rt-ask-word-games-01	ask	30	Suggest a hangman word for a food-themed round: six letters, no repeats, common enough for casual players.
+word-games	rt-ask-word-games-02	ask	40	Give a scrambled word game answer: unscramble the letters TAPNELE to form a common six-letter word and hint at its meaning.
+text-tools	rt-ask-text-tools-01	ask	40	The user typed: 'Hello world! This is a test.' Give a word count, character count with spaces, and character count without spaces.
+text-tools	rt-ask-text-tools-02	ask	60	Rate the strength of the password 'Passw0rd2024' as weak, medium, or strong, and list two specific ways to make it stronger.
+ciphers	rt-ask-ciphers-01	ask	20	Turn this Morse code into plain text: -.-. .- .. .--. .... . .-. ...
+ciphers	rt-ask-ciphers-02	ask	20	Convert the Roman numeral MCMXCIV into a number, and give the result in one short sentence.
+dice-cards	rt-ask-dice-cards-01	ask	45	Write a short, upbeat message for the dice roller's history panel after I just rolled a double six, mentioning the roll and that it was my third double in a row.
+dice-cards	rt-ask-dice-cards-02	ask	40	Give me a quick summary line for the coin flip streak stats screen showing that I've flipped heads five times in a row, with a playful nudge to keep going.
+pickers	rt-ask-pickers-01	ask	40	Pick 3 students without repeats from our class list: Maya, Leo, Priya, Sam, Jonah, Elena, Marcus, Tessa.
+pickers	rt-ask-pickers-02	ask	30	Draw 5 lottery numbers without repeats between 1 and 50 for tonight's office pool.
+rotation	rt-ask-rotation-01	ask	60	The roommates listed for the bathroom deep-clean rotation are Maya, Dev, and Priya, in that order, with Maya last completed. Tell us whose turn is next and give a one-line reminder message to send them.
+rotation	rt-ask-rotation-02	ask	45	Our dishwashing turns go Sam, then Lena, then Theo, and Sam just finished tonight. Say who washes tomorrow and add a short friendly nudge for that person.
+sports-score	rt-ask-sports-score-01	ask	90	Explain how the Stableford scoring system works for a beginner golfer who has just finished a round. Cover points for birdie, par, bogey, double bogey, and worse.
+sports-score	rt-ask-sports-score-02	ask	80	In tennis, the score is 30-40 with the server behind. Explain the possible next scores including deuce, advantage, and game, and what the players need to do.
+loans	rt-ask-loans-01	ask	80	I borrowed $12,000 at 6.5% annual interest to be repaid over 36 months. Show me the month-by-month schedule of remaining balance and interest paid.
+loans	rt-ask-loans-02	ask	60	I put $5,000 into a savings account at 4% interest compounded yearly, adding nothing more. Show me the balance at the end of each year for 10 years.
+next-due	rt-ask-next-due-01	ask	40	A snake plant was last watered on March 4 and needs water every 14 days. What is the next watering date?
+next-due	rt-ask-next-due-02	ask	40	A medication was last taken at 8:30 AM and is due every 6 hours. What is the next dose time?
+since-last	rt-ask-since-last-01	ask	70	It has been 6 hours since my last coffee. Suggest a gentle way to ease the withdrawal headache and stay alert for the rest of the workday.
+since-last	rt-ask-since-last-02	ask	65	It has been 4 hours since the baby's last feeding, and she is starting to fuss. Give me a quick checklist to decide whether to feed now or wait a bit longer.
+journal-stats	rt-ask-journal-stats-01	ask	70	My mood journal shows entries from the last month: Mondays 6, Tuesdays 7, Wednesdays 5, Thursdays 8, Fridays 9, Saturdays 9, Sundays 4. Summarize my average mood by weekday.
+journal-stats	rt-ask-journal-stats-02	ask	70	My sleep log for the past three weeks: week 1 averaged 6.5 hours, week 2 averaged 7.2 hours, week 3 averaged 5.8 hours. Summarize my weekly average sleep trend.
+uneven-split	rt-ask-uneven-split-01	ask	90	Suggest a fair way to split the $1,800 rent among 3 roommates: Ana has the 200 sq ft room, Ben the 150 sq ft room, and Cy the 100 sq ft room with no window.
+uneven-split	rt-ask-uneven-split-02	ask	80	Split a $140 dinner bill where Mia had the $32 steak, Leo had the $18 pasta and two $9 cocktails, and Sam only had a $14 salad and water.
+memory-games	rt-ask-memory-games-01	ask	45	Suggest three memory card matching game themes for kids using animals, vehicles, and food cards.
+memory-games	rt-ask-memory-games-02	ask	50	Create a Simon Says color sequence game with four colors and increasing difficulty levels for players.
+typing	rt-ask-typing-01	ask	50	Give me a short pep talk before my 60-second typing speed test: I average 48 WPM but keep freezing on punctuation.
+typing	rt-ask-typing-02	ask	60	Suggest a quick warm-up plan for a math facts speed drill where I solve 40 multiplication problems in two minutes and keep missing the 7s.
+phone-calendar	rt-ask-phone-calendar-01	ask	70	Add a study plan to my calendar: math revision 7-8pm on weekdays, physics 6-7pm on Saturdays, and a practice test every Sunday 10am-12pm for the next four weeks.
+phone-calendar	rt-ask-phone-calendar-02	ask	60	Create birthday reminders in my calendar for Mom on March 14, Jake on April 2, and Priya on May 21, each with an alert one week before and on the day.
+phone-alarm	rt-ask-phone-alarm-01	ask	75	Create a gentle wake-up alarm for 6:45 a.m. on weekdays that detects lighter sleep phases within 30 minutes before the alarm and uses soft nature sounds that slowly increase in volume.
+phone-alarm	rt-ask-phone-alarm-02	ask	70	Set a daily medicine reminder called 'Blood pressure pill' at 8:00 a.m. and 8:00 p.m., with a full-screen alert that stays until I tap 'Taken' and a snooze option of 10 minutes.
+phone-torch	rt-ask-phone-torch-01	ask	80	Make an SOS signal with the flashlight: three short flashes, three long, three short. Give me the timing in seconds for each flash and the gap between them.
+phone-torch	rt-ask-phone-torch-02	ask	90	Spell "HELP" in Morse code using the phone flashlight. List each letter's dots and dashes with a short flash or long flash and the pauses between letters.
+phone-message	rt-ask-phone-message-01	ask	60	Write a short text to my boss saying I'm running about 15 minutes late because of a delayed train, apologizing and saying I'll be there as soon as I can.
+phone-message	rt-ask-phone-message-02	ask	60	Write a message to my partner sharing our shopping list: milk, eggs, bread, bananas, chicken, and dishwasher tablets, asking them to grab it all on the way home.
+phone-call	rt-ask-phone-call-01	ask	35	Suggest a quick-dial label for a call to Mom, and a short reason to keep her at the top of the list.
+phone-call	rt-ask-phone-call-02	ask	45	From today's call-back list (dentist, plumber, school office), suggest which call to make first and a one-line reminder of what to say.
+phone-maps	rt-ask-phone-maps-01	ask	90	Walking from 14 Baker Street to the nearest pharmacy, list the pharmacy name and turn-by-turn directions in short steps.
+phone-maps	rt-ask-phone-maps-02	ask	80	I opened three trip stops in maps for a day out: Camden Market, Regent's Park, British Museum. Suggest a walking order and how long to spend at each.
+phone-settings	rt-ask-phone-settings-01	ask	45	Suggest a bedtime mode schedule that fits my usual sleep and wake times: bed at 11:15pm, alarm at 7:00am, and phone charging on the nightstand.
+phone-settings	rt-ask-phone-settings-02	ask	50	Explain in simple steps how to turn off Wi-Fi and Bluetooth together from the control center so my phone stops searching for networks and devices.
+phone-vibrate	rt-ask-phone-vibrate-01	ask	50	Create a gentle vibration pattern for a phone metronome at 80 BPM, using a soft pulse on each beat, so the user can feel the tempo without sound.
+phone-vibrate	rt-ask-phone-vibrate-02	ask	55	Design a posture reminder that gives one short vibration when the user slouches for more than 30 seconds, and a double vibration when posture is corrected.
+phone-sound	rt-ask-phone-sound-01	ask	60	Suggest a wind-down sound mix using these entries: white noise, rain, distant thunder, soft piano, with a 30-minute sleep timer.
+phone-sound	rt-ask-phone-sound-02	ask	70	Give me countdown beeps for a 5K race start using these entries: 3 short beeps, 1 long beep, 10-second gap, then go tone.
+phone-media	rt-ask-phone-media-01	ask	50	Write a two-sentence photo-of-the-day journal entry about a photo of a dog asleep on a sunny windowsill.
+phone-media	rt-ask-phone-media-02	ask	40	Write a short voice memo titled "Grocery run" reminding me to buy milk, eggs, and bread, with one extra note about picking up the dry cleaning.
+tournament	rt-ask-tournament-01	ask	90	Eight-team knockout bracket, results so far: A beat B 2-1, C beat D 3-0, E beat F 1-0, G beat H 2-2 on penalties. Who advances to the semifinals and who plays whom?
+tournament	rt-ask-tournament-02	ask	70	Round robin table for my five-a-side league after week 3: Reds 7 pts, Blues 6, Greens 5, Whites 3, Yellows 1. Which teams can still win the title?
+seating	rt-ask-seating-01	ask	90	Assign 24 wedding guests to 4 tables of 6, keeping the bride's family together, separating the two feuding aunts, and placing grandparents near the exit.
+seating	rt-ask-seating-02	ask	70	Shuffle 30 students into 5 rows of 6 for a fresh seating chart, keeping talkative pairs apart and putting students who need front-row access in the first two rows.
+meal-plan	rt-ask-meal-plan-01	ask	110	Build a week of dinners for a family of four using chicken thighs, broccoli, sweet potatoes, and pasta, plus a shopping list for anything missing.
+meal-plan	rt-ask-meal-plan-02	ask	100	Plan five lunchboxes for a school week from these entries: hummus, carrots, crackers, grapes, cheddar, tortillas, and yogurt, and list what to buy.
+packing	rt-ask-packing-01	ask	90	Make a packing list for a 5-day beach trip with carry-on only, using these choices: 3 swimsuits, 4 t-shirts, 1 pair sandals, 1 light jacket, sunscreen, sunglasses, phone charger.
+packing	rt-ask-packing-02	ask	80	Build a camping checklist for a rainy weekend using what I entered: tent, rainfly, tarp, 2 sleeping bags, camp stove, waterproof matches, 2 pairs wool socks, ponchos, cooler.
+rewards	rt-ask-rewards-01	ask	50	Suggest a reward for my son who earned 45 chore points this week: he did dishes, took out trash, and fed the dog daily.
+rewards	rt-ask-rewards-02	ask	60	My daughter has 300 reading points from finishing six books; suggest two prizes she can unlock, like a bookstore gift card or a movie night.
+envelopes	rt-ask-envelopes-01	ask	70	My envelope budget has $240 left in groceries and $85 in dining out, and I want to move $50 from dining to groceries for the rest of the month. Suggest how to make that transfer and what it means for each pot.
+envelopes	rt-ask-envelopes-02	ask	65	I have savings pots for a vacation ($1,200), a new laptop ($600), and an emergency fund ($2,000), and I can set aside $300 this month. Suggest how to split the $300 across the three pots.
+workout-builder	rt-ask-workout-builder-01	ask	60	Build me a random workout from my exercises: squats, push-ups, dumbbell rows, lunges, plank. Keep it under 30 minutes.
+workout-builder	rt-ask-workout-builder-02	ask	55	Generate a core routine using planks, crunches, leg raises, and Russian twists for 12 minutes, with sets and rest times.
+language-drill	rt-ask-language-drill-01	ask	70	Create a Spanish verb conjugation drill for the verb 'tener' in the present tense, with 6 fill-in-the-blank sentences and an answer key.
+language-drill	rt-ask-language-drill-02	ask	75	Make an English irregular verbs practice set using 'go', 'see', and 'take', with 6 past-tense fill-in sentences and answers.
+inventory	rt-ask-inventory-01	ask	55	Using pantry stock with low alerts: oats at 1 cup left over 2, peanut butter at 2 tbsp left over 3, honey at 1 tsp left over 2. Suggest a breakfast bowl using what's about to run out.
+inventory	rt-ask-inventory-02	ask	70	Using the office supplies reorder list: printer paper down to 1 ream with a 5-ream threshold, blue pens at 2 with a 10-pen threshold, sticky notes at 1 pad with a 4-pad threshold. Draft a short reorder request to the office manager.
+queue	rt-ask-queue-01	ask	40	Suggest a short message telling number 27 their turn is now at the deli counter, and to come to the counter within two minutes.
+queue	rt-ask-queue-02	ask	55	Draft a short note telling Sam, Priya, and Mr. Okafor that their names have been called for the 3:15 slot, and to check in at the front desk.
+voting	rt-ask-voting-01	ask	40	Team lunch vote results: Pizza Palace 4, Sushi Spot 6, Taco Truck 5. Tell us the winner and how many votes it got.
+voting	rt-ask-voting-02	ask	90	Ranked choice poll for movie night: first choices are Dune 5, Barbie 4, Oppenheimer 3, and no one has a majority, so eliminate Oppenheimer and recount. Who wins?
+decision	rt-ask-decision-01	ask	60	I'm deciding between two job offers: one pays $75k with a 45-minute commute, the other pays $68k and is fully remote. Score them on salary, commute, growth, and work-life balance.
+decision	rt-ask-decision-02	ask	65	Compare three apartments by score: A is $1,400 near downtown, B is $1,150 with a 30-minute commute, C is $1,300 with a gym and parking. Weigh rent, location, and amenities.
+generators	rt-ask-generators-01	ask	40	Create a strong password using the words the user entered: river, copper, 2019, and add a random symbol and two digits.
+generators	rt-ask-generators-02	ask	50	Generate five random team names using the user's entries: thunder, mango, robots, midnight. Keep each name two or three words.
+calendar-math	rt-ask-calendar-math-01	ask	40	What day of the week was March 14, 1879, and is 2024 a leap year?
+calendar-math	rt-ask-calendar-math-02	ask	40	Which weekday is December 25, 2030, and was 1900 a leap year?
+number-tools	rt-ask-number-tools-01	ask	40	Check whether 97 is a prime number and tell me its divisors.
+number-tools	rt-ask-number-tools-02	ask	30	Find the greatest common divisor of 84 and 126.
+fitness-calcs	rt-ask-fitness-calcs-01	ask	70	Using the one rep max formula, my best lift was 185 lb for 5 reps on back squat. Give me my estimated 1RM and a table of suggested training loads at 65%, 75%, 85%, and 95%.
+fitness-calcs	rt-ask-fitness-calcs-02	ask	55	I weigh 165 lb and did 45 minutes of vigorous cycling. Use the calories burned by activity table to estimate my calories burned and show the math in one short line.
+money-challenges	rt-ask-money-challenges-01	ask	60	Suggest a weekly saving amount for a 52 week challenge where the person doubles last week's deposit starting at $2 and wants to reach about $1,000 by year end.
+money-challenges	rt-ask-money-challenges-02	ask	70	Create a penny a day challenge plan for someone who wants to save $667.95 in a year by adding one more penny each day, and note the daily amount for day 100.
+branching-story	rt-ask-branching-story-01	ask	100	Continue the mystery from the clue the player just found: a torn train ticket under the victim's desk. Write the next scene with two choices leading to different outcomes.
+branching-story	rt-ask-branching-story-02	ask	110	From the cave fork the reader chose left, write the next branch: an underground river and a rope bridge. Offer three choices with different endings.
+expiry	rt-ask-expiry-01	ask	60	Write a short shopping list from these soon-to-expire items: milk (1 day left), spinach (2 days left), yogurt (3 days left), chicken breast (1 day left).
+expiry	rt-ask-expiry-02	ask	70	List which warranties are about to end from these: laptop (ends in 5 days), printer (ends in 12 days), fridge (ends in 30 days). Remind me what to do about the most urgent one.
+baby-log	rt-ask-baby-log-01	ask	60	The mom logged 6 feeds today, with bottle amounts of 90, 120, 100, 110, 90, and 100 ml. Suggest a friendly note to the parent that includes the total amount of milk consumed today.
+baby-log	rt-ask-baby-log-02	ask	60	The dad entered 3 diaper changes today, all wet, but no dirty diapers. Write a brief message for the parent with the count and a gentle tip to keep an eye on future changes.
+fuel-log	rt-ask-fuel-log-01	ask	80	Give a short summary of my fuel economy from these fill-ups: 312 miles on 11.4 gallons, 298 miles on 10.9 gallons, 341 miles on 12.6 gallons. Note any trend.
+fuel-log	rt-ask-fuel-log-02	ask	60	From my EV charging log (48.2 kWh at $0.31/kWh, 52.7 kWh at $0.29/kWh, 44.1 kWh at $0.34/kWh), tell me my total cost and average cost per kWh.
+player-stats	rt-ask-player-stats-01	ask	60	Summarize this basketball player's stats for a quick recap: 24 points, 9 rebounds, 6 assists, 3 steals, 2 blocks, 4 turnovers, 8/15 FG. Focus on strengths.
+player-stats	rt-ask-player-stats-02	ask	70	Explain this batting average tracker in plain terms for a parent: 12 hits in 40 at-bats, 3 walks, 2 home runs, 8 strikeouts. Note the average and one takeaway.
+color-tools	rt-ask-color-tools-01	ask	40	I have two paint colors, a warm terracotta (#C86A4A) and a soft sage green (#A8B89A). Mix them and tell me what color I get.
+color-tools	rt-ask-color-tools-02	ask	45	Check the contrast between text color #333333 and background #F5F0E6. Tell me if it passes WCAG AA for body text and give the ratio.
+music-theory	rt-ask-music-theory-01	ask	80	These notes are in a major scale: C, D, E, F, G, A, B. Which of these chords are built only from the scale: C major (C E G), D major (D F# A), G major (G B D), A minor (A C E)?
+music-theory	rt-ask-music-theory-02	ask	60	Guitar chord finder: my fingers are on fret 3 string 5, fret 2 string 4, fret 1 string 2. Which chord am I playing and what are its notes?
+game-clocks	rt-ask-game-clocks-01	ask	40	I entered a chess clock for two players with 5 minutes each. Ask for a short tip to stop flagging in time trouble.
+game-clocks	rt-ask-game-clocks-02	ask	50	I entered a turn timer for board games with 30 seconds per turn. Ask for advice for keeping this turn timer fair for slow and fast players.
+party-games	rt-ask-party-games-01	ask	45	Using truth or dare picker, the app landed on 'Dare' for Maya. Suggest one fun, safe dare she can do in a living room with friends in under a minute.
+party-games	rt-ask-party-games-02	ask	50	The charades word picker shows 'popcorn' with a 60-second timer. Give three quick clues or actions the actor can use to get teammates to guess it.
+gift-exchange	rt-ask-gift-exchange-01	ask	90	Pair eight people for a Secret Santa draw where no one gets their partner and no one gets themselves; names: Ana, Ben, Cara, Dan, Eli, Fay, Gus, Hana.
+gift-exchange	rt-ask-gift-exchange-02	ask	80	Assign gift exchange partners for six coworkers with a $25 budget each, avoiding pairs who are siblings: Jo, Kim, Liam, Mia, Noah, Omar.
+timetable	rt-ask-timetable-01	ask	60	Warn about the clash: I entered Chemistry at 9am-10:30am and History at 10am-11am on Tuesday. Suggest a fix.
+timetable	rt-ask-timetable-02	ask	90	Build a weekly lesson planner from these entries: Math Mon/Wed/Fri 9am, Art Tue/Thu 11am, Music Tue 1pm, and gym Wed 10am. Flag any clash.
+booking	rt-ask-booking-01	ask	50	Write a short note to a client offering two open appointment slots today: 10:30 and 14:00, while 9:00 is already booked.
+booking	rt-ask-booking-02	ask	45	Summarize the meeting room booking list for tomorrow in a few lines: Room A taken 9-11, Room B free all day, Room C taken 13-15.
+habit-grid	rt-ask-habit-grid-01	ask	45	Make a short encouraging note for the week where they checked off 'stretch 10 min' on 4 of 7 days and 'no phone before bed' on 2 of 7.
+habit-grid	rt-ask-habit-grid-02	ask	35	Write one supportive sentence for a monthly mood calendar showing mostly 'tired' and 'stressed' on weekdays and 'happy' on weekends.
+projections	rt-ask-projections-01	ask	90	Project my savings balance each month for 6 months if I start with $2,400 and add $150 monthly.
+projections	rt-ask-projections-02	ask	80	Project my weight loss by week for 8 weeks starting at 210 lbs, losing about 1.5 lbs weekly.
+price-compare	rt-ask-price-compare-01	ask	50	Which is the better deal: a 750g box of cereal for $4.50 or a 1.2kg box for $6.80? Tell me which has the lower price per 100g.
+price-compare	rt-ask-price-compare-02	ask	45	Compare these two laundry detergent packs: 2L for $9.99 versus 3.5L for $15.49. Which one costs less per litre?
+nutrition	rt-ask-nutrition-01	ask	60	Estimate calories per serving for this recipe: 2 chicken thighs, 1 cup rice, 1 tbsp olive oil, 1 cup broccoli, salt and pepper. Give a number and a one-line breakdown.
+nutrition	rt-ask-nutrition-02	ask	50	Add up today's protein: breakfast 2 eggs and Greek yogurt (20g), lunch turkey sandwich (25g), dinner salmon and lentils (40g). Total grams and whether it meets a 100g goal.
+ratios	rt-ask-ratios-01	ask	60	Scale a cocktail: 3 parts gin, 1 part vermouth, 1 part Campari for 5 servings at 60 ml each. Give amounts per ingredient.
+ratios	rt-ask-ratios-02	ask	80	Figure concrete for a 2 m by 1.5 m slab at 10 cm thick using a 1:2:3 mix. Give cement, sand, and gravel amounts.
+riddles	rt-ask-riddles-01	ask	55	Give a riddle of the day about a candle that burns down as it gives light, with the answer and one hint.
+riddles	rt-ask-riddles-02	ask	70	Write a brain teaser with three hints and the answer: a man pushes his car to a hotel and loses everything.
+math-practice	rt-ask-math-practice-01	ask	70	A child is practicing adding fractions with the same denominator: 3/8 + 2/8. Explain the steps clearly and give the final answer.
+math-practice	rt-ask-math-practice-02	ask	70	A learner is working through times tables at level 4 and got 7 × 6 wrong. Explain how to work it out and give a tip to remember it.
+tally	rt-ask-tally-01	ask	50	Turn this into a short summary: I tallied 14 robins, 6 blue jays, and 3 cardinals at the feeder today, plus 2 sparrows I couldn't fully identify.
+tally	rt-ask-tally-02	ask	50	Summarize the door count: 42 people came in, 38 went out, and I counted 9 in the study room at closing, so the numbers don't add up cleanly.
+score-history	rt-ask-score-history-01	ask	50	Latest card game rounds: Round 1: Alice 30, Bob 25, Charlie 20; Round 2: Alice 25, Bob 30, Charlie 20; Round 3: Alice 20, Bob 25, Charlie 30. Give each player's total and the winner.
+score-history	rt-ask-score-history-02	ask	40	Darts practice scores (3-dart visits): 45, 60, 30, 100, 55, 40. Calculate the average score per visit and the highest checkout.
+schedule-gen	rt-ask-schedule-gen-01	ask	90	Build me a study schedule for my chemistry final in 10 days, studying 2 hours each weekday and 4 hours on Saturday.
+schedule-gen	rt-ask-schedule-gen-02	ask	70	Make a medication schedule starting at 8am: take pill A every 8 hours and pill B twice daily with food.
+countdowns	rt-ask-countdowns-01	ask	45	It's a countdowns app showing several saved dates sorted by how soon they arrive. For the user, who saved events including a dentist appointment on June 12, a vacation starting July 3, and a concert on May 28, suggest one short line noting which date is closest and how many days remain.
+countdowns	rt-ask-countdowns-02	ask	40	The countdowns screen lists the user's saved holidays with days remaining: Thanksgiving in 21 days, Christmas in 55 days, and New Year's Eve in 62 days. Write a brief wrap-up naming the soonest holiday and its countdown.
