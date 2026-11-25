@@ -38,6 +38,14 @@ list and is never trained on.
 | `data/` | exported chat examples, by task and split |
 | `eval/` | the held-out requests and the results of each model on them |
 
+## Training
+
+`train/run.sh` on a GPU machine: `train/prepare.py` renders each example with the base model's own chat template (Qwen2.5,
+tools included; a tool call's arguments as an object), the loss on the last assistant message alone, examples over 16384
+tokens left out, never cut; `train/train.py` is a full fine-tune (bf16, gradient checkpointing, examples of a like length
+batched, 2 epochs at 1e-5, 16 examples an update, the best validation loss kept); then GGUF f16 and q4_k_m by llama.cpp.
+The same runs on a CPU at a small size to check the chain: `train/train.py --limit 16 --max-len 1024 --max-steps 4`.
+
 ## How a model is judged
 
 On held-out requests through the app's own checks, next to DeepSeek: share that compile, pass the smoke run and Jev,
