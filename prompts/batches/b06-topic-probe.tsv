@@ -1,0 +1,121 @@
+# family	label	prompt -- written by tools/gen-prompts.js from prompts/topics.tsv
+tournament	tournament-001	double elimination bracket for twelve players
+tournament	tournament-002	group stage then knockout for my cup
+tournament	tournament-003	swiss system standings for chess club
+seating	seating-001	office desk assignment by team
+seating	seating-002	conference room seating by seniority
+seating	seating-003	school bus seat chart by stop
+meal-plan	meal-plan-001	weekly breakfast plan with grocery list
+meal-plan	meal-plan-002	meal prep plan for the month
+meal-plan	meal-plan-003	party menu planner with shopping list
+packing	packing-001	packing list by destination type
+packing	packing-002	moving checklist by room count
+packing	packing-003	beach bag list by hours outside
+rewards	rewards-001	exercise minutes points for treats
+rewards	rewards-002	vegetable eating points with toy rewards
+rewards	rewards-003	homework completion points for screen time
+envelopes	envelopes-001	envelope budget for household bills
+envelopes	envelopes-002	savings pots for vacation and gifts
+envelopes	envelopes-003	money jars for weekly spending limits
+workout-builder	workout-builder-001	random stretching routine from my list
+workout-builder	workout-builder-002	quick hiit workout by time limit
+workout-builder	workout-builder-003	generate yoga flow from saved poses
+language-drill	language-drill-001	french adjective agreement drill
+language-drill	language-drill-002	japanese hiragana reading practice
+language-drill	language-drill-003	german noun gender quiz
+inventory	inventory-001	garage tools low stock alerts
+inventory	inventory-002	wine cellar bottle count thresholds
+inventory	inventory-003	pet food supply reorder alerts
+queue	queue-001	virtual line for bathroom stall
+queue	queue-002	ticket queue for food truck
+queue	queue-003	waiting room number display
+voting	voting-001	vote on office playlist winner
+voting	voting-002	pick best pizza topping poll
+voting	voting-003	family game night choice vote
+decision	decision-001	rank vacation spots by weighted score
+decision	decision-002	score job offers with priorities weighed
+decision	decision-003	compare two laptops by weighted criteria
+generators	generators-001	generate a random excuse generator
+generators	generators-002	make a fake band name generator
+generators	generators-003	random fantasy creature name maker
+calendar-math	calendar-math-001	how many days between two dates
+calendar-math	calendar-math-002	what date is 100 days from now
+calendar-math	calendar-math-003	which week number is this date
+number-tools	number-tools-001	factorial calculator for a number
+number-tools	number-tools-002	square root simplifier for a number
+number-tools	number-tools-003	show all divisors of a number
+fitness-calcs	fitness-calcs-001	bmi calculator with height weight table
+fitness-calcs	fitness-calcs-002	pace calculator for running distances
+fitness-calcs	fitness-calcs-003	ideal weight range calculator
+money-challenges	money-challenges-001	no spend month tracker
+money-challenges	money-challenges-002	round up savings challenge
+money-challenges	money-challenges-003	dime a day savings tracker
+branching-story	branching-story-001	space adventure branching choices
+branching-story	branching-story-002	pirate treasure story with multiple endings
+branching-story	branching-story-003	survival story where choices matter
+expiry	expiry-001	medicine expiry tracker sorted by date
+expiry	expiry-002	subscription renewal dates sorted soonest
+expiry	expiry-003	gift card balance expiry list
+baby-log	baby-log-001	toddler nap tracker with weekly totals
+baby-log	baby-log-002	pumping session log with daily ounces
+baby-log	baby-log-003	baby medicine dose tracker with last given time
+fuel-log	fuel-log-001	water bill usage log per month
+fuel-log	fuel-log-002	propane tank refill cost tracker
+fuel-log	fuel-log-003	firewood purchase volume log
+player-stats	player-stats-001	soccer player goal stats tracker
+player-stats	player-stats-002	tennis player match stats sheet
+player-stats	player-stats-003	cricket player run stats log
+color-tools	color-tools-001	hex to rgb converter
+color-tools	color-tools-002	color palette from photo
+color-tools	color-tools-003	gradient generator between colors
+music-theory	music-theory-001	notes in a minor scale
+music-theory	music-theory-002	piano chord finder
+music-theory	music-theory-003	circle of fifths helper
+game-clocks	game-clocks-001	debate timer for two speakers
+game-clocks	game-clocks-002	poker round timer for two players
+game-clocks	game-clocks-003	video game turn timer for siblings
+party-games	party-games-001	never have i ever prompt spinner
+party-games	party-games-002	would you rather group vote game
+party-games	party-games-003	two truths and a lie turn tracker
+gift-exchange	gift-exchange-001	family gift swap rules
+gift-exchange	gift-exchange-002	office secret santa pairing
+gift-exchange	gift-exchange-003	gift budget tracker per person
+timetable	timetable-001	shift schedule with double booking alert
+timetable	timetable-002	conference talk slots with overlap check
+timetable	timetable-003	gym class timetable with conflict flag
+booking	booking-001	dog grooming slots for the week
+booking	booking-002	tennis court booking schedule
+booking	booking-003	tutoring session slots this weekend
+habit-grid	habit-grid-001	water drinking grid for the week
+habit-grid	habit-grid-002	daily exercise tracker grid
+habit-grid	habit-grid-003	reading streak grid for the month
+projections	projections-001	monthly credit score forecast
+projections	projections-002	weekly steps goal projection
+projections	projections-003	yearly retirement fund estimate
+price-compare	price-compare-001	compare cost per gram for cereal boxes
+price-compare	price-compare-002	cheaper price per diaper count
+price-compare	price-compare-003	which toilet paper roll is cheapest per sheet
+nutrition	nutrition-001	sugar grams per cookie batch
+nutrition	nutrition-002	sodium per serving in soup
+nutrition	nutrition-003	fiber total for my salad
+ratios	ratios-001	paint mix ratio calculator
+ratios	ratios-002	rice to water ratio guide
+ratios	ratios-003	mortar mix ratio helper
+riddles	riddles-001	riddles about animals with answers
+riddles	riddles-002	kids riddles with hidden answers
+riddles	riddles-003	food riddles with a hint button
+math-practice	math-practice-001	decimal addition practice with levels
+math-practice	math-practice-002	percentage problems answer check
+math-practice	math-practice-003	negative numbers practice for kids
+tally	tally-001	daily water glass tally
+tally	tally-002	car counter by color
+tally	tally-003	reps counter per exercise
+score-history	score-history-001	bowling league scores by game
+score-history	score-history-002	golf round scores and totals
+score-history	score-history-003	trivia night points by round
+schedule-gen	schedule-gen-001	workout plan from days per week
+schedule-gen	schedule-gen-002	watering schedule for garden plants
+schedule-gen	schedule-gen-003	chore rotation for roommates
+countdowns	countdowns-001	countdown to birthdays list
+countdowns	countdowns-002	days left till concerts
+countdowns	countdowns-003	timer for upcoming deadlines

@@ -61,7 +61,8 @@ function verdicts() {
 /** train / validation / test from the family alone, so no family is on two sides. */
 function splitOf(family) {
   const bucket = parseInt(crypto.createHash('sha256').update(family).digest('hex').slice(0, 8), 16) % 1000
-  return bucket < 850 ? 'train' : bucket < 925 ? 'validation' : 'test'
+  // 80/10/10 by topic: at 85/7.5/7.5 the first 33 topics left validation empty.
+  return bucket < 800 ? 'train' : bucket < 900 ? 'validation' : 'test'
 }
 
 function between(text, tag) {
@@ -258,6 +259,8 @@ function main() {
   }
   fs.writeFileSync(path.join(out, 'review.jsonl'), review.map(r => JSON.stringify(r) + '\n').join(''))
   stats.runs = runs.map(r => path.basename(r))
+  stats.familiesBySplit = {}
+  for (const f of Object.keys(stats.byFamily).sort()) (stats.familiesBySplit[splitOf(f)] = stats.familiesBySplit[splitOf(f)] || []).push(f)
   fs.writeFileSync(path.join(out, 'stats.json'), JSON.stringify(stats, null, 1) + '\n')
   console.log(JSON.stringify(stats))
 }

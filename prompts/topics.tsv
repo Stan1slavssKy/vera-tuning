@@ -1,5 +1,5 @@
 # topic	status	why	example 1	example 2
-# status: b01-hole / b03-phone = gave holes; b01-none / b02-none = composed from parts, dropped; new = not run yet
+# status: b0N-hole / b03-phone = gave holes; b06-some = 1 of 3; b06-nohole = none, kept for program-edit refines; b0N-none = dropped
 quiz	b01-hole	questions, answer check, score	capital cities quiz	multiplication quiz for kids
 flashcards	b01-hole	deck, flip, missed words	spanish flashcards with flip	flashcards that track missed words
 guess-game	b01-hole	game rules, turns, result	guess the number game	rock paper scissors game
@@ -9,22 +9,22 @@ streak	b01-hole	streak from dated entries	habit streak with longest streak	no su
 challenge	b01-hole	day-by-day goal check	plank challenge day tracker	30 day pushup challenge
 category	b01-hole	value to band/label	bmi with category	blood pressure category checker
 custom-filter	b01-hole	list filtered by a rule	contacts list filtered by name	books filtered by unread
-word-games	new	letters, guesses, rules	hangman word game	word scramble game
-text-tools	new	text in, figures out	word and character counter	password strength checker
-ciphers	new	text transformed by rules	morse code translator	roman numeral converter
-dice-cards	new	random with history	dice roller with history	coin flip streak stats
-pickers	new	random without repeats	name picker without repeats	lottery numbers picker
-rotation	new	who is next, by turns	chore rotation for roommates	dishwashing turn tracker
-sports-score	new	scoring rules	golf scorecard against par	tennis score keeper
+word-games	b02-hole	letters, guesses, rules	hangman word game	word scramble game
+text-tools	b02-hole	text in, figures out	word and character counter	password strength checker
+ciphers	b02-hole	text transformed by rules	morse code translator	roman numeral converter
+dice-cards	b02-hole	random with history	dice roller with history	coin flip streak stats
+pickers	b02-hole	random without repeats	name picker without repeats	lottery numbers picker
+rotation	b02-hole	who is next, by turns	chore rotation for roommates	dishwashing turn tracker
+sports-score	b02-hole	scoring rules	golf scorecard against par	tennis score keeper
 time-plans	b02-none	times worked out from rules	sleep cycle wake up times	pomodoro with long breaks
 pace	b02-none	rate and finish date	reading pace finish date	running pace calculator
-loans	new	month-by-month schedule	loan payoff months	compound interest by year
-next-due	new	next date from an interval	next watering date per plant	next dose time tracker
-since-last	new	time since an entry	time since last feeding	hours since last coffee
-journal-stats	new	averages by group	mood journal average by weekday	sleep log weekly average
-uneven-split	new	shares by rules	split rent by room size	split bill by what each ate
-memory-games	new	matching, sequence	memory card matching game	simon says color sequence
-typing	new	timed input check	typing speed test	math facts speed drill
+loans	b02-hole	month-by-month schedule	loan payoff months	compound interest by year
+next-due	b02-hole	next date from an interval	next watering date per plant	next dose time tracker
+since-last	b02-hole	time since an entry	time since last feeding	hours since last coffee
+journal-stats	b02-hole	averages by group	mood journal average by weekday	sleep log weekly average
+uneven-split	b02-hole	shares by rules	split rent by room size	split bill by what each ate
+memory-games	b02-hole	matching, sequence	memory card matching game	simon says color sequence
+typing	b02-hole	timed input check	typing speed test	math facts speed drill
 phone-calendar	b03-phone	events into the phone calendar	study plan added to calendar	birthday list with calendar reminders
 phone-alarm	b03-phone	alarms and timers on the phone	wake up alarm from sleep cycles	medicine schedule with alarms
 phone-torch	b03-phone	the flashlight	flashlight sos signal	morse code with the flashlight
@@ -35,3 +35,43 @@ phone-settings	b03-phone	phone settings	bedtime mode switches	wifi and bluetooth
 phone-vibrate	b03-phone	vibration	metronome that vibrates	posture reminder buzz
 phone-sound	b03-phone	sound and tones	white noise sleep timer	countdown beeps for a race start
 phone-media	b03-phone	camera, photos, music	photo of the day journal	voice memo list
+tournament	b06-hole	who advances by results	knockout bracket for eight teams	round robin table for my league
+seating	b06-hole	assigning people by rules	wedding seating plan by table	classroom seat shuffler
+meal-plan	b06-hole	plan that builds another list	weekly dinner plan with shopping list	lunchbox planner for the week
+packing	b06-hole	list built from choices	packing list by trip length	camping checklist by weather
+rewards	b06-some	points, levels, rewards	kids chores points with rewards	reading points that unlock prizes
+envelopes	b06-hole	money moved between pots	envelope budget with transfers	savings pots for three goals
+workout-builder	b06-hole	random plan from rules	random workout from my exercises	core routine generator by minutes
+language-drill	b06-hole	practice with answer check	spanish verb conjugation drill	english irregular verbs practice
+inventory	b06-hole	stock with thresholds	pantry stock with low alerts	office supplies reorder list
+queue	b06-some	turns in a line	take a number queue	waiting list with called names
+voting	b06-hole	tally and winner	team lunch vote with winner	ranked choice poll for movie night
+decision	b06-hole	weighted scoring	pros and cons scorer	compare three apartments by score
+generators	b06-hole	made-up text by rules	strong password generator	random team name generator
+calendar-math	b06-hole	facts about dates	day of the week for any date	leap year checker
+number-tools	b06-hole	math on one number	prime number checker	greatest common divisor finder
+fitness-calcs	b06-some	formulas with tables	one rep max calculator	calories burned by activity
+money-challenges	b06-some	saving plan by rule	52 week savings challenge	penny a day challenge tracker
+branching-story	b06-hole	choices lead to outcomes	choose your own adventure story	mystery story with three endings
+expiry	b06-hole	days left, sorted	food expiry tracker sorted by date	warranty end dates list
+baby-log	b06-hole	stats from entries	baby feeding log with totals	diaper change counter for today
+fuel-log	b06-hole	figures per entry	fuel economy log per fill up	electric car charging cost log
+player-stats	b06-some	stats per player	basketball player stats table	batting average tracker
+color-tools	b06-hole	values to colors	color contrast checker	paint color mixer
+music-theory	b06-hole	notes by rules	notes in a major scale	guitar chord finder
+game-clocks	b06-hole	alternating timers	chess clock for two players	turn timer for board games
+party-games	b06-hole	random prompts, turns	truth or dare picker	charades word picker with timer
+gift-exchange	b06-hole	pairing by rules	secret santa draw	gift budget per person
+timetable	b06-hole	slots and conflicts	class timetable with clash warning	weekly lesson planner
+booking	b06-nohole	slots taken and free	appointment slots for the day	meeting room booking list
+habit-grid	b06-hole	grid of days done	habit tracker grid for the month	monthly mood calendar
+projections	b06-some	figure over future time	weight loss projection by week	savings growth by month
+price-compare	b06-nohole	cheaper per unit	price per unit comparer	which pack size is cheaper
+nutrition	b06-nohole	totals per serving	recipe calories per serving	daily protein total from meals
+ratios	b06-some	parts to amounts	cocktail ratio builder	concrete mix calculator
+riddles	b06-hole	question with reveal	riddle of the day with answer	brain teasers with hints
+math-practice	b06-hole	levels and answer check	fractions practice for kids	times tables with levels
+tally	b06-nohole	several counters	bird count tally by species	people counter in and out
+score-history	b06-nohole	rounds and totals	card game scores by round	darts practice averages
+schedule-gen	b06-hole	schedule from rules	study schedule before an exam	medication schedule from start time
+countdowns	b06-hole	several dates, sorted	countdowns to my events	days until holidays list
