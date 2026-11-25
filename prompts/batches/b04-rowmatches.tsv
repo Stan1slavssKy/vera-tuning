@@ -1,0 +1,161 @@
+# family	label	hole	prompt -- batch 04: rowMatches asked directly (tools/vera-harness/hole-run.js); family = the list subject
+rm-recipes	rm-recipes-001	rowMatches	recipes matching the exact title
+rm-recipes	rm-recipes-002	rowMatches	recipes searched by description only
+rm-recipes	rm-recipes-003	rowMatches	recipes that hide rows matching the search
+rm-recipes	rm-recipes-004	rowMatches	recipes searched by name with spaces trimmed
+rm-books	rm-books-005	rowMatches	books searched ignoring case
+rm-books	rm-books-006	rowMatches	books searched by title only
+rm-books	rm-books-007	rowMatches	books where an empty search shows everything
+rm-books	rm-books-008	rowMatches	books searched by description only
+rm-movies	rm-movies-009	rowMatches	movies searched by name with spaces trimmed
+rm-movies	rm-movies-010	rowMatches	movies searched ignoring case
+rm-movies	rm-movies-011	rowMatches	movies where the search matches title or notes
+rm-movies	rm-movies-012	rowMatches	movies where an empty search shows everything
+rm-songs	rm-songs-013	rowMatches	songs searched by title only
+rm-songs	rm-songs-014	rowMatches	songs that hide rows matching the search
+rm-songs	rm-songs-015	rowMatches	songs where an empty search shows everything
+rm-songs	rm-songs-016	rowMatches	songs searched ignoring case
+rm-contacts	rm-contacts-017	rowMatches	contacts where the search matches title or notes
+rm-contacts	rm-contacts-018	rowMatches	contacts searched by title only
+rm-contacts	rm-contacts-019	rowMatches	contacts that hide rows matching the search
+rm-contacts	rm-contacts-020	rowMatches	contacts searched ignoring case
+rm-tasks	rm-tasks-021	rowMatches	tasks searched by name with spaces trimmed
+rm-tasks	rm-tasks-022	rowMatches	tasks searched by title only
+rm-tasks	rm-tasks-023	rowMatches	tasks where the search matches title or notes
+rm-tasks	rm-tasks-024	rowMatches	tasks matching the exact title
+rm-plants	rm-plants-025	rowMatches	plants searched by name with spaces trimmed
+rm-plants	rm-plants-026	rowMatches	plants searched ignoring case
+rm-plants	rm-plants-027	rowMatches	plants that hide rows matching the search
+rm-plants	rm-plants-028	rowMatches	plants where an empty search shows everything
+rm-birds	rm-birds-029	rowMatches	birds where the search matches title or notes
+rm-birds	rm-birds-030	rowMatches	birds searched ignoring case
+rm-birds	rm-birds-031	rowMatches	birds searched by description only
+rm-birds	rm-birds-032	rowMatches	birds searched in lowercase and uppercase alike
+rm-cities	rm-cities-033	rowMatches	cities that hide rows matching the search
+rm-cities	rm-cities-034	rowMatches	cities searched by description only
+rm-cities	rm-cities-035	rowMatches	cities searched by title only
+rm-cities	rm-cities-036	rowMatches	cities that only filter after two letters
+rm-countries	rm-countries-037	rowMatches	countries that only filter after two letters
+rm-countries	rm-countries-038	rowMatches	countries where an empty search shows everything
+rm-countries	rm-countries-039	rowMatches	countries searched by description only
+rm-countries	rm-countries-040	rowMatches	countries searched ignoring case
+rm-board-games	rm-board-games-041	rowMatches	board games searched by name with spaces trimmed
+rm-board-games	rm-board-games-042	rowMatches	board games where the search matches title or notes
+rm-board-games	rm-board-games-043	rowMatches	board games matching the exact title
+rm-board-games	rm-board-games-044	rowMatches	board games searched ignoring case
+rm-podcasts	rm-podcasts-045	rowMatches	podcasts where an empty search shows everything
+rm-podcasts	rm-podcasts-046	rowMatches	podcasts searched by title only
+rm-podcasts	rm-podcasts-047	rowMatches	podcasts searched ignoring case
+rm-podcasts	rm-podcasts-048	rowMatches	podcasts that only filter after two letters
+rm-exercises	rm-exercises-049	rowMatches	exercises where the search matches title or notes
+rm-exercises	rm-exercises-050	rowMatches	exercises searched in lowercase and uppercase alike
+rm-exercises	rm-exercises-051	rowMatches	exercises that hide rows matching the search
+rm-exercises	rm-exercises-052	rowMatches	exercises where an empty search shows everything
+rm-medicines	rm-medicines-053	rowMatches	medicines matching the exact title
+rm-medicines	rm-medicines-054	rowMatches	medicines searched in lowercase and uppercase alike
+rm-medicines	rm-medicines-055	rowMatches	medicines where an empty search shows everything
+rm-medicines	rm-medicines-056	rowMatches	medicines searched by description only
+rm-wines	rm-wines-057	rowMatches	wines that only filter after two letters
+rm-wines	rm-wines-058	rowMatches	wines where the search matches title or notes
+rm-wines	rm-wines-059	rowMatches	wines searched by description only
+rm-wines	rm-wines-060	rowMatches	wines matching the exact title
+rm-cheeses	rm-cheeses-061	rowMatches	cheeses where the search matches title or notes
+rm-cheeses	rm-cheeses-062	rowMatches	cheeses searched by title only
+rm-cheeses	rm-cheeses-063	rowMatches	cheeses that only filter after two letters
+rm-cheeses	rm-cheeses-064	rowMatches	cheeses searched in lowercase and uppercase alike
+rm-dog-breeds	rm-dog-breeds-065	rowMatches	dog breeds searched in lowercase and uppercase alike
+rm-dog-breeds	rm-dog-breeds-066	rowMatches	dog breeds matching the exact title
+rm-dog-breeds	rm-dog-breeds-067	rowMatches	dog breeds searched by name with spaces trimmed
+rm-dog-breeds	rm-dog-breeds-068	rowMatches	dog breeds searched by description only
+rm-hiking-trails	rm-hiking-trails-069	rowMatches	hiking trails searched by name with spaces trimmed
+rm-hiking-trails	rm-hiking-trails-070	rowMatches	hiking trails searched by title only
+rm-hiking-trails	rm-hiking-trails-071	rowMatches	hiking trails where an empty search shows everything
+rm-hiking-trails	rm-hiking-trails-072	rowMatches	hiking trails that only filter after two letters
+rm-museums	rm-museums-073	rowMatches	museums that hide rows matching the search
+rm-museums	rm-museums-074	rowMatches	museums searched by description only
+rm-museums	rm-museums-075	rowMatches	museums matching the exact title
+rm-museums	rm-museums-076	rowMatches	museums searched by title only
+rm-restaurants	rm-restaurants-077	rowMatches	restaurants searched in lowercase and uppercase alike
+rm-restaurants	rm-restaurants-078	rowMatches	restaurants that hide rows matching the search
+rm-restaurants	rm-restaurants-079	rowMatches	restaurants searched ignoring case
+rm-restaurants	rm-restaurants-080	rowMatches	restaurants matching the exact title
+rm-cocktails	rm-cocktails-081	rowMatches	cocktails searched by title only
+rm-cocktails	rm-cocktails-082	rowMatches	cocktails where an empty search shows everything
+rm-cocktails	rm-cocktails-083	rowMatches	cocktails matching the exact title
+rm-cocktails	rm-cocktails-084	rowMatches	cocktails searched by description only
+rm-spices	rm-spices-085	rowMatches	spices matching the exact title
+rm-spices	rm-spices-086	rowMatches	spices searched in lowercase and uppercase alike
+rm-spices	rm-spices-087	rowMatches	spices where an empty search shows everything
+rm-spices	rm-spices-088	rowMatches	spices searched ignoring case
+rm-tools	rm-tools-089	rowMatches	tools searched by title only
+rm-tools	rm-tools-090	rowMatches	tools that only filter after two letters
+rm-tools	rm-tools-091	rowMatches	tools searched in lowercase and uppercase alike
+rm-tools	rm-tools-092	rowMatches	tools matching the exact title
+rm-car-parts	rm-car-parts-093	rowMatches	car parts searched by title only
+rm-car-parts	rm-car-parts-094	rowMatches	car parts searched ignoring case
+rm-car-parts	rm-car-parts-095	rowMatches	car parts that only filter after two letters
+rm-car-parts	rm-car-parts-096	rowMatches	car parts matching the exact title
+rm-camping-gear	rm-camping-gear-097	rowMatches	camping gear searched by name with spaces trimmed
+rm-camping-gear	rm-camping-gear-098	rowMatches	camping gear searched in lowercase and uppercase alike
+rm-camping-gear	rm-camping-gear-099	rowMatches	camping gear that only filter after two letters
+rm-camping-gear	rm-camping-gear-100	rowMatches	camping gear matching the exact title
+rm-yoga-poses	rm-yoga-poses-101	rowMatches	yoga poses that hide rows matching the search
+rm-yoga-poses	rm-yoga-poses-102	rowMatches	yoga poses matching the exact title
+rm-yoga-poses	rm-yoga-poses-103	rowMatches	yoga poses searched ignoring case
+rm-yoga-poses	rm-yoga-poses-104	rowMatches	yoga poses where the search matches title or notes
+rm-chess-openings	rm-chess-openings-105	rowMatches	chess openings matching the exact title
+rm-chess-openings	rm-chess-openings-106	rowMatches	chess openings searched by description only
+rm-chess-openings	rm-chess-openings-107	rowMatches	chess openings searched by title only
+rm-chess-openings	rm-chess-openings-108	rowMatches	chess openings where the search matches title or notes
+rm-vocabulary-words	rm-vocabulary-words-109	rowMatches	vocabulary words searched ignoring case
+rm-vocabulary-words	rm-vocabulary-words-110	rowMatches	vocabulary words where the search matches title or notes
+rm-vocabulary-words	rm-vocabulary-words-111	rowMatches	vocabulary words that only filter after two letters
+rm-vocabulary-words	rm-vocabulary-words-112	rowMatches	vocabulary words searched by title only
+rm-phone-numbers	rm-phone-numbers-113	rowMatches	phone numbers where the search matches title or notes
+rm-phone-numbers	rm-phone-numbers-114	rowMatches	phone numbers that hide rows matching the search
+rm-phone-numbers	rm-phone-numbers-115	rowMatches	phone numbers where an empty search shows everything
+rm-phone-numbers	rm-phone-numbers-116	rowMatches	phone numbers searched in lowercase and uppercase alike
+rm-gift-ideas	rm-gift-ideas-117	rowMatches	gift ideas searched in lowercase and uppercase alike
+rm-gift-ideas	rm-gift-ideas-118	rowMatches	gift ideas searched by title only
+rm-gift-ideas	rm-gift-ideas-119	rowMatches	gift ideas searched by description only
+rm-gift-ideas	rm-gift-ideas-120	rowMatches	gift ideas where the search matches title or notes
+rm-paint-colours	rm-paint-colours-121	rowMatches	paint colours that hide rows matching the search
+rm-paint-colours	rm-paint-colours-122	rowMatches	paint colours where an empty search shows everything
+rm-paint-colours	rm-paint-colours-123	rowMatches	paint colours that only filter after two letters
+rm-paint-colours	rm-paint-colours-124	rowMatches	paint colours searched by title only
+rm-fonts	rm-fonts-125	rowMatches	fonts that hide rows matching the search
+rm-fonts	rm-fonts-126	rowMatches	fonts where an empty search shows everything
+rm-fonts	rm-fonts-127	rowMatches	fonts that only filter after two letters
+rm-fonts	rm-fonts-128	rowMatches	fonts matching the exact title
+rm-coffee-beans	rm-coffee-beans-129	rowMatches	coffee beans that hide rows matching the search
+rm-coffee-beans	rm-coffee-beans-130	rowMatches	coffee beans matching the exact title
+rm-coffee-beans	rm-coffee-beans-131	rowMatches	coffee beans searched by name with spaces trimmed
+rm-coffee-beans	rm-coffee-beans-132	rowMatches	coffee beans searched by title only
+rm-teas	rm-teas-133	rowMatches	teas searched by description only
+rm-teas	rm-teas-134	rowMatches	teas searched by title only
+rm-teas	rm-teas-135	rowMatches	teas searched by name with spaces trimmed
+rm-teas	rm-teas-136	rowMatches	teas where an empty search shows everything
+rm-sneakers	rm-sneakers-137	rowMatches	sneakers where the search matches title or notes
+rm-sneakers	rm-sneakers-138	rowMatches	sneakers searched by name with spaces trimmed
+rm-sneakers	rm-sneakers-139	rowMatches	sneakers searched ignoring case
+rm-sneakers	rm-sneakers-140	rowMatches	sneakers where an empty search shows everything
+rm-apps	rm-apps-141	rowMatches	apps searched by name with spaces trimmed
+rm-apps	rm-apps-142	rowMatches	apps searched by description only
+rm-apps	rm-apps-143	rowMatches	apps that only filter after two letters
+rm-apps	rm-apps-144	rowMatches	apps where an empty search shows everything
+rm-courses	rm-courses-145	rowMatches	courses searched ignoring case
+rm-courses	rm-courses-146	rowMatches	courses searched by description only
+rm-courses	rm-courses-147	rowMatches	courses that hide rows matching the search
+rm-courses	rm-courses-148	rowMatches	courses that only filter after two letters
+rm-recipes-for-kids	rm-recipes-for-kids-149	rowMatches	recipes for kids matching the exact title
+rm-recipes-for-kids	rm-recipes-for-kids-150	rowMatches	recipes for kids searched by name with spaces trimmed
+rm-recipes-for-kids	rm-recipes-for-kids-151	rowMatches	recipes for kids searched by description only
+rm-recipes-for-kids	rm-recipes-for-kids-152	rowMatches	recipes for kids where an empty search shows everything
+rm-travel-spots	rm-travel-spots-153	rowMatches	travel spots where an empty search shows everything
+rm-travel-spots	rm-travel-spots-154	rowMatches	travel spots searched ignoring case
+rm-travel-spots	rm-travel-spots-155	rowMatches	travel spots searched in lowercase and uppercase alike
+rm-travel-spots	rm-travel-spots-156	rowMatches	travel spots that hide rows matching the search
+rm-cleaning-products	rm-cleaning-products-157	rowMatches	cleaning products where an empty search shows everything
+rm-cleaning-products	rm-cleaning-products-158	rowMatches	cleaning products that hide rows matching the search
+rm-cleaning-products	rm-cleaning-products-159	rowMatches	cleaning products searched by name with spaces trimmed
+rm-cleaning-products	rm-cleaning-products-160	rowMatches	cleaning products where the search matches title or notes

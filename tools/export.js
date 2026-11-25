@@ -63,15 +63,60 @@ function matchesRecord(reply, code) {
   return functions.split('\n').map(l => l.trim()).filter(Boolean).every(l => kept.has(l))
 }
 
+/** A body as the model writes it: cleanBody (VeraHoles.ets) indents every line by two spaces when it keeps it. */
+function asWritten(body) {
+  return body.split('\n').map(l => l.replace(/^ {2}/, '')).join('\n')
+}
+
+const sameBodies = (a, b) => JSON.stringify(Object.entries(a || {}).sort()) === JSON.stringify(Object.entries(b || {}).sort())
+
 function main() {
   const familyOf = families()
   const rows = {train: [], validation: [], test: []}
   const review = []
   const seen = new Set()
-  const stats = {requests: 0, holes: 0, kept: {first: 0, repair: 0}, dropped: {}, bySplit: {}, byFamily: {}}
+  const stats = {requests: 0, holes: 0, kept: {}, dropped: {}, bySplit: {}, byFamily: {}}
   const drop = why => { stats.dropped[why] = (stats.dropped[why] || 0) + 1 }
+  const count = (table, key) => { table[key] = (table[key] || 0) + 1 }
+  /** One example, unless the same request was already kept. */
+  const keep = (family, system, user, reply, metadata) => {
+    const key = crypto.createHash('sha256').update(system + '\u0000' + user).digest('hex')
+    if (seen.has(key)) { drop('duplicate request'); return }
+    seen.add(key)
+    const split = splitOf(family)
+    rows[split].push({messages: [{role: 'system', content: system}, {role: 'user', content: user}, {role: 'assistant', content: reply}],
+      metadata: Object.assign({family, split}, metadata)})
+    count(stats.kept, metadata.task + ' ' + metadata.turn)
+    count(stats.bySplit, split)
+    count(stats.byFamily, family)
+  }
+  /**
+   * Catalogue holes, settled by the fill after their asks. The first request is answered with the bodies kept, whichever
+   * try wrote them: they compiled and behaved, and a first answer that only needed `const` made `let` teaches the mistake.
+   * A repair is kept as asked when its reply is what was kept.
+   */
+  const catalogueHole = (fill, asks, misses, family, label, run) => {
+    stats.holes++
+    if (misses > 0) return drop('catalogue hole: lookup not in the cache')
+    if (Object.keys(fill.bodies || {}).length === 0) return drop('catalogue hole: nothing kept')
+    if (fill.behaviour !== undefined && fill.behaviour !== 'ok') return drop('catalogue hole: ' + fill.behaviour.split(',')[0])
+    const first = asks[0]
+    if (first.error || first.finish !== 'stop') return drop('catalogue hole: not finished')
+    const kept = Object.fromEntries(Object.entries(fill.bodies).map(([k, v]) => [k, asWritten(v)]))
+    const meta = turn => ({task: 'catalogue-hole', turn, label, run: path.basename(run), hole: fill.hole || null,
+      calls: asks.length, teacher: first.model || TEACHER, checks: fill.behaviour !== undefined ? ['compiled', 'behaviour', 'targets found'] : ['compiled']})
+    keep(family, first.system, first.user, '{"holes": {' + Object.entries(kept).map(([k, v]) => JSON.stringify(k) + ': ' + JSON.stringify(v)).join(', ') + '}}', Object.assign(meta('first'),
+      {source: sameBodies(first.parsed, fill.bodies) ? 'first try' : 'kept after repair'}))
+    const repair = asks.slice(1).reverse().find(a => !a.error && a.finish === 'stop' && sameBodies(a.parsed, fill.bodies))
+    if (repair) {
+      const error = (repair.user.match(/"message": ("(?:[^"\\]|\\.)*")/) || [])[1]
+      keep(family, repair.system, repair.user, repair.reply, Object.assign(meta('repair'), {error: error ? JSON.parse(error) : null}))
+    }
+  }
   for (const run of runs) {
-    const language = fs.readFileSync(path.join(run, 'language.txt'), 'utf8')
+    // Only the section writer is shown the language; a run of catalogue holes alone (hole-run.js) has none.
+    const languageFile = path.join(run, 'language.txt')
+    const language = fs.existsSync(languageFile) ? fs.readFileSync(languageFile, 'utf8') : null
     for (const label of fs.readdirSync(run).sort()) {
       const file = path.join(run, label, 'asks.jsonl')
       if (!fs.existsSync(file)) continue
@@ -80,11 +125,22 @@ function main() {
       if (!family) { drop('label in no batch file'); continue }
       const events = fs.readFileSync(file, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l))
       let group = []
+      let holeAsks = []
       let missed = 0
       for (const e of events) {
         if (e.kind === 'ask' && e.task === 'section') { group.push(e); continue }
+        if (e.kind === 'ask' && e.task === 'catalogue-hole') { holeAsks.push(e); continue }
         // A phone lookup the replayed cache did not hold: the writer was shown nothing where the phone would show functions.
         if (e.kind === 'lookup' && !e.hit) { missed++; continue }
+        if (e.kind === 'fill') {
+          const asks = holeAsks
+          holeAsks = []
+          if (asks.length === 0) continue
+          const misses = missed
+          missed = 0
+          catalogueHole(e, asks, misses, family, label, run)
+          continue
+        }
         if (e.kind !== 'hole') continue
         stats.holes++
         const asks = group
@@ -106,24 +162,14 @@ function main() {
         if ((e.missed || []).length > 0) { drop('missed needs'); continue }
         if (last.error || last.finish !== 'stop') { drop('not finished'); continue }
         if (SCENE.test(last.reply)) { drop('scene'); continue }
-        if (!last.system.startsWith(language)) { drop('system prompt without the language'); continue }
+        if (language === null || !last.system.startsWith(language)) { drop('system prompt without the language'); continue }
         if (!matchesRecord(last.reply, e.code || '')) { drop('reply is not the section kept'); continue }
         const system = last.system.slice(language.length).trimStart()
-        const key = crypto.createHash('sha256').update(system + '\u0000' + last.user).digest('hex')
-        if (seen.has(key)) { drop('duplicate request'); continue }
-        seen.add(key)
         const turn = last.user.includes(FAILED_MARK) ? 'repair' : 'first'
-        const split = splitOf(family)
-        rows[split].push({
-          messages: [{role: 'system', content: system}, {role: 'user', content: last.user}, {role: 'assistant', content: last.reply}],
-          metadata: {task: 'section', turn, family, label, split, run: path.basename(run), needs: e.needs,
-            calls: asks.length, declines: (last.reply.match(/<cannot\s+need=/g) || []).length,
-            phoneCalls: (last.reply.match(/sdk\.call\(/g) || []).length, teacher: last.model || TEACHER,
-            usage: last.usage || null, checks: ['compiled', 'smoke run', 'targets found', 'Jev']},
-        })
-        stats.kept[turn]++
-        stats.bySplit[split] = (stats.bySplit[split] || 0) + 1
-        stats.byFamily[family] = (stats.byFamily[family] || 0) + 1
+        keep(family, system, last.user, last.reply, {task: 'section', turn, label, run: path.basename(run), needs: e.needs,
+          calls: asks.length, declines: (last.reply.match(/<cannot\s+need=/g) || []).length,
+          phoneCalls: (last.reply.match(/sdk\.call\(/g) || []).length, teacher: last.model || TEACHER,
+          usage: last.usage || null, checks: ['compiled', 'smoke run', 'targets found', 'Jev']})
       }
     }
   }
