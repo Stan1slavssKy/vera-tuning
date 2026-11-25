@@ -46,6 +46,13 @@ tokens left out, never cut; `train/train.py` is a full fine-tune (bf16, gradient
 batched, 2 epochs at 1e-5, 16 examples an update, the best validation loss kept); then GGUF f16 and q4_k_m by llama.cpp.
 The same runs on a CPU at a small size to check the chain: `train/train.py --limit 16 --max-len 1024 --max-steps 4`.
 
+On a Mac with Apple Silicon: `train/mac.sh`, one command from a fresh clone to `runs/mlx-v1/model-q4_k_m.gguf`. It sets up
+`.venv-mac` (`train/requirements-mac.txt`), writes the data and config for MLX (`train/to_mlx.py`: the same template,
+mask and length rule, a full fine-tune, 2 epochs at 1e-5, 16 examples an update, a cosine schedule), trains with
+`mlx_lm lora`, fuses, and makes the GGUF with llama.cpp (Homebrew's `llama-quantize`, the converter of tag b10358). On a
+16 GB Mac: `MAX_LEN=8192 train/mac.sh` leaves the longest examples out. The data conversion and config were checked on
+Linux; the MLX training itself first runs on the Mac.
+
 ## How a model is judged
 
 On held-out requests through the app's own checks, next to DeepSeek: share that compile, pass the smoke run and Jev,

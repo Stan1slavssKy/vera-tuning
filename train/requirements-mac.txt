@@ -1,0 +1,13 @@
+# The Mac (Apple Silicon) training: train/mac.sh. mlx is the Metal build there.
+mlx==0.32.5
+mlx-lm==0.31.3
+transformers==5.20.2
+tokenizers==0.23.3
+Jinja2==3.1.6
+PyYAML
+# For llama.cpp's convert_hf_to_gguf.py, which reads the weights with torch.
+torch==2.14.1
+gguf==0.19.0
+numpy
+safetensors
+sentencepiece

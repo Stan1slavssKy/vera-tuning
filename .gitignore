@@ -6,6 +6,7 @@ capture/
 checkpoints/
 runs/
 .venv/
+.venv-mac/
 __pycache__/
 
 # API keys.
