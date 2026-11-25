@@ -112,6 +112,9 @@ function main() {
   const count = (table, key) => { table[key] = (table[key] || 0) + 1 }
   /** One example, unless the same request was already kept. */
   const keep = (family, system, user, reply, metadata) => {
+    // Scenes are not in v1: neither a scene written nor anything written into a program that has one (its prompt
+    // carries the scene guide).
+    if (SCENE.test(reply) || SCENE.test(user)) { drop(metadata.task + ': scene in the program'); return }
     const key = crypto.createHash('sha256').update(system + '\u0000' + user).digest('hex')
     if (seen.has(key)) { drop('duplicate request'); return }
     seen.add(key)
@@ -199,7 +202,10 @@ function main() {
       // The program's edits are asked with the language alone: with it cut, the request carries the rules.
       const system = last.system.slice(language.length).trimStart() || EDIT_SYSTEM
       // A program's served edits came from a repair when it took repair rounds; a section's, when its request quotes a failure.
-      const repaired = route === 'program' ? edit.rounds > 0 : last.user.includes(FAILED_MARK)
+      // A program's served edits answer the change itself unless the last call was a repair: a second try, thinking,
+      // asks the change again after a first one that could not be mended.
+      const repaired = route === 'program' ? !(last.user.startsWith('The program:\n') && last.user.includes('\n\nThe change asked for now: ')) :
+        last.user.includes(FAILED_MARK)
       const turn = repaired ? 'refine-repair' : 'refine'
       keep(family, system, last.user, last.reply, {task, turn, label, run: path.basename(run), change: edit.change, depth: edit.depth || 0,
         calls: asks.length, edits: edit.edits ?? null, rounds: edit.rounds ?? null, teacher: last.model || TEACHER, usage: last.usage || null,
