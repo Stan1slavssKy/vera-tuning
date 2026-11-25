@@ -3,7 +3,7 @@
 
     python3 tools/check-data.py data/v1
 
-Must hold: every row is system/user/assistant with text; no request on two sides of the split; one system prompt per task; every
+Must hold: every row is system/user/assistant with text (a chat row: its history, system first, the answer last); no request on two sides of the split; one system prompt per task; every
 SEARCH part of an answer is found exactly once in what it edits; no phone target in an answer's new code that its request does not name. Printed: examples by task, turn
 and split, and their length in tokens (chars / 3.23, the teacher's ratio on v1's answers).
 """
@@ -46,11 +46,17 @@ def main():
             failed.append(what)
 
     every = [r for split in rows.values() for r in split]
-    shape = sum(1 for r in every if [m['role'] for m in r['messages']] != ['system', 'user', 'assistant']
-                or any(not m['content'].strip() for m in r['messages']))
-    must(shape == 0, f'{shape} rows not system/user/assistant with text')
+    def bad_shape(r):
+        roles = [m['role'] for m in r['messages']]
+        if r['metadata']['task'] == 'chat':
+            # The chat's whole history as the app sent it, its tool rounds included; the last is the answer.
+            last = r['messages'][-1]
+            return roles[0] != 'system' or roles[-1] != 'assistant' or not (last.get('content', '').strip() or last.get('tool_calls'))
+        return roles != ['system', 'user', 'assistant'] or any(not m['content'].strip() for m in r['messages'])
+    shape = sum(1 for r in every if bad_shape(r))
+    must(shape == 0, f'{shape} rows not in their task\'s shape (system/user/assistant; a chat: system ... assistant)')
 
-    users = {split: {r['messages'][1]['content'] for r in rs} for split, rs in rows.items()}
+    users = {split: {json.dumps(r['messages'][:-1]) for r in rs} for split, rs in rows.items()}
     for held in ('validation', 'test'):
         both = len(users['train'] & users[held])
         must(both == 0, f'{both} requests both in train and {held}')
@@ -65,6 +71,8 @@ def main():
     invented = collections.Counter()
     for r in every:
         task = r['metadata']['task']
+        if task == 'chat':
+            continue
         user, reply = r['messages'][1]['content'], r['messages'][2]['content']
         blocks = EDIT.findall(reply)
         if blocks:
@@ -89,7 +97,7 @@ def main():
         for r in rs:
             m = r['metadata']
             by[m['task'] + ' / ' + m['turn']][split] += 1
-            lengths[m['task'] + ' / ' + m['turn']].append(sum(len(x['content']) for x in r['messages']) / CHARS_PER_TOKEN)
+            lengths[m['task'] + ' / ' + m['turn']].append(len(json.dumps(r['messages'] + r.get('tools', []), ensure_ascii=False)) / CHARS_PER_TOKEN)
     for key in sorted(by):
         c, ls = by[key], sorted(lengths[key])
         print(f"{key:36s} {c['train']:6d} {c['validation']:5d} {c['test']:5d}   "

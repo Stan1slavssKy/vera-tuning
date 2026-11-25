@@ -216,6 +216,51 @@ function main() {
   const stats = {requests: 0, holes: 0, kept: {}, dropped: {}, bySplit: {}, byFamily: {}}
   const drop = why => { stats.dropped[why] = (stats.dropped[why] || 0) + 1 }
   const count = (table, key) => { table[key] = (table[key] || 0) + 1 }
+  /**
+   * The phone's chat (chat-run.js, VeraChat.ets's chatReply), one example for each model request it made: the messages as the
+   * app sent them, the tools it offered, and the answer -- text, or tool calls the app then ran. A tool call is kept when it
+   * names an offered tool with arguments that read as JSON; an answer, when the turn's whole reply passed parseReply (a
+   * widget marker cut or malformed fails it) and it does not echo the history's "[messageId=N]" prefix.
+   */
+  const chatSteps = (events, family, label, run) => {
+    let next = 0
+    for (let i = 0; i < events.length; i++) {
+      const e = events[i]
+      if (e.kind !== 'ask' || e.task !== 'chat') continue
+      stats.holes++
+      const turn = events.slice(i + 1).find(t => t.kind === 'turn')
+      const request = e.request || {}
+      const reply = e.reply || {}
+      if (e.status !== 200 || !Array.isArray(request.messages)) { drop('chat: request failed'); continue }
+      const offered = new Set((request.tools || []).map(t => t.function && t.function.name))
+      let answer
+      if (reply.finish === 'tool_calls') {
+        const fine = reply.tool_calls.length > 0 && reply.tool_calls.every(c => {
+          try { JSON.parse(c.function.arguments); return offered.has(c.function.name) } catch (x) { return false }
+        })
+        if (!fine) { drop('chat: a tool call not offered or not JSON'); continue }
+        answer = {role: 'assistant', content: reply.content || '', tool_calls: reply.tool_calls}
+      } else if (reply.finish === 'stop') {
+        if (!turn || turn.error) { drop('chat: the reply did not parse'); continue }
+        if (/\[messageId=\d+\]/.test(reply.content)) { drop('chat: echoes a messageId'); continue }
+        if (!reply.content.trim()) { drop('chat: empty answer'); continue }
+        answer = {role: 'assistant', content: reply.content}
+      } else { drop('chat: not finished (' + (reply.finish || 'none') + ')'); continue }
+      const messages = request.messages.concat([answer])
+      const key = crypto.createHash('sha256').update(JSON.stringify(request.messages)).digest('hex')
+      if (seen.has(key)) { drop('duplicate request'); continue }
+      seen.add(key)
+      const split = splitOf(family)
+      const metadata = {task: 'chat', turn: reply.finish === 'tool_calls' ? 'tool-call' : 'answer', label, run: path.basename(run),
+        step: next++, person: turn ? turn.turn : null, widget: Boolean(turn && turn.widget && reply.finish === 'stop'),
+        teacher: reply.model || TEACHER, usage: reply.usage || null,
+        checks: reply.finish === 'tool_calls' ? ['tool offered', 'arguments JSON'] : ['parseReply']}
+      rows[split].push({messages, tools: request.tools || [], metadata: Object.assign({family, split}, metadata)})
+      count(stats.kept, 'chat ' + metadata.turn)
+      count(stats.bySplit, split)
+      count(stats.byFamily, family)
+    }
+  }
   /** One example, unless the same request was already kept. */
   const keep = (family, system, user, reply, metadata) => {
     // Scenes are not in v1: neither a scene written nor anything written into a program that has one (its prompt
@@ -437,6 +482,7 @@ function main() {
       }
       if (!fs.existsSync(file)) continue
       const events = fs.readFileSync(file, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l))
+      if (events.some(e => e.kind === 'ask' && e.task === 'chat')) { chatSteps(events, family, label, run); continue }
       let group = []
       let holeAsks = []
       let contentAsks = []
