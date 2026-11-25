@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// A second judge for program edits Jev did not read as making the change: DeepSeek, thinking, shown the change, the
+// A second judge for program edits and whole rewrites Jev did not read as making the change: DeepSeek, thinking, shown the change, the
 // program before and the program after (a multiset of changed lines lost their order and read as broken code: the
 // judge called programs that compiled "invalid"), answers whether the change is fully made. Its word is
 // appended to the refine's asks.jsonl as a `judge` event, which tools/export.js reads. $ARKESTR_API_KEY.
@@ -34,16 +34,21 @@ async function judge(change, before, after) {
   for (const run of process.argv.slice(2)) {
     for (const label of fs.readdirSync(run)) {
       const refine = path.join(run, label, 'refine')
-      const base = path.join(run, label, 'program.vera')
-      if (!fs.existsSync(refine) || !fs.existsSync(base)) continue
+      const built = path.join(run, label, 'program.vera')
+      if (!fs.existsSync(refine)) continue
       for (const k of fs.readdirSync(refine).filter(d => /^\d+(\.\d+)*$/.test(d))) {
         const file = path.join(refine, k, 'asks.jsonl')
         if (!fs.existsSync(file)) continue
         const events = fs.readFileSync(file, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l))
-        if (events.some(e => e.kind === 'judge' && e.route === 'program')) continue
-        const edit = events.find(e => e.kind === 'edit' && e.route === 'program')
-        if (!edit || !edit.ok || edit.does) continue
-        jobs.push({file, label, change: edit.change, before: fs.readFileSync(base, 'utf8'), after: edit.source})
+        // The program edit and the whole rewrite (agent-run's rewriteProgram), each judged once; the program before is the
+        // one the change was asked of (in a chain, what the change before left), else the screen as built.
+        const made = [['program', events.find(e => e.kind === 'edit' && e.route === 'program')], ['rewrite', events.find(e => e.kind === 'rewrite')]]
+        for (const [route, edit] of made) {
+          if (!edit || !edit.ok || edit.does || events.some(e => e.kind === 'judge' && e.route === route)) continue
+          const before = edit.base !== undefined ? edit.base : (fs.existsSync(built) ? fs.readFileSync(built, 'utf8') : null)
+          if (before === null) continue
+          jobs.push({file, label, route, change: edit.change, before, after: edit.source})
+        }
       }
     }
   }
@@ -54,7 +59,7 @@ async function judge(change, before, after) {
       const j = queue.shift()
       try {
         const v = await judge(j.change, j.before, j.after)
-        fs.appendFileSync(j.file, JSON.stringify({label: j.label, change: j.change, kind: 'judge', route: 'program', ...v}) + '\n')
+        fs.appendFileSync(j.file, JSON.stringify({label: j.label, change: j.change, kind: 'judge', route: j.route, ...v}) + '\n')
         done++; if (v.done) yes++
       } catch (e) { console.error(j.label, e.message) }
     }

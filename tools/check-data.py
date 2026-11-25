@@ -20,7 +20,7 @@ CHARS_PER_TOKEN = 3.23
 
 def edited_text(user, task):
     """What a reply's SEARCH parts are copied from, as tools/export.js's editedText reads it."""
-    if task in ('program-edit', 'program-repair'):
+    if task in ('program-edit', 'program-repair', 'program-rewrite'):
         m = re.match(r'The program:\n([\s\S]*?)\n\nIt was made for:', user)
         if m:
             return m.group(1)

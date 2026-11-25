@@ -31,6 +31,8 @@ const FAILED_MARK = '\n\nIt failed:\n'
 const SCENE = /\bui\.(Surface|World)\s*\(/
 /** The system prompt of a program edit once the language is cut from it: the one line the phone sends a local model. */
 const EDIT_SYSTEM = 'You change a VERA-L program as the person asks.'
+/** The same for the whole program written again with a change (program-rewrite). */
+const REWRITE_SYSTEM = 'You write a VERA-L program again, changed as the person asks.'
 
 /** label -> family, from every batch file. */
 function families() {
@@ -148,7 +150,7 @@ const EDIT_BLOCK = /<<<<<<< SEARCH\n([\s\S]*?)\n?=======\n([\s\S]*?)\n?>>>>>>> R
 
 /** The text a reply's SEARCH parts are copied from, as its request quotes it; null when the request quotes none. */
 function editedText(user, task) {
-  if (task === 'program-edit' || task === 'program-repair') {
+  if (task === 'program-edit' || task === 'program-repair' || task === 'program-rewrite') {
     const made = user.match(/^The program:\n([\s\S]*?)\n\nIt was made for:/)
     if (made) return made[1]
     const at = user.indexOf('\n\nRequest: ')
@@ -280,6 +282,32 @@ function main() {
       teacher: last.model || TEACHER, usage: last.usage || null, checks: ['json read', 'lists in shape']})
   }
   /**
+   * The whole program written again when neither way of a refine made the change (agent-run's rewriteProgram, as
+   * GeneratePage's refineWithModel), asked with no tools and the phone functions for the change in the request. Kept when it
+   * passed (compiled, every handler run) and Jev reads it as making the change, with no phone target the program and the
+   * functions found do not name. Served from the first reply: the program as the app read it; after a repair round, the
+   * repair that mended it. The system prompt is cut to one line, as a program edit's is.
+   */
+  const rewrite = (events, family, label, run, language) => {
+    const made = events.find(e => e.kind === 'rewrite')
+    if (!made) return
+    stats.holes++
+    if (!made.ok) return drop('program-rewrite: failed')
+    // Jev misses removals and a new look, as it does a program edit's: the second judge (tools/rejudge.js) settles those.
+    const judged = judgeOf(events, 'rewrite')
+    if (!made.does && !(judged && judged.done)) return drop('program-rewrite: Jev does not read the change' + (judged ? ', nor the judge' : ''))
+    const asks = events.filter(e => e.kind === 'ask' && e.task === 'program-rewrite')
+    const last = asks[asks.length - 1]
+    if (!last || last.error || last.finish !== 'stop') return drop('program-rewrite: not finished')
+    if (language === null || !last.system.startsWith(language)) return drop('program-rewrite: system prompt without the language')
+    const allowed = new Set(targetsIn(made.base || '').concat(targetsIn(last.user)))
+    if (targetsIn(made.source).some(t => !allowed.has(t) && t !== ASK_TARGET)) return drop('program-rewrite: calls a target nobody named')
+    const repaired = last.user.includes('is your previous attempt and it failed validation')
+    keep(family, REWRITE_SYSTEM, last.user, repaired ? last.reply : made.written, {task: 'program-rewrite', turn: repaired ? 'refine-repair' : 'refine',
+      label, run: path.basename(run), change: made.change, depth: made.depth || 0, calls: asks.length, attempts: made.attempts, rounds: made.rounds,
+      teacher: last.model || TEACHER, usage: last.usage || null, checks: ['compiled', 'smoke run', made.does ? 'Jev reads the change' : 'the judge reads the change', 'targets named']})
+  }
+  /**
    * Make widget (agent/AgentWidget.ets's writeWidget; agent-run --home-widget or --widgets-for): kept when the widget
    * spliced into the program passed its checks (compiled, every handler tapped, the card's checks). The answer is what the
    * app read out of the last reply (sourceIn, without a fence), and the system prompt is the language's widget part alone:
@@ -323,6 +351,7 @@ function main() {
    * with no repair round are kept as the change's answer; after a repair, the repair that mended them is kept instead.
    */
   const refines = (events, family, label, run, language) => {
+    rewrite(events, family, label, run, language)
     for (const route of ['program', 'section']) {
       const task = route + '-edit'
       const asks = events.filter(e => e.kind === 'ask' && e.task === task)
@@ -392,14 +421,13 @@ function main() {
     for (const label of fs.readdirSync(run).sort()) {
       const file = path.join(run, label, 'asks.jsonl')
       const widgetFile = path.join(run, label, 'widget', 'asks.jsonl')
-      // A run of widgets alone (agent-run --widgets-for) has no asks of its own beside them.
-      if (!fs.existsSync(file) && !fs.existsSync(widgetFile)) continue
+      const refineDir = path.join(run, label, 'refine')
+      // A run of widgets or rewrites alone (agent-run --widgets-for, --rewrites-for) has no asks of its own beside them.
+      if (!fs.existsSync(file) && !fs.existsSync(widgetFile) && !fs.existsSync(refineDir)) continue
       stats.requests++
       const family = familyOf.get(label)
       if (!family) { drop('label in no batch file'); continue }
       if (fs.existsSync(widgetFile)) widget(fs.readFileSync(widgetFile, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l)), family, label, run, language)
-      if (!fs.existsSync(file)) continue
-      const refineDir = path.join(run, label, 'refine')
       if (fs.existsSync(refineDir)) {
         // "0", "1", ... a change on the screen as built; "0.1", "0.1.2" the changes after it in a chain (agent-run --chain).
         for (const k of fs.readdirSync(refineDir).filter(d => /^\d+(\.\d+)*$/.test(d)).sort()) {
@@ -407,6 +435,7 @@ function main() {
           if (fs.existsSync(refineFile)) refines(fs.readFileSync(refineFile, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l)), family, label, run, language)
         }
       }
+      if (!fs.existsSync(file)) continue
       const events = fs.readFileSync(file, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l))
       let group = []
       let holeAsks = []
