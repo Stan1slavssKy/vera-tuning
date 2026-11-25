@@ -1,0 +1,265 @@
+# family	label	prompt -- written by tools/gen-prompts.js from prompts/topics.tsv
+quiz	quiz-005	us presidents quiz
+quiz	quiz-006	animal sounds quiz
+quiz	quiz-007	world flags quiz
+quiz	quiz-008	periodic table quiz
+quiz	quiz-009	spanish vocabulary quiz
+quiz	quiz-010	music trivia quiz
+quiz	quiz-011	state abbreviations quiz
+quiz	quiz-012	famous inventions quiz
+flashcards	flashcards-005	french flashcards with flip
+flashcards	flashcards-006	flashcards for biology with missed words
+flashcards	flashcards-007	german vocab flashcard deck
+flashcards	flashcards-008	flashcards tracking missed questions
+flashcards	flashcards-009	us capitals flashcards with flip
+flashcards	flashcards-010	medical terms flashcards missed tracker
+flashcards	flashcards-011	flashcards for periodic table elements
+flashcards	flashcards-012	history dates flashcards with flip
+guess-game	guess-game-005	guess the animal from hints
+guess-game	guess-game-006	coin flip guessing game
+guess-game	guess-game-007	guess the movie from emoji
+guess-game	guess-game-008	word guessing hangman game
+guess-game	guess-game-009	guess higher or lower card
+guess-game	guess-game-010	guess the capital city quiz
+guess-game	guess-game-011	dice roll prediction game
+guess-game	guess-game-012	guess the fruit blindfold game
+grades	grades-005	weighted category grade tracker
+grades	grades-006	semester gpa with credit hours
+grades	grades-007	final exam grade needed calculator
+grades	grades-008	assignment weights and scores tracker
+grades	grades-009	cumulative gpa across terms
+grades	grades-010	quiz and test average calculator
+grades	grades-011	extra credit weighted grade tool
+grades	grades-012	dropped lowest score grade calc
+date-math	date-math-005	how many days until christmas
+date-math	date-math-006	days between two dates calculator
+date-math	date-math-007	countdown to my vacation days
+date-math	date-math-008	how old am i in weeks
+date-math	date-math-009	days since i quit smoking
+date-math	date-math-010	how many sleeps until my trip
+date-math	date-math-011	weeks between two dates
+date-math	date-math-012	days left until my wedding
+streak	streak-005	reading streak with longest run
+streak	streak-006	meditation streak day counter
+streak	streak-007	workout streak with best streak
+streak	streak-008	water drinking streak tracker
+streak	streak-009	journaling streak with longest streak
+streak	streak-010	no coffee day counter streak
+streak	streak-011	guitar practice streak tracker
+streak	streak-012	early wake up streak counter
+challenge	challenge-005	30 day water drinking challenge
+challenge	challenge-006	daily walking streak challenge
+challenge	challenge-007	21 day no sugar challenge
+challenge	challenge-008	100 day reading challenge tracker
+challenge	challenge-009	30 day meditation streak challenge
+challenge	challenge-010	daily stretching challenge for a month
+challenge	challenge-011	7 day sleep early challenge
+challenge	challenge-012	60 day journaling challenge tracker
+category	category-005	water intake with category
+category	category-006	sleep hours category checker
+category	category-007	meal size with category
+category	category-008	exercise intensity category checker
+category	category-009	screen time with category
+category	category-010	caffeine level category checker
+category	category-011	mood score with category
+category	category-012	stress level category checker
+custom-filter	custom-filter-005	recipes filtered by ingredients on hand
+custom-filter	custom-filter-006	movies filtered by decade released
+custom-filter	custom-filter-007	tasks filtered by due this week
+custom-filter	custom-filter-008	plants filtered by watering needs
+custom-filter	custom-filter-009	songs filtered by tempo range
+custom-filter	custom-filter-010	expenses filtered by category type
+custom-filter	custom-filter-011	cities filtered by population size
+custom-filter	custom-filter-012	cards filtered by rarity tier
+word-games	word-games-005	guess the animal from scrambled letters
+word-games	word-games-006	word ladder game with four letter words
+word-games	word-games-007	boggle style letter grid finder
+word-games	word-games-008	guess the movie from emoji clues
+word-games	word-games-009	countdown style anagram solver game
+word-games	word-games-010	word association chain game
+word-games	word-games-011	guess the country from letter hints
+word-games	word-games-012	crossword mini puzzle daily
+text-tools	text-tools-005	count words in text
+text-tools	text-tools-006	check password strength
+text-tools	text-tools-007	count sentences in paragraph
+text-tools	text-tools-008	find most common words
+text-tools	text-tools-009	convert text to uppercase
+text-tools	text-tools-010	estimate reading time
+text-tools	text-tools-011	check email address format
+text-tools	text-tools-012	remove duplicate lines
+ciphers	ciphers-005	binary code translator
+ciphers	ciphers-006	pig latin converter
+ciphers	ciphers-007	reverse text generator
+ciphers	ciphers-008	caesar cipher tool
+ciphers	ciphers-009	text to leetspeak
+ciphers	ciphers-010	braille alphabet translator
+ciphers	ciphers-011	ascii code converter
+ciphers	ciphers-012	rot13 encoder
+dice-cards	dice-cards-005	random card draw with history
+dice-cards	dice-cards-006	roulette spin results tracker
+dice-cards	dice-cards-007	lottery number picker with past picks
+dice-cards	dice-cards-008	tarot card draw log
+dice-cards	dice-cards-009	random exercise picker with streak
+dice-cards	dice-cards-010	dice roll stats tracker
+dice-cards	dice-cards-011	coin toss history chart
+dice-cards	dice-cards-012	random color picker with saved picks
+pickers	pickers-005	random movie picker no repeats
+pickers	pickers-006	dinner recipe picker without repeats
+pickers	pickers-007	chore picker no repeats
+pickers	pickers-008	random song picker no repeats
+pickers	pickers-009	workout exercise picker no repeats
+pickers	pickers-010	random date idea picker
+pickers	pickers-011	book picker without repeats
+pickers	pickers-012	random color picker no repeats
+rotation	rotation-005	pet feeding turn tracker
+rotation	rotation-006	laundry schedule rotation for flatmates
+rotation	rotation-007	car share driving turns
+rotation	rotation-008	watering plants roster for neighbours
+rotation	rotation-009	weekly cleaning turns for siblings
+rotation	rotation-010	kitchen duty rotation for office team
+rotation	rotation-011	bathroom cleaning turns tracker
+rotation	rotation-012	dog walking turns among friends
+sports-score	sports-score-005	bowling score sheet for a league game
+sports-score	sports-score-006	darts score tracker for three players
+sports-score	sports-score-007	snooker frame score counter
+sports-score	sports-score-008	volleyball set score keeper
+sports-score	sports-score-009	cricket runs and wickets tracker
+sports-score	sports-score-010	badminton match score sheet
+sports-score	sports-score-011	table tennis game score counter
+sports-score	sports-score-012	archery round score tally
+loans	loans-005	car loan payoff months
+loans	loans-006	mortgage interest by year
+loans	loans-007	student loan balance over time
+loans	loans-008	credit card payoff schedule
+loans	loans-009	savings growth by month
+loans	loans-010	auto loan extra payments plan
+loans	loans-011	debt snowball monthly tracker
+loans	loans-012	personal loan repayment months
+next-due	next-due-005	next oil change date per car
+next-due	next-due-006	next medication refill reminder
+next-due	next-due-007	next haircut due per person
+next-due	next-due-008	next furnace filter change date
+next-due	next-due-009	next car tire rotation reminder
+next-due	next-due-010	next pet vaccine due tracker
+next-due	next-due-011	next bill due from a cycle
+next-due	next-due-012	next dentist visit reminder
+since-last	since-last-005	time since last water change
+since-last	since-last-006	days since last oil change
+since-last	since-last-007	time since last workout
+since-last	since-last-008	hours since last snack
+since-last	since-last-009	days since last haircut
+since-last	since-last-010	time since last diaper change
+since-last	since-last-011	weeks since last dental visit
+since-last	since-last-012	days since last plant watering
+journal-stats	journal-stats-005	water intake average by day of week
+journal-stats	journal-stats-006	study hours average per subject
+journal-stats	journal-stats-007	step count average by month
+journal-stats	journal-stats-008	coffee cups average by weekday
+journal-stats	journal-stats-009	reading minutes average per genre
+journal-stats	journal-stats-010	workout duration average by activity type
+journal-stats	journal-stats-011	screen time average by hour of day
+journal-stats	journal-stats-012	meal cost average by day of week
+uneven-split	uneven-split-005	split road trip gas by miles driven
+uneven-split	uneven-split-006	split groceries by who ate what
+uneven-split	uneven-split-007	divide electric bill by hours home
+uneven-split	uneven-split-008	split vacation rental by nights stayed
+uneven-split	uneven-split-009	split streaming cost by who watches
+uneven-split	uneven-split-010	divide wifi bill by devices used
+uneven-split	uneven-split-011	split dinner cost by number of drinks
+uneven-split	uneven-split-012	split utilities by square feet occupied
+memory-games	memory-games-005	memory game with farm animals
+memory-games	memory-games-006	repeat the drum beat sequence
+memory-games	memory-games-007	match pairs of sea creatures
+memory-games	memory-games-008	memory game with planets
+memory-games	memory-games-009	repeat the dance move sequence
+memory-games	memory-games-010	match pairs of desserts
+memory-games	memory-games-011	memory game with musical notes
+memory-games	memory-games-012	sequence of flashing shapes to repeat
+typing	typing-005	typing accuracy test for capital cities
+typing	typing-006	timed spelling bee practice
+typing	typing-007	fastest typing test with us state names
+typing	typing-008	math multiplication speed challenge
+typing	typing-009	typing test using periodic table symbols
+typing	typing-010	timed vocabulary word typing drill
+typing	typing-011	speed drill for typing animal names
+typing	typing-012	typing test with famous book titles
+phone-calendar	phone-calendar-005	workout schedule added to calendar
+phone-calendar	phone-calendar-006	bill due dates on calendar
+phone-calendar	phone-calendar-007	medication reminders in calendar
+phone-calendar	phone-calendar-008	water reminder every two hours calendar
+phone-calendar	phone-calendar-009	vacation countdown on calendar
+phone-calendar	phone-calendar-010	payday reminders on calendar
+phone-calendar	phone-calendar-011	dog walking schedule in calendar
+phone-calendar	phone-calendar-012	meal prep days on calendar
+phone-alarm	phone-alarm-005	plant watering reminder alarm
+phone-alarm	phone-alarm-006	workout interval timer alarm
+phone-alarm	phone-alarm-007	sunrise gradual wake alarm
+phone-alarm	phone-alarm-008	hydrate every hour reminder
+phone-alarm	phone-alarm-009	laundry cycle done timer
+phone-alarm	phone-alarm-010	study break pomodoro alarm
+phone-alarm	phone-alarm-011	pet feeding schedule alarm
+phone-alarm	phone-alarm-012	meditation timer with chime
+phone-torch	phone-torch-005	flashlight blink party strobe
+phone-torch	phone-torch-006	slow pulsing light to fall asleep
+phone-torch	phone-torch-007	flashlight tap to change brightness
+phone-torch	phone-torch-008	flashlight that flashes on incoming calls
+phone-torch	phone-torch-009	flashlight turning off after a timer
+phone-torch	phone-torch-010	flashlight colors cycling like a lava lamp
+phone-torch	phone-torch-011	flashlight dims with a swipe
+phone-torch	phone-torch-012	flashlight that blinks heartbeat rhythm
+phone-message	phone-message-005	message reminding mom to take medicine
+phone-message	phone-message-006	text neighbor about package delivery
+phone-message	phone-message-007	message friend my flight landed
+phone-message	phone-message-008	send kids pickup time by message
+phone-message	phone-message-009	text partner i fed the dog
+phone-message	phone-message-010	message group about meeting change
+phone-message	phone-message-011	text babysitter my return time
+phone-message	phone-message-012	message coworker i finished the report
+phone-call	phone-call-005	one tap dial for mom
+phone-call	phone-call-006	call log for the week
+phone-call	phone-call-007	favorite contacts speed dial
+phone-call	phone-call-008	recent missed calls list
+phone-call	phone-call-009	auto redial busy numbers
+phone-call	phone-call-010	call countdown reminder timers
+phone-call	phone-call-011	block unknown caller numbers
+phone-call	phone-call-012	quick dial for coworkers
+phone-maps	phone-maps-005	find nearest coffee shop on map
+phone-maps	phone-maps-006	save parking spot in maps
+phone-maps	phone-maps-007	show all dog parks nearby
+phone-maps	phone-maps-008	route to cheapest gas station
+phone-maps	phone-maps-009	map of free wifi spots
+phone-maps	phone-maps-010	walking directions to bus stop
+phone-maps	phone-maps-011	pin my hotel on the map
+phone-maps	phone-maps-012	find quiet picnic spots near me
+phone-settings	phone-settings-005	dark mode toggle switches
+phone-settings	phone-settings-006	airplane mode quick toggles
+phone-settings	phone-settings-007	screen brightness slider controls
+phone-settings	phone-settings-008	do not disturb switch settings
+phone-settings	phone-settings-009	battery saver mode toggles
+phone-settings	phone-settings-010	auto rotate lock switches
+phone-settings	phone-settings-011	hotspot on off toggles
+phone-settings	phone-settings-012	location services quick switches
+phone-vibrate	phone-vibrate-005	timer that buzzes when food is ready
+phone-vibrate	phone-vibrate-006	vibrating alarm for taking pills
+phone-vibrate	phone-vibrate-007	buzz reminder to drink water
+phone-vibrate	phone-vibrate-008	vibrate every hour to stretch
+phone-vibrate	phone-vibrate-009	silent timer for workouts that buzzes
+phone-vibrate	phone-vibrate-010	vibrating reminder to check oven
+phone-vibrate	phone-vibrate-011	buzz when to flip laundry
+phone-vibrate	phone-vibrate-012	vibrate at sunrise to wake up
+phone-sound	phone-sound-005	meditation bell every five minutes
+phone-sound	phone-sound-006	rain sounds to fall asleep
+phone-sound	phone-sound-007	metronome with adjustable tempo
+phone-sound	phone-sound-008	oven timer alarm with different tones
+phone-sound	phone-sound-009	deep breathing pace sound guide
+phone-sound	phone-sound-010	thunderstorm white noise for focus
+phone-sound	phone-sound-011	boxing round timer with bell
+phone-sound	phone-sound-012	baby shush sound machine
+phone-media	phone-media-005	daily selfie timeline
+phone-media	phone-media-006	silly face camera roll
+phone-media	phone-media-007	voice note grocery list
+phone-media	phone-media-008	sunset photo collection
+phone-media	phone-media-009	record sounds around me
+phone-media	phone-media-010	nature photo diary
+phone-media	phone-media-011	funny audio clips album
+phone-media	phone-media-012	weekly photo highlights
