@@ -1,0 +1,11 @@
+# label	verdict	why -- verdicts on review.jsonl items (tools/export.js trains on `accept` only). verdict: accept | reject | ask (a person decides)
+next-due-04	accept	no phone functions found for reminders; says so and shows the details to add by hand
+phone-alarm-01	accept	no alarm function among those found; offers a vibration and says to set the alarm in Clock
+phone-alarm-04	accept	no alarm function among those found; shows the wake-up time and says to set it in Clock
+phone-vibrate-04	accept	true limit: nothing buzzes while the app is closed; offers Buzz now
+phone-media-02	reject	fills merchant, date and total "as a sample": made-up data, which the rules forbid
+phone-sound-02	reject	AudioRenderer.start was found, so a 440 Hz tone could be written as samples (the rules say so); and its volume slider only records the choice, a control that does nothing
+phone-torch-03	reject	the need is a scene (drawn full screen); scenes are not in v1
+phone-calendar-04	ask	declines a yearly repeat and an alert, though CalendarKit.Calendar.addEvent was found: does addEvent take a recurrence and a reminder?
+phone-message-04	ask	declines the share sheet but keeps a "Share poll" button, which the rules say a declined need must not have
+phone-sound-04	ask	TonePlayer.start was found; declines a beep on each second of the countdown: can a tick call the phone, or is that a real limit?

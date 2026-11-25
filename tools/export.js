@@ -43,6 +43,19 @@ function families() {
   return map
 }
 
+/** label -> accept | reject | ask, from review/verdicts.tsv: a person's (or a reviewer's) word on a refusal. */
+function verdicts() {
+  const file = path.join(root, 'review', 'verdicts.tsv')
+  const map = new Map()
+  if (!fs.existsSync(file)) return map
+  for (const line of fs.readFileSync(file, 'utf8').split('\n')) {
+    if (!line.trim() || line.startsWith('#')) continue
+    const [label, verdict] = line.split('\t')
+    map.set(label, verdict)
+  }
+  return map
+}
+
 /** train / validation / test from the family alone, so no family is on two sides. */
 function splitOf(family) {
   const bucket = parseInt(crypto.createHash('sha256').update(family).digest('hex').slice(0, 8), 16) % 1000
@@ -81,6 +94,7 @@ const sameBodies = (a, b) => JSON.stringify(Object.entries(a || {}).sort()) === 
 
 function main() {
   const familyOf = families()
+  const verdictOf = verdicts()
   const rows = {train: [], validation: [], test: []}
   const review = []
   const seen = new Set()
@@ -174,9 +188,16 @@ function main() {
         if (e.outcome === 'partial' && unmet.length > 0 && unmet.every(m => declined.some(d => sameNeed(d, m))) &&
             language !== null && last.system.startsWith(language) && last.finish === 'stop' && !SCENE.test(last.reply)) {
           const system = last.system.slice(language.length).trimStart()
-          review.push({kind: 'partial decline', label, family, prompt: e.prompt, needs: e.needs, missed: unmet,
+          const verdict = verdictOf.get(label) || 'unread'
+          if (verdict === 'accept') {
+            keep(family, system, last.user, last.reply, {task: 'section', turn: 'decline', label, run: path.basename(run), needs: e.needs,
+              declined: unmet, calls: asks.length, phoneCalls: (last.reply.match(/sdk\.call\(/g) || []).length,
+              teacher: last.model || TEACHER, usage: last.usage || null, checks: ['compiled', 'smoke run', 'targets found', 'Jev', 'refusal read']})
+            continue
+          }
+          review.push({kind: 'partial decline', verdict, label, family, prompt: e.prompt, needs: e.needs, missed: unmet,
             messages: [{role: 'system', content: system}, {role: 'user', content: last.user}, {role: 'assistant', content: last.reply}]})
-          drop('partial decline: to review')
+          drop('partial decline: ' + verdict)
           continue
         }
         if (e.outcome !== 'written') { drop(e.outcome); continue }

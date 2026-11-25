@@ -4,19 +4,21 @@
  "kept": {
   "section repair": 19,
   "section first": 30,
+  "section decline": 4,
   "catalogue-hole first": 158,
   "catalogue-hole repair": 145
  },
  "dropped": {
   "partial": 14,
   "scene": 9,
-  "partial decline: to review": 10,
   "reported: failed": 1,
+  "partial decline: ask": 3,
+  "partial decline: reject": 3,
   "reply is not the section kept": 1,
   "catalogue hole: nothing kept": 2
  },
  "bySplit": {
-  "train": 293,
+  "train": 297,
   "test": 19,
   "validation": 40
  },
@@ -35,6 +37,7 @@
   "journal-stats": 1,
   "loans": 1,
   "memory-games": 1,
+  "next-due": 1,
   "pickers": 1,
   "rotation": 2,
   "since-last": 1,
@@ -43,6 +46,7 @@
   "typing": 2,
   "uneven-split": 1,
   "word-games": 2,
+  "phone-alarm": 2,
   "phone-calendar": 2,
   "phone-call": 1,
   "phone-maps": 3,
@@ -50,7 +54,7 @@
   "phone-settings": 1,
   "phone-sound": 1,
   "phone-torch": 1,
-  "phone-vibrate": 1,
+  "phone-vibrate": 2,
   "rm-apps": 6,
   "rm-birds": 8,
   "rm-board-games": 8,
