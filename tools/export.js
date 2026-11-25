@@ -157,6 +157,26 @@ function main() {
       const edit = events.find(e => e.kind === 'edit' && e.route === route)
       if (!edit) continue
       stats.holes++
+      const last0 = asks[asks.length - 1]
+      // A change no phone app can make (agent-run --impossible): the right answer is a refusal, read before it is trained on;
+      // one that "made" it faked it.
+      if (edit.impossible) {
+        const refused = edit.cannot || (edit.declined || []).length > 0
+        if (refused && last0 && language !== null && last0.system.startsWith(language) && !SCENE.test(last0.reply)) {
+          const system = last0.system.slice(language.length).trimStart() || EDIT_SYSTEM
+          const verdict = verdictOf.get(label + ' ' + edit.change) || 'unread'
+          if (verdict === 'accept') {
+            keep(family, system, last0.user, last0.reply, {task, turn: 'refine-decline', label, run: path.basename(run), change: edit.change,
+              calls: asks.length, teacher: last0.model || TEACHER, usage: last0.usage || null, checks: ['refusal read']})
+          } else {
+            review.push({kind: 'impossible change', verdict, key: label + ' ' + edit.change, label, family, route, change: edit.change,
+              cannot: edit.cannot || '', declined: edit.declined || [],
+              messages: [{role: 'system', content: system}, {role: 'user', content: last0.user}, {role: 'assistant', content: last0.reply}]})
+            drop(task + ': impossible, refused: ' + verdict)
+          }
+        } else drop(task + ': impossible, ' + (edit.ok ? 'faked' : 'failed'))
+        continue
+      }
       if (!edit.ok) { drop(task + ': ' + (edit.cannot ? 'declined' : 'failed')); continue }
       // Jev reads edits as lines taken out and put in, and often misses a change they make: a second judge
       // (tools/rejudge.js, judge.json beside the asks) settles those it did not read.
@@ -165,7 +185,9 @@ function main() {
       // Edits of the whole program are shown no phone functions: a target the program did not call before is made up
       // (one wrote sdk.call("system.clipboard", ...)), and the compiler does not check targets.
       if (route === 'program') {
-        const base = fs.existsSync(path.join(run, label, 'program.vera')) ? fs.readFileSync(path.join(run, label, 'program.vera'), 'utf8') : ''
+        // The program the edits were made to: the built screen, or in a chain the one the change before left.
+        const base = edit.base !== undefined ? edit.base :
+          (fs.existsSync(path.join(run, label, 'program.vera')) ? fs.readFileSync(path.join(run, label, 'program.vera'), 'utf8') : '')
         const before = new Set(targetsIn(base))
         const added = targetsIn(edit.source || '').filter(t => !before.has(t) && t !== ASK_TARGET)
         if (added.length > 0) { drop(task + ': calls a target the program did not'); continue }
@@ -179,7 +201,7 @@ function main() {
       // A program's served edits came from a repair when it took repair rounds; a section's, when its request quotes a failure.
       const repaired = route === 'program' ? edit.rounds > 0 : last.user.includes(FAILED_MARK)
       const turn = repaired ? 'refine-repair' : 'refine'
-      keep(family, system, last.user, last.reply, {task, turn, label, run: path.basename(run), change: edit.change,
+      keep(family, system, last.user, last.reply, {task, turn, label, run: path.basename(run), change: edit.change, depth: edit.depth || 0,
         calls: asks.length, edits: edit.edits ?? null, rounds: edit.rounds ?? null, teacher: last.model || TEACHER, usage: last.usage || null,
         checks: ['compiled', 'smoke run', 'Jev reads the change'].concat(route === 'section' ? ['targets found'] : [])})
     }
@@ -196,7 +218,8 @@ function main() {
       if (!family) { drop('label in no batch file'); continue }
       const refineDir = path.join(run, label, 'refine')
       if (fs.existsSync(refineDir)) {
-        for (const k of fs.readdirSync(refineDir).filter(d => /^\d+$/.test(d)).sort((a, b) => a - b)) {
+        // "0", "1", ... a change on the screen as built; "0.1", "0.1.2" the changes after it in a chain (agent-run --chain).
+        for (const k of fs.readdirSync(refineDir).filter(d => /^\d+(\.\d+)*$/.test(d)).sort()) {
           const refineFile = path.join(refineDir, k, 'asks.jsonl')
           if (fs.existsSync(refineFile)) refines(fs.readFileSync(refineFile, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l)), family, label, run, language)
         }
