@@ -1,0 +1,170 @@
+# family	label	prompt -- written by Claude (not the teacher), in the ways people type: typos and shorthand, chatty and long,
+# concrete numbers and names, two asks in one, vague. Topics b08 left out when it was stopped at 300 have 3 each.
+quiz	quiz-l01	quiz me on the periodic table first 20 elements, i type the symbol
+quiz	quiz-l02	my son has a geography test friday, can you make something that asks him european capitals and tells him his score at the end? like 15 questions
+flashcards	flashcards-l01	flashcrds for german verbs past tense, show me the ones i get wrong again
+flashcards	flashcards-l02	i need to learn 30 medical terms for my nursing exam: term on one side, meaning on the other, and keep a pile of the ones i miss
+guess-game	guess-game-l01	guess a number 1-50 game, tell me higher or lower, count my tries
+guess-game	guess-game-l02	hangman but with animal names pls
+grades	grades-l01	whats my final grade if homework is 20% quizzes 30% final exam 50%. i have 88 on hw, 74 on quizzes
+grades	grades-l02	gpa calculator, A=4 B=3 etc, I put in my classes and credits and it shows the gpa
+date-math	date-math-l01	how many days between june 3 and sept 21
+date-math	date-math-l02	i started my new job on 14 feb 2025, how long have i been there in years months and days
+streak	streak-l01	no sugar streak, i tap if i made it today, show my best streak too
+streak	streak-l02	something to keep my duolingo-style streak for reading, at least 10 pages a day, if i miss a day it resets
+challenge	challenge-l01	30 day pushup challenge starting at 10 and adding 2 each day, tick off each day
+challenge	challenge-l02	a 52 week challenge thing but for walking, km instead of money
+category	category-l01	put in my blood pressure numbers and tell me if its normal, elevated, high
+category	category-l02	wind speed in km/h to beaufort scale
+custom-filter	custom-filter-l01	list of my board games, filter by how many players and how long it takes
+custom-filter	custom-filter-l02	recipes I can search, only show the vegetarian ones under 30 min if I flip a switch
+word-games	word-games-l01	anagram game: give me scrambled words, i unscramble, 1 point each
+word-games	word-games-l02	wordle-ish game with 5 letter words, 6 tries, green yellow grey letters
+text-tools	text-tools-l01	paste text count words and characters and how long it takes to read it out loud
+text-tools	text-tools-l02	remove extra spaces and make every sentence start with a capital letter
+ciphers	ciphers-l01	caesar cipher shift 3, encode and decode
+ciphers	ciphers-l02	turn my text into morse code with dots and dashes
+dice-cards	dice-cards-l01	roll 2d6 and show the last 10 rolls
+dice-cards	dice-cards-l02	draw a random card from a deck without putting it back, show how many left
+pickers	pickers-l01	pick who does dishes tonight from mom dad ana leo, dont pick the same person twice in a row
+pickers	pickers-l02	random restaurant picker from my list, i add places
+rotation	rotation-l01	whose turn to drive to soccer practice, 4 families, rotate weekly
+rotation	rotation-l02	cat litter rotation between me and my 2 roommates, mark done and it moves to the next
+sports-score	sports-score-l01	bowling score sheet 10 frames with strikes and spares
+sports-score	sports-score-l02	keep score for our pickleball game, first to 11 win by 2
+loans	loans-l01	car loan 18000 at 6.9% for 5 years whats the monthly payment and total interest
+loans	loans-l02	i lent my brother 600, he pays me back 50 every month, show what's left
+next-due	next-due-l01	when do i next change the water filter, every 60 days, last time was oct 2
+next-due	next-due-l02	vaccines for my dog, each has its own interval, show which is due soonest
+since-last	since-last-l01	how long since i last called grandma
+since-last	since-last-l02	days since last haircut and the average gap between haircuts
+journal-stats	journal-stats-l01	mood journal 1-5 every day, average per week
+journal-stats	journal-stats-l02	log my runs with distance and time, show avg pace per month
+uneven-split	uneven-split-l01	split the rent 2400 by room size, rooms are 14, 11 and 9 m2
+uneven-split	uneven-split-l02	split a dinner bill but each person pays what they ordered plus a share of tip and tax
+memory-games	memory-games-l01	memory match game with 8 pairs of emoji
+memory-games	memory-games-l02	simon says color sequence game that gets longer each round
+typing	typing-l01	typing speed test, wpm and mistakes
+typing	typing-l02	practice typing the home row keys, timer 60 sec
+phone-calendar	phone-calendar-l01	put my dentist appt on the calendar tues 3:30pm
+phone-calendar	phone-calendar-l02	i want to add all my kid's swim lessons, every saturday at 10 for 8 weeks, into my phone calendar
+phone-alarm	phone-alarm-l01	set an alarm for 6:15 weekdays
+phone-alarm	phone-alarm-l02	nap timer 20 min that rings
+phone-torch	phone-torch-l01	flashlight button big one
+phone-torch	phone-torch-l02	strobe the flashlight like a party light, with a speed slider
+phone-message	phone-message-l01	text my wife running 10 min late
+phone-message	phone-message-l02	message to the group that practice is cancelled today, let me pick who it goes to
+phone-call	phone-call-l01	one tap to call my mom
+phone-call	phone-call-l02	list of my emergency contacts and call any of them with one tap
+phone-maps	phone-maps-l01	directions home
+phone-maps	phone-maps-l02	save the spot where i parked and open maps to walk back to it
+phone-settings	phone-settings-l01	turn on do not disturb
+phone-settings	phone-settings-l02	night mode switch: dark mode on, brightness low, all in one button
+phone-vibrate	phone-vibrate-l01	vibrate every 30 seconds so i know to switch sides when i'm massaging
+phone-vibrate	phone-vibrate-l02	silent metronome that just buzzes on the beat, bpm adjustable
+phone-sound	phone-sound-l01	play a beep at the end of each round in my boxing timer
+phone-sound	phone-sound-l02	tuning fork tone, A 440
+phone-media	phone-media-l01	open the camera to scan a receipt
+phone-media	phone-media-l02	play my workout playlist when i start the timer
+tournament	tournament-l01	bracket for 8 players ping pong, tap the winner of each match
+tournament	tournament-l02	round robin for our chess club, 6 people, points table at the end
+seating	seating-l01	seat 24 wedding guests at 3 tables, keep couples together
+seating	seating-l02	random seat chart for my class of 28, 7 rows of 4
+meal-plan	meal-plan-l01	plan my dinners for the week and make the shopping list from it
+meal-plan	meal-plan-l02	meal prep for 5 lunches, high protein, around 600 kcal each
+packing	packing-l01	packing list for a ski trip, 4 nights
+packing	packing-l02	what do i need to pack for a baby on a plane, check things off
+rewards	rewards-l01	sticker chart for potty training, 10 stickers = a toy
+rewards	rewards-l02	xp points for my chores, level up every 100 xp
+envelopes	envelopes-l01	envelope budget: rent food fun savings, move money between them
+envelopes	envelopes-l02	i get paid 2800 a month, split it into my budget pots by percent and show whats left in each as i spend
+workout-builder	workout-builder-l01	random 15 min hiit workout, no equipment
+workout-builder	workout-builder-l02	make me a leg day from my list of exercises, 4 exercises, 3 sets each
+language-drill	language-drill-l01	spanish verb conjugation drill, present tense, check my answer
+language-drill	language-drill-l02	practice french numbers 1-100, it says the number in words and i type the digits
+inventory	inventory-l01	pantry stock, warn me when rice or pasta is low
+inventory	inventory-l02	how many of each tshirt size do we have left for the fundraiser, alert under 5
+queue	queue-l01	waitlist for the barber shop, add names and call next
+queue	queue-l02	who's next on the karaoke list
+voting	voting-l01	vote on where to go for team lunch, 4 options, show the winner
+voting	voting-l02	ranked choice vote for the book club pick
+decision	decision-l01	which apartment should i take, score them on price location size
+decision	decision-l02	help me decide between 3 laptops, i care about battery most then price then weight
+generators	generators-l01	band name generator
+generators	generators-l02	random password 16 chars with symbols and a copy-able result
+calendar-math	calendar-math-l01	what day of the week was i born, 7 aug 1991
+calendar-math	calendar-math-l02	how many working days in november not counting weekends
+number-tools	number-tools-l01	is 7919 prime
+number-tools	number-tools-l02	number to roman numerals and back
+fitness-calcs	fitness-calcs-l01	bmr and daily calories, im 34 female 168cm 62kg moderately active
+fitness-calcs	fitness-calcs-l02	one rep max from the weight and reps i did
+money-challenges	money-challenges-l01	save 5 more every week, how much by december
+money-challenges	money-challenges-l02	no spend challenge for 21 days, mark the days i spent nothing
+branching-story	branching-story-l01	choose your own adventure in a haunted house, 3 endings
+branching-story	branching-story-l02	short space story for my kid where he picks what happens next
+expiry	expiry-l01	whats expiring in my fridge soon, sorted
+expiry	expiry-l02	track my passport, license, insurance expiry dates and warn 30 days before
+expiry	expiry-l03	coupons i have with their end dates, hide the expired ones
+baby-log	baby-log-l01	feeding log, which side and how long, last feed time big on top
+baby-log	baby-log-l02	diaper count today wet vs dirty
+baby-log	baby-log-l03	my baby's sleep, when she went down and woke up, total sleep per day and the longest stretch
+fuel-log	fuel-log-l01	fuel log km per litre each fill up
+fuel-log	fuel-log-l02	electric car charging log: kwh, cost, km since last charge, cost per 100 km
+fuel-log	fuel-log-l03	gas mileage tracker in mpg
+player-stats	player-stats-l01	basketball stats for my team, points rebounds assists per game
+player-stats	player-stats-l02	track goals and assists for each kid on the u10 soccer team over the season
+player-stats	player-stats-l03	darts averages per player
+color-tools	color-tools-l01	hex to rgb
+color-tools	color-tools-l02	make me a color palette from one color, lighter and darker shades
+color-tools	color-tools-l03	check if my text color is readable on the background color, contrast ratio
+music-theory	music-theory-l01	what notes are in a c minor chord
+music-theory	music-theory-l02	transpose chords up or down a few semitones
+music-theory	music-theory-l03	circle of fifths, tap a key and see its sharps or flats
+game-clocks	game-clocks-l01	chess clock 5 min each
+game-clocks	game-clocks-l02	turn timer for board game night, 4 players, 90 seconds each, beep when time is up
+game-clocks	game-clocks-l03	speed scrabble clock with increment 10 sec
+party-games	party-games-l01	truth or dare for teens, keep it clean
+party-games	party-games-l02	charades words, show one, 60 second timer, next team
+party-games	party-games-l03	would you rather questions, random, no repeats
+gift-exchange	gift-exchange-l01	secret santa for 9 people, nobody gets their partner
+gift-exchange	gift-exchange-l02	white elephant turn order
+gift-exchange	gift-exchange-l03	draw names for the office gift swap and keep it secret till you tap
+timetable	timetable-l01	my uni timetable, tell me if two classes clash
+timetable	timetable-l02	shift schedule for 5 baristas, nobody more than 5 shifts a week
+timetable	timetable-l03	kids activities each weekday with times
+booking	booking-l01	sign up sheet for parent teacher meetings, 10 min slots
+booking	booking-l02	book the meeting room, show free and taken hours
+booking	booking-l03	slots for my nail appointments on saturday, 45 min each, from 9 to 5
+habit-grid	habit-grid-l01	habit tracker grid: water, read, stretch, for this month
+habit-grid	habit-grid-l02	gym days this year in a grid like github
+habit-grid	habit-grid-l03	tick the days i meditated, show percent this month
+projections	projections-l01	if i invest 200 a month at 7% how much in 20 years
+projections	projections-l02	when will my savings hit 10k at the rate im going
+projections	projections-l03	how big will my puppy get, he's 4 months and 9 kg
+price-compare	price-compare-l01	which is cheaper per roll, 12 rolls for 8.99 or 24 for 16.50
+price-compare	price-compare-l02	compare price per 100g of 3 cereal boxes
+price-compare	price-compare-l03	is the costco size worth it, price per item
+nutrition	nutrition-l01	add up calories and protein for what i ate today
+nutrition	nutrition-l02	recipe nutrition per serving, i put ingredients and servings
+nutrition	nutrition-l03	how much sugar did i have, daily limit 25g
+ratios	ratios-l01	scale this recipe from 4 servings to 10
+ratios	ratios-l02	coffee to water ratio 1:16, how much coffee for 500 ml
+ratios	ratios-l03	mix concrete 1 cement 2 sand 3 gravel for 60 litres
+riddles	riddles-l01	riddle of the day with a reveal button
+riddles	riddles-l02	riddles for kids, tap to see the answer, next one
+riddles	riddles-l03	brain teasers with hints before the answer
+math-practice	math-practice-l01	times tables practice, gets harder when i get them right
+math-practice	math-practice-l02	mental math 2 digit addition timed 1 min
+math-practice	math-practice-l03	fractions practice for 5th grade
+tally	tally-l01	count people coming in and going out, show how many inside
+tally	tally-l02	bird counting, a counter for each kind i see
+tally	tally-l03	knitting row counter and a stitch counter
+score-history	score-history-l01	uno scores each round, lowest total wins at 500
+score-history	score-history-l02	keep our golf scores for 18 holes for 3 players
+score-history	score-history-l03	scrabble running score for 2 players
+schedule-gen	schedule-gen-l01	study plan for 6 subjects over 3 weeks before exams
+schedule-gen	schedule-gen-l02	watering schedule for my plants, each one different days
+schedule-gen	schedule-gen-l03	cleaning schedule split over the week so its not all saturday
+countdowns	countdowns-l01	countdown to my vacation and to my sister's wedding
+countdowns	countdowns-l02	days until christmas
+countdowns	countdowns-l03	countdowns for all my bills due dates, soonest first
