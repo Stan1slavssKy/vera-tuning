@@ -1,0 +1,362 @@
+# family	label	prompt -- batch 07: the 40 topics of b06, 10 / 8 / 5 prompts by how often they gave holes
+booking	booking-004	dinner table slots tonight
+booking	booking-005	parking spot booking board
+booking	booking-006	haircut time slots week
+booking	booking-007	tennis court booking grid
+booking	booking-008	volunteer shift sign up
+price-compare	price-compare-004	compare cost per ounce of cereal boxes
+price-compare	price-compare-005	which coffee bag is cheaper per gram
+price-compare	price-compare-006	unit price compare for laundry detergent
+price-compare	price-compare-007	cheaper per sheet toilet paper comparison
+price-compare	price-compare-008	compare price per liter of juice
+nutrition	nutrition-004	smoothie sugar per serving
+nutrition	nutrition-005	daily fiber total from snacks
+nutrition	nutrition-006	casserole sodium per serving
+nutrition	nutrition-007	weekly carb total from breakfasts
+nutrition	nutrition-008	salad dressing fat per serving
+tally	tally-004	car count tally by colour
+tally	tally-005	tally how many times i say sorry
+tally	tally-006	pet behaviour tally good and bad
+tally	tally-007	count steps up and down stairs
+tally	tally-008	tally coffees drunk this week
+score-history	score-history-004	bowling scores by game
+score-history	score-history-005	golf scores per hole
+score-history	score-history-006	board game points by turn
+score-history	score-history-007	workout reps by set
+score-history	score-history-008	quiz results by round
+rewards	rewards-004	garden chores points with seed rewards
+rewards	rewards-005	exercise minutes points unlock badges
+rewards	rewards-006	homework points with screen time rewards
+rewards	rewards-007	pet care points with treat rewards
+rewards	rewards-008	healthy eating points with cheat day rewards
+rewards	rewards-009	music practice points unlock songs
+rewards	rewards-010	cleaning tasks points with movie rewards
+rewards	rewards-011	savings goals points with small prizes
+queue	queue-004	barbershop walk in queue
+queue	queue-005	deli counter number dispenser
+queue	queue-006	car wash waiting line tracker
+queue	queue-007	clinic check in queue
+queue	queue-008	food truck order line numbers
+queue	queue-009	tire shop service queue
+queue	queue-010	museum coat check line
+queue	queue-011	blood donation waiting queue
+fitness-calcs	fitness-calcs-004	body fat percentage estimator
+fitness-calcs	fitness-calcs-005	daily water intake calculator
+fitness-calcs	fitness-calcs-006	max heart rate zones calculator
+fitness-calcs	fitness-calcs-007	running pace calculator
+fitness-calcs	fitness-calcs-008	bmr calculator with tables
+fitness-calcs	fitness-calcs-009	protein needs by bodyweight
+fitness-calcs	fitness-calcs-010	steps to calories converter
+fitness-calcs	fitness-calcs-011	vo2 max estimate table
+money-challenges	money-challenges-004	round up spare change savings tracker
+money-challenges	money-challenges-005	no spend day streak counter
+money-challenges	money-challenges-006	save a dollar each day tracker
+money-challenges	money-challenges-007	weekly grocery budget challenge
+money-challenges	money-challenges-008	cash envelope savings tracker
+money-challenges	money-challenges-009	spend less than yesterday tracker
+money-challenges	money-challenges-010	monthly no coffee challenge tracker
+money-challenges	money-challenges-011	save every five dollar bill tracker
+player-stats	player-stats-004	soccer player stats table
+player-stats	player-stats-005	baseball pitcher stats tracker
+player-stats	player-stats-006	hockey player points tracker
+player-stats	player-stats-007	football player yards tracker
+player-stats	player-stats-008	tennis player match stats
+player-stats	player-stats-009	golf player score tracker
+player-stats	player-stats-010	cricket player stats table
+player-stats	player-stats-011	volleyball player stats tracker
+projections	projections-004	reading pages projection by week
+projections	projections-005	plant growth projection by month
+projections	projections-006	debt payoff projection by month
+projections	projections-007	mileage run projection by week
+projections	projections-008	language vocabulary projection by month
+projections	projections-009	battery drain projection by hour
+projections	projections-010	hair growth projection by month
+projections	projections-011	crypto portfolio projection by week
+ratios	ratios-004	coffee brew ratio guide
+ratios	ratios-005	fertilizer dilution ratio helper
+ratios	ratios-006	pancake batter ratio scaler
+ratios	ratios-007	epoxy resin ratio calculator
+ratios	ratios-008	bread dough hydration ratio
+ratios	ratios-009	mortar mix ratio builder
+ratios	ratios-010	juice concentrate dilution guide
+ratios	ratios-011	two stroke fuel ratio tool
+tournament	tournament-004	bracket for sixteen chess players
+tournament	tournament-005	league table for five a side team
+tournament	tournament-006	double elimination tournament for gamers
+tournament	tournament-007	cup draw for neighborhood football
+tournament	tournament-008	group stage table for twelve clubs
+tournament	tournament-009	playoff tree for eight coworkers
+tournament	tournament-010	ladder for ping pong matches
+tournament	tournament-011	round robin for six board games
+tournament	tournament-012	knockout cup for family game night
+tournament	tournament-013	swiss style pairings for card players
+seating	seating-004	assign seats on a charter bus by group
+seating	seating-005	concert hall seats by ticket tier
+seating	seating-006	assign dorm rooms by course
+seating	seating-007	restaurant table plan by party size
+seating	seating-008	assign lab benches by skill level
+seating	seating-009	seat chart for a reunion by age
+seating	seating-010	shuffle seats daily for a class
+seating	seating-011	assign parking spots by seniority
+seating	seating-012	conference room seating by department
+seating	seating-013	assign gym lockers by last name
+meal-plan	meal-plan-004	weekly breakfast plan with shopping list
+meal-plan	meal-plan-005	monthly freezer meal plan with grocery list
+meal-plan	meal-plan-006	weekly vegan meal plan with pantry list
+meal-plan	meal-plan-007	family dinner plan with leftover list
+meal-plan	meal-plan-008	weekly lunch plan with prep list
+meal-plan	meal-plan-009	holiday feast plan with ingredient list
+meal-plan	meal-plan-010	weekly smoothie plan with shopping list
+meal-plan	meal-plan-011	budget meal plan with price list
+meal-plan	meal-plan-012	weekly baby food plan with grocery list
+meal-plan	meal-plan-013	camping trip meal plan with packing list
+packing	packing-004	beach bag list by activity
+packing	packing-005	hiking gear list by season
+packing	packing-006	hospital bag list by delivery type
+packing	packing-007	travel list by trip purpose
+packing	packing-008	school bag list by grade level
+packing	packing-009	grocery list by diet plan
+packing	packing-010	toolbox list by home project
+packing	packing-011	gym bag list by workout style
+packing	packing-012	party planning list by guest count
+packing	packing-013	baby bag list by outing length
+envelopes	envelopes-004	envelope budget for groceries and fun
+envelopes	envelopes-005	savings pots for three goals
+envelopes	envelopes-006	transfer money between spending jars
+envelopes	envelopes-007	envelope system for monthly bills
+envelopes	envelopes-008	pots for holiday and car repairs
+envelopes	envelopes-009	move cash between budget categories
+envelopes	envelopes-010	four envelopes for weekly allowance
+envelopes	envelopes-011	sinking funds for big purchases
+envelopes	envelopes-012	jar tracking for eating out
+envelopes	envelopes-013	envelope budget with rollover balances
+workout-builder	workout-builder-004	random yoga flow from my poses
+workout-builder	workout-builder-005	random study plan from my topics
+workout-builder	workout-builder-006	random meal plan from my recipes
+workout-builder	workout-builder-007	random stretching routine by body part
+workout-builder	workout-builder-008	random guitar practice from my scales
+workout-builder	workout-builder-009	random cleaning schedule from my rooms
+workout-builder	workout-builder-010	random language drill from my words
+workout-builder	workout-builder-011	random budget plan from my bills
+workout-builder	workout-builder-012	random garden tasks from my plants
+workout-builder	workout-builder-013	random chess drills from my openings
+language-drill	language-drill-004	french verb conjugation drill
+language-drill	language-drill-005	german irregular verbs practice
+language-drill	language-drill-006	italian vocabulary quiz drill
+language-drill	language-drill-007	japanese hiragana practice drill
+language-drill	language-drill-008	latin noun declension drill
+language-drill	language-drill-009	russian alphabet matching practice
+language-drill	language-drill-010	portuguese verb tense practice
+language-drill	language-drill-011	korean hangul reading drill
+language-drill	language-drill-012	arabic vocabulary flashcards practice
+language-drill	language-drill-013	chinese pinyin tone practice
+inventory	inventory-004	fridge stock with expiry alerts
+inventory	inventory-005	garage tools low stock warnings
+inventory	inventory-006	art supplies running low tracker
+inventory	inventory-007	medicine cabinet inventory thresholds
+inventory	inventory-008	freezer meal count with restock alerts
+inventory	inventory-009	spice rack low jar reminders
+inventory	inventory-010	hardware bins stock thresholds
+inventory	inventory-011	pet food supply running low alert
+inventory	inventory-012	camping gear inventory checklist
+inventory	inventory-013	yarn stash low skein alerts
+voting	voting-004	class pet election with tally
+voting	voting-005	vote best pizza topping winner
+voting	voting-006	ranked vote for book club pick
+voting	voting-007	poll for weekend hike location
+voting	voting-008	vote on baby name shortlist
+voting	voting-009	team jersey color vote tally
+voting	voting-010	vote best dessert at potluck
+voting	voting-011	ranked choice for camping dates
+voting	voting-012	vote on next podcast topic
+voting	voting-013	classroom reward choice poll
+decision	decision-004	rank my job offers by score
+decision	decision-005	score vacation spots by priorities
+decision	decision-006	compare laptops with weighted ratings
+decision	decision-007	score potential roommates by criteria
+decision	decision-008	rate cars against my must haves
+decision	decision-009	weighted score for wedding venues
+decision	decision-010	compare colleges by importance factors
+decision	decision-011	score gyms by what matters
+decision	decision-012	rank baby names by preference score
+decision	decision-013	compare phone plans by weighted score
+generators	generators-004	random excuse generator
+generators	generators-005	fantasy pet name generator
+generators	generators-006	random compliment generator
+generators	generators-007	silly insult generator
+generators	generators-008	random color palette generator
+generators	generators-009	fake band name generator
+generators	generators-010	random workout idea generator
+generators	generators-011	haiku generator
+generators	generators-012	random dare generator
+generators	generators-013	made up word generator
+calendar-math	calendar-math-004	day of week i was born
+calendar-math	calendar-math-005	weeks until christmas countdown
+calendar-math	calendar-math-006	add 90 days to a date
+calendar-math	calendar-math-007	how many fridays in this year
+calendar-math	calendar-math-008	what day is 6 months from today
+calendar-math	calendar-math-009	days left in the year
+calendar-math	calendar-math-010	date 3 weeks ago from today
+calendar-math	calendar-math-011	is this date a friday the 13th
+calendar-math	calendar-math-012	how many days old am i
+calendar-math	calendar-math-013	what was the date 50 days ago
+number-tools	number-tools-004	square root calculator
+number-tools	number-tools-005	factorial finder
+number-tools	number-tools-006	number to words converter
+number-tools	number-tools-007	perfect number checker
+number-tools	number-tools-008	digit sum calculator
+number-tools	number-tools-009	roman numeral converter
+number-tools	number-tools-010	cube root finder
+number-tools	number-tools-011	even or odd checker
+number-tools	number-tools-012	sum of divisors finder
+number-tools	number-tools-013	rounding to nearest ten
+branching-story	branching-story-004	pirate adventure branching story
+branching-story	branching-story-005	haunted house choice story
+branching-story	branching-story-006	space explorer multiple endings story
+branching-story	branching-story-007	time travel choice adventure
+branching-story	branching-story-008	dragon quest branching story
+branching-story	branching-story-009	detective mystery with four endings
+branching-story	branching-story-010	jungle survival choice story
+branching-story	branching-story-011	medieval knight choose adventure
+branching-story	branching-story-012	zombie escape branching story
+branching-story	branching-story-013	underwater adventure with choices
+expiry	expiry-004	subscription renewal dates sorted by days left
+expiry	expiry-005	return window deadlines tracker sorted
+expiry	expiry-006	medication refill due dates list
+expiry	expiry-007	gift card balance expiry countdown
+expiry	expiry-008	domain name renewal dates sorted
+expiry	expiry-009	passport and visa expiry countdown
+expiry	expiry-010	library book due dates sorted
+expiry	expiry-011	car registration expiry countdown list
+expiry	expiry-012	certification renewal dates sorted
+expiry	expiry-013	milk and dairy expiry sorter
+baby-log	baby-log-004	baby sleep log with weekly averages
+baby-log	baby-log-005	bottle feeding tracker with daily totals
+baby-log	baby-log-006	baby medicine dose log with last given time
+baby-log	baby-log-007	tummy time tracker with daily minutes
+baby-log	baby-log-008	baby weight log with growth chart
+baby-log	baby-log-009	pumping session log with ounces per day
+baby-log	baby-log-010	baby spit up tracker with daily count
+baby-log	baby-log-011	nap length log with average per day
+baby-log	baby-log-012	solid food trial log with reactions
+baby-log	baby-log-013	baby temperature log with highest reading
+fuel-log	fuel-log-004	water bottle refill log per day
+fuel-log	fuel-log-005	propane tank refill log per exchange
+fuel-log	fuel-log-006	firewood bundle purchase log per load
+fuel-log	fuel-log-007	grocery spending log per receipt
+fuel-log	fuel-log-008	coffee shop visit log per cup
+fuel-log	fuel-log-009	printer ink cartridge log per swap
+fuel-log	fuel-log-010	home heating oil log per delivery
+fuel-log	fuel-log-011	laundry detergent log per wash
+fuel-log	fuel-log-012	bird seed bag log per refill
+fuel-log	fuel-log-013	salt bag log per winter storm
+color-tools	color-tools-004	color palette generator from photo
+color-tools	color-tools-005	gradient color picker tool
+color-tools	color-tools-006	find complementary color instantly
+color-tools	color-tools-007	css color code translator
+color-tools	color-tools-008	pick colors from an image
+color-tools	color-tools-009	convert color names to hex
+color-tools	color-tools-010	color blindness simulator tool
+color-tools	color-tools-011	shade and tint calculator
+color-tools	color-tools-012	generate random color scheme
+color-tools	color-tools-013	rgb to hsl converter
+music-theory	music-theory-004	interval ear training quiz
+music-theory	music-theory-005	chord progression generator
+music-theory	music-theory-006	scale degree finder
+music-theory	music-theory-007	key signature lookup tool
+music-theory	music-theory-008	triad builder from root
+music-theory	music-theory-009	modes of major scale guide
+music-theory	music-theory-010	note to frequency converter
+music-theory	music-theory-011	seventh chord identifier
+music-theory	music-theory-012	guitar capo transpose helper
+music-theory	music-theory-013	roman numeral chord analyzer
+game-clocks	game-clocks-004	chess clock for two players
+game-clocks	game-clocks-005	turn timer for board games
+game-clocks	game-clocks-006	poker shot clock for players
+game-clocks	game-clocks-007	speed chess timer with increments
+game-clocks	game-clocks-008	two player card game timer
+game-clocks	game-clocks-009	scrabble turn timer
+game-clocks	game-clocks-010	boxing round timer for two corners
+game-clocks	game-clocks-011	auction bidding timer
+game-clocks	game-clocks-012	darts match timer
+game-clocks	game-clocks-013	table tennis serve timer
+party-games	party-games-004	never have i ever question spinner
+party-games	party-games-005	would you rather vote for friends
+party-games	party-games-006	quick drawing challenge with timer
+party-games	party-games-007	guess the movie from emoji prompt
+party-games	party-games-008	spin the bottle truth questions
+party-games	party-games-009	name three things category roulette
+party-games	party-games-010	two truths and a lie tracker
+party-games	party-games-011	word association game with timer
+party-games	party-games-012	dare wheel for game night
+party-games	party-games-013	guess the song from lyrics
+gift-exchange	gift-exchange-004	family reunion gift swap rules
+gift-exchange	gift-exchange-005	office secret santa spending cap
+gift-exchange	gift-exchange-006	white elephant steal limit tracker
+gift-exchange	gift-exchange-007	assign gift buddies for book club
+gift-exchange	gift-exchange-008	hanukkah gift exchange pairing
+gift-exchange	gift-exchange-009	dorm floor gift swap organizer
+gift-exchange	gift-exchange-010	cousin gift draw with exclusions
+gift-exchange	gift-exchange-011	team secret santa name matcher
+gift-exchange	gift-exchange-012	baby shower gift lottery setup
+gift-exchange	gift-exchange-013	neighborhood holiday gift pairing
+timetable	timetable-004	shift roster with overlap alert
+timetable	timetable-005	conference agenda with session clash warning
+timetable	timetable-006	gym class schedule with double booking check
+timetable	timetable-007	exam timetable with room conflict alert
+timetable	timetable-008	tv schedule with timeslot overlap warning
+timetable	timetable-009	weekly meal prep slots with clash check
+timetable	timetable-010	train departure board with platform conflict alert
+timetable	timetable-011	staff meeting planner with overlap warning
+timetable	timetable-012	study timetable with revision slot clash
+timetable	timetable-013	patient appointment slots with booking conflict
+habit-grid	habit-grid-004	daily water drinking grid
+habit-grid	habit-grid-005	reading log grid for the month
+habit-grid	habit-grid-006	workout streak tracker grid
+habit-grid	habit-grid-007	meditation days grid calendar
+habit-grid	habit-grid-008	chore completion grid for the month
+habit-grid	habit-grid-009	pet feeding tracker grid
+habit-grid	habit-grid-010	language practice streak grid
+habit-grid	habit-grid-011	sleep quality grid for the month
+habit-grid	habit-grid-012	vitamin reminder grid calendar
+habit-grid	habit-grid-013	journaling days habit grid
+riddles	riddles-004	guess the animal riddle app
+riddles	riddles-005	funny riddles with reveal answers
+riddles	riddles-006	daily brain teaser challenge
+riddles	riddles-007	riddles for kids with hints
+riddles	riddles-008	solve mystery riddles offline
+riddles	riddles-009	wordplay riddles with answers
+riddles	riddles-010	guess the object riddle game
+riddles	riddles-011	logic puzzles with hidden answers
+riddles	riddles-012	christmas riddles with reveal
+riddles	riddles-013	riddle quiz with clue levels
+math-practice	math-practice-004	decimal addition practice for kids
+math-practice	math-practice-005	telling time with levels and answer check
+math-practice	math-practice-006	counting coins practice for kids
+math-practice	math-practice-007	negative numbers practice with levels
+math-practice	math-practice-008	word problems for third graders
+math-practice	math-practice-009	rounding numbers practice for kids
+math-practice	math-practice-010	multiplication facts with levels
+math-practice	math-practice-011	shape recognition practice for toddlers
+math-practice	math-practice-012	place value practice with answer check
+math-practice	math-practice-013	measuring length practice for kids
+schedule-gen	schedule-gen-004	workout schedule before a vacation
+schedule-gen	schedule-gen-005	watering schedule for houseplants
+schedule-gen	schedule-gen-006	chore schedule for roommates
+schedule-gen	schedule-gen-007	feeding schedule for a newborn
+schedule-gen	schedule-gen-008	revision schedule for a driving test
+schedule-gen	schedule-gen-009	shift schedule for a small cafe
+schedule-gen	schedule-gen-010	reading schedule for a book club
+schedule-gen	schedule-gen-011	budget schedule for a wedding
+schedule-gen	schedule-gen-012	practice schedule for a recital
+schedule-gen	schedule-gen-013	cleaning schedule for a shared flat
+countdowns	countdowns-004	countdown to my vacations
+countdowns	countdowns-005	days until family birthdays
+countdowns	countdowns-006	countdowns to school breaks
+countdowns	countdowns-007	days left until deadlines list
+countdowns	countdowns-008	countdown to concert dates
+countdowns	countdowns-009	days until payday each month
+countdowns	countdowns-010	countdowns to movie releases
+countdowns	countdowns-011	days until my trips list
+countdowns	countdowns-012	countdown to sports games
+countdowns	countdowns-013	days until bill due dates
