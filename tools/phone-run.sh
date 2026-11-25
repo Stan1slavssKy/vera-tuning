@@ -26,6 +26,27 @@ on_screen() {  # true once the layout shows $1, false after $2 seconds
   return 1
 }
 
+# The agent may ask the person a question before it builds (VeraAgent.ets); on the host the suggested answer is taken
+# (agent-run.js), so here the button marked "(suggested)" is tapped. True when one was.
+answer_suggested() {
+  hdc shell "uitest dumpLayout -p /data/local/tmp/pr-layout.json >/dev/null" >/dev/null
+  hdc file recv /data/local/tmp/pr-layout.json /tmp/pr-layout.$$.json >/dev/null 2>&1 || return 1
+  local at
+  at=$(python3 - /tmp/pr-layout.$$.json <<'PY'
+import json, re, sys
+def walk(n):
+    a = n.get('attributes', {})
+    if '(suggested)' in a.get('text', '') and a.get('bounds'):
+        x1, y1, x2, y2 = map(int, re.findall(r'-?\d+', a['bounds']))
+        print((x1 + x2) // 2, (y1 + y2) // 2); sys.exit(0)
+    for c in n.get('children', []): walk(c)
+walk(json.load(open(sys.argv[1])))
+PY
+)
+  [ -n "$at" ] || return 1
+  hdc shell uitest uiInput click $at >/dev/null
+}
+
 grep -v '^#' "$PROMPTS" | while IFS=$'\t' read -r family label prompt; do
   [ -z "${label:-}" ] && continue
   if [ $# -gt 0 ] && [[ ! " $* " == *" $label "* ]]; then continue; fi
@@ -40,14 +61,15 @@ grep -v '^#' "$PROMPTS" | while IFS=$'\t' read -r family label prompt; do
   hdc shell "uitest uiInput inputText $FIELD '$prompt'" >/dev/null
   sleep 1
   hdc shell uitest uiInput click $SEND >/dev/null
-  start=$(date +%s); ended=0
+  start=$(date +%s); ended=0; answered=0
   while (( $(date +%s) - start < TIMEOUT )); do
     sleep 5
     hdc shell "grep -c gen-end $TRACE" 2>/dev/null | grep -q '^[1-9]' && { ended=1; break; }
+    answer_suggested && answered=$((answered + 1))
   done
   sleep 2
   hdc file recv $TRACE "$dir/trace.jsonl" >/dev/null
   hdc shell snapshot_display -f /data/local/tmp/pr.jpeg >/dev/null; hdc file recv /data/local/tmp/pr.jpeg "$dir/screen.jpeg" >/dev/null
-  printf '%-22s %s %3ss lookups=%s holes=%s\n' "$label" "$([ $ended = 1 ] && echo ended || echo TIMEOUT)" "$(( $(date +%s) - start ))" \
-    "$(grep -c '"event":"lookup"' "$dir/trace.jsonl")" "$(grep -c '"event":"hole"' "$dir/trace.jsonl")"
+  printf '%-22s %s %3ss lookups=%s holes=%s answered=%s\n' "$label" "$([ $ended = 1 ] && echo ended || echo TIMEOUT)" "$(( $(date +%s) - start ))" \
+    "$(grep -c '"event":"lookup"' "$dir/trace.jsonl")" "$(grep -c '"event":"hole"' "$dir/trace.jsonl")" "$answered"
 done
