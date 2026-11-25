@@ -68,6 +68,15 @@ function asWritten(body) {
   return body.split('\n').map(l => l.replace(/^ {2}/, '')).join('\n')
 }
 
+/** The needs a reply declines one by one, as written in <cannot need="..."> (HTML entities undone). */
+function declinedIn(reply) {
+  const entities = {quot: '"', amp: '&', lt: '<', gt: '>', apos: "'", '#39': "'"}
+  return [...reply.matchAll(/<cannot\s+need\s*=\s*"([^"]*)"\s*>/g)].map(m => m[1].replace(/&(quot|amp|lt|gt|apos|#39);/g, (_, e) => entities[e]))
+}
+
+/** A declined need names the need asked: the writer often copies only its start. */
+const sameNeed = (declined, need) => declined.slice(0, 40) === need.slice(0, 40) || need.startsWith(declined) || declined.startsWith(need)
+
 const sameBodies = (a, b) => JSON.stringify(Object.entries(a || {}).sort()) === JSON.stringify(Object.entries(b || {}).sort())
 
 function main() {
@@ -158,8 +167,20 @@ function main() {
           drop('reported: to review')
           continue
         }
+        const unmet = e.missed || []
+        const declined = declinedIn(last.reply)
+        // Served with the needs it could not do declined in its own words (<cannot need>): a partial refusal, read by
+        // a person before it is trained on (Jev reads what a section does, not whether a refusal is right).
+        if (e.outcome === 'partial' && unmet.length > 0 && unmet.every(m => declined.some(d => sameNeed(d, m))) &&
+            language !== null && last.system.startsWith(language) && last.finish === 'stop' && !SCENE.test(last.reply)) {
+          const system = last.system.slice(language.length).trimStart()
+          review.push({kind: 'partial decline', label, family, prompt: e.prompt, needs: e.needs, missed: unmet,
+            messages: [{role: 'system', content: system}, {role: 'user', content: last.user}, {role: 'assistant', content: last.reply}]})
+          drop('partial decline: to review')
+          continue
+        }
         if (e.outcome !== 'written') { drop(e.outcome); continue }
-        if ((e.missed || []).length > 0) { drop('missed needs'); continue }
+        if (unmet.length > 0) { drop('missed needs'); continue }
         if (last.error || last.finish !== 'stop') { drop('not finished'); continue }
         if (SCENE.test(last.reply)) { drop('scene'); continue }
         if (language === null || !last.system.startsWith(language)) { drop('system prompt without the language'); continue }

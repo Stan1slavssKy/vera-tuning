@@ -1,18 +1,24 @@
 {
- "requests": 80,
- "holes": 52,
+ "requests": 280,
+ "holes": 244,
  "kept": {
-  "first": 22,
-  "repair": 16
+  "section repair": 19,
+  "section first": 30,
+  "catalogue-hole first": 158,
+  "catalogue-hole repair": 145
  },
  "dropped": {
-  "partial": 6,
-  "scene": 7,
-  "reported: failed": 1
+  "partial": 14,
+  "scene": 9,
+  "partial decline: to review": 10,
+  "reported: failed": 1,
+  "reply is not the section kept": 1,
+  "catalogue hole: nothing kept": 2
  },
  "bySplit": {
-  "train": 34,
-  "test": 4
+  "train": 293,
+  "test": 19,
+  "validation": 40
  },
  "byFamily": {
   "date-math": 3,
@@ -36,10 +42,60 @@
   "text-tools": 1,
   "typing": 2,
   "uneven-split": 1,
-  "word-games": 2
+  "word-games": 2,
+  "phone-calendar": 2,
+  "phone-call": 1,
+  "phone-maps": 3,
+  "phone-message": 1,
+  "phone-settings": 1,
+  "phone-sound": 1,
+  "phone-torch": 1,
+  "phone-vibrate": 1,
+  "rm-apps": 6,
+  "rm-birds": 8,
+  "rm-board-games": 8,
+  "rm-books": 8,
+  "rm-camping-gear": 8,
+  "rm-car-parts": 7,
+  "rm-cheeses": 8,
+  "rm-chess-openings": 8,
+  "rm-cities": 8,
+  "rm-cleaning-products": 8,
+  "rm-cocktails": 7,
+  "rm-coffee-beans": 7,
+  "rm-contacts": 8,
+  "rm-countries": 8,
+  "rm-courses": 8,
+  "rm-dog-breeds": 8,
+  "rm-exercises": 8,
+  "rm-fonts": 8,
+  "rm-gift-ideas": 8,
+  "rm-hiking-trails": 7,
+  "rm-medicines": 7,
+  "rm-movies": 8,
+  "rm-museums": 7,
+  "rm-paint-colours": 8,
+  "rm-phone-numbers": 6,
+  "rm-plants": 8,
+  "rm-podcasts": 8,
+  "rm-recipes": 7,
+  "rm-recipes-for-kids": 8,
+  "rm-restaurants": 7,
+  "rm-sneakers": 8,
+  "rm-songs": 8,
+  "rm-spices": 7,
+  "rm-tasks": 7,
+  "rm-teas": 7,
+  "rm-tools": 7,
+  "rm-travel-spots": 8,
+  "rm-vocabulary-words": 8,
+  "rm-wines": 7,
+  "rm-yoga-poses": 8
  },
  "runs": [
   "b01",
-  "b02"
+  "b02",
+  "b03",
+  "b04"
  ]
 }
