@@ -1,0 +1,402 @@
+# key	ok|fail	why -- tools/recheck-declines.js; tools/export.js keeps a section refusal only when ok
+baby-log-006 section Send a notification reminding me when the next dose is allowed even when the app is closed	ok	compiles, runs, every field read
+baby-log-011 section Show my actual sleep and nap data from my phone's health app automatically	ok	compiles, runs, every field read
+baby-log-012 section Show a live camera photo of the baby when logging a reaction.	ok	compiles, runs, every field read
+branching-story-007 section Show a live photo of the era I pick	ok	compiles, runs, every field read
+branching-story-008 section Show a live photo of the dragon from the phone camera	ok	compiles, runs, every field read
+branching-story-011 section Show a live camera picture of your face as the knight	ok	compiles, runs, every field read
+calendar-math-009 section Show a live camera view of the sky to guess the date	ok	compiles, runs, every field read
+color-tools-009 section Show a live camera view of the color in front of the phone	ok	compiles, runs, every field read
+color-tools-011 section Pick the base color from a live camera picture	ok	compiles, runs, every field read
+countdowns-009 section Send me a reminder notification on payday morning	ok	compiles, runs, every field read
+envelopes-004 section Pull my recent grocery store purchases from my bank automatically	ok	compiles, runs, every field read
+envelopes-008 section Show nearby shops where I could spend the savings	ok	compiles, runs, every field read
+envelopes-009 section Warn me with a notification when the app is closed	ok	compiles, runs, every field read
+envelopes-013 section Automatically import my bank transactions	ok	compiles, runs, every field read
+expiry-006 section Send me a notification when a refill is due while the app is closed	ok	compiles, runs, every field read
+expiry-009 section Send me a push alert when a document expires while the app is closed	ok	compiles, runs, every field read
+expiry-011 section Show a live photo of my car's plate using the camera	ok	compiles, runs, every field read
+fitness-calcs-006 section Read my heart rate from my watch in real time while I work out	ok	compiles, runs, every field read
+fitness-calcs-007 section Show a live map of my route while I run	ok	compiles, runs, every field read
+game-clocks-007 section Show a live camera view of the chess board	ok	compiles, runs, every field read
+gift-exchange-006 section Automatically detect gifts by scanning the room with the camera.	ok	compiles, runs, every field read
+habit-grid-010 section Send a reminder notification while the app is closed	ok	compiles, runs, every field read
+language-drill-008 section Show a live camera photo of the Latin textbook page to auto-fill nouns	ok	compiles, runs, every field read
+language-drill-012 section Play a pronunciation of each Arabic word out loud using the phone speaker	ok	compiles, runs, every field read
+language-drill-013 section Read the tone mark from a photo of a textbook page	ok	compiles, runs, every field read
+math-practice-005 section Show a live camera view of a real clock on the wall	ok	compiles, runs, every field read
+math-practice-008 section Show a live photo of the classroom through the camera	ok	compiles, runs, every field read
+math-practice-012 section Show a live camera picture of the number written on paper so it reads my answer.	ok	compiles, runs, every field read
+music-theory-009 section Play the mode through the phone's speaker while the app is closed	ok	compiles, runs, every field read
+number-tools-009 section Show a live camera view to scan Roman numerals from a photo	ok	compiles, runs, every field read
+number-tools-012 section Ring a notification when a number's divisors finish computing in the background	ok	compiles, runs, every field read
+player-stats-005 section Import my game stats from the MLB app automatically	ok	compiles, runs, every field read
+player-stats-006 section Show live video of the hockey game while I log points	ok	compiles, runs, every field read
+projections-006 section Pull my real credit card balance from my bank automatically	ok	compiles, runs, every field read
+projections-007 section Show my current location and nearby running routes	ok	compiles, runs, every field read
+queue-007 section Notify me when I'm next in line even if the app is closed	ok	compiles, runs, every field read
+rewards-007 section Send a notification to remind the kid when the pet still needs feeding	ok	compiles, runs, every field read
+seating-007 section Show the real-time waitlist from our reservation system	ok	compiles, runs, every field read
+seating-009 section Show a live map of the venue with each guest's location	ok	compiles, runs, every field read
+seating-011 section Notify me when a driver gets bumped by seniority while the app is closed	ok	compiles, runs, every field read
+tally-004 section Show a live camera preview so I can spot cars to count	ok	compiles, runs, every field read
+timetable-005 section Show a live map of the conference venue with walking directions	ok	compiles, runs, every field read
+tournament-006 section Show live video of each player's screen during matches	ok	compiles, runs, every field read
+tournament-007 section Show a live camera view of the hat being drawn from	ok	compiles, runs, every field read
+tournament-008 section Show live scores from other stadiums while the app is closed	ok	compiles, runs, every field read
+tournament-011 section Show a live photo of the game board to score it	ok	compiles, runs, every field read
+voting-009 section Show a live photo of the actual team jerseys using the camera	ok	compiles, runs, every field read
+voting-010 section Take a photo of each dessert and attach it to its entry	ok	compiles, runs, every field read
+calendar-math-015 section Live camera preview of the birthday cake	ok	compiles, runs, every field read
+calendar-math-018 section Show a live calendar photo from the camera	ok	compiles, runs, every field read
+category-014 section Show a live camera photo of the person to estimate BMI	ok	compiles, runs, every field read
+category-018 section Use my phone's GPS to get the wind speed at my location.	ok	compiles, runs, every field read
+challenge-015 section Detect my squats using the front camera automatically	ok	compiles, runs, every field read
+ciphers-014 section Scan a printed number with the camera and convert it automatically	ok	compiles, runs, every field read
+ciphers-016 section Read the word from my clipboard automatically without me pasting it	ok	compiles, runs, every field read
+custom-filter-018 section Show a live photo of each plant from my camera	ok	compiles, runs, every field read
+date-math-015 section Send me a notification each morning with the countdown while the app is closed	ok	compiles, runs, every field read
+date-math-016 section Show a live camera view to scan dates off a paper calendar	ok	compiles, runs, every field read
+dice-cards-017 section Detect which number the real roulette wheel landed on using the camera	ok	compiles, runs, every field read
+envelopes-016 section Scan grocery receipts with the camera to add spends automatically	ok	compiles, runs, every field read
+fitness-calcs-017 section Show my location so it suggests nearby high-protein foods	ok	compiles, runs, every field read
+flashcards-017 section Use the phone camera to scan Korean text from a sign and add it as a card.	ok	compiles, runs, every field read
+grades-014 section Scan my transcript with the camera to add courses automatically	ok	compiles, runs, every field read
+guess-game-015 section Show a movie poster for each clue from the web	ok	compiles, runs, every field read
+inventory-017 section Send me a phone notification when a wine drops low while the app is closed	ok	compiles, runs, every field read
+inventory-018 section Show a live photo of my first aid kit using the camera.	ok	compiles, runs, every field read
+language-drill-014 section Show my location so I can learn local French signs	ok	compiles, runs, every field read
+language-drill-015 section Show a live camera picture of the object named by the noun	ok	compiles, runs, every field read
+language-drill-018 section Listen to me say the number and check my pronunciation	ok	compiles, runs, every field read
+money-challenges-013 section Show a live camera photo of my bank receipt to auto-read the amount	ok	compiles, runs, every field read
+next-due-015 section Show a live camera view to photograph the boiler label	ok	compiles, runs, every field read
+next-due-016 section Send a notification when the app is closed	ok	compiles, runs, every field read
+number-tools-014 section Read the number from another app on my phone automatically.	ok	compiles, runs, every field read
+number-tools-016 section Read the number from a photo of a math worksheet using the camera	ok	compiles, runs, every field read
+number-tools-017 section Show a live camera preview to scan numbers from a photo	ok	compiles, runs, every field read
+phone-message-013 section Send the message through the roommate's own messaging app	ok	compiles, runs, every field read
+quiz-016 section Show a live picture of Mount Olympus from a camera	ok	compiles, runs, every field read
+quiz-018 section Show a live camera feed of real dinosaurs	ok	compiles, runs, every field read
+rewards-013 section Show a live camera view to count my reps while exercising	ok	compiles, runs, every field read
+rotation-015 section Send me a notification when a plant is due while the app is closed	ok	compiles, runs, every field read
+rotation-016 section Show a live map of the nearest supermarket	ok	compiles, runs, every field read
+since-last-017 section Show a live photo from my camera so I can log what I ate	ok	compiles, runs, every field read
+sports-score-013 section Detect strikes automatically from the phone's camera as you bowl	ok	compiles, runs, every field read
+sports-score-014 section Show a live camera feed to auto-detect where darts land on the board	ok	compiles, runs, every field read
+sports-score-017 section Take a photo of the scoreboard and read the score from it	ok	compiles, runs, every field read
+streak-014 section Send me a reminder notification when I haven't drunk water	ok	compiles, runs, every field read
+streak-015 section Show my location so I can see where I practice guitar	ok	compiles, runs, every field read
+text-tools-016 section Detect duplicates in text from other apps automatically	ok	compiles, runs, every field read
+typing-014 section Play a beep when the time runs out even if the app is closed	ok	compiles, runs, every field read
+typing-015 section Show a live camera view so I can watch myself type	ok	compiles, runs, every field read
+uneven-split-015 section Show each person's location on a map to verify days at home.	ok	compiles, runs, every field read
+voting-014 section Show a live camera view of the pizza I'm eating	ok	compiles, runs, every field read
+voting-019 section Show a live camera photo of the meeting room next to each slot	ok	compiles, runs, every field read
+workout-builder-015 section Play a beep or vibrate when the timer ends while the app is closed.	ok	compiles, runs, every field read
+workout-builder-019 section Show a live camera view so I can check my form while I exercise	ok	compiles, runs, every field read
+baby-log-l01 section Show a live camera feed of the baby while logging	ok	compiles, runs, every field read
+calendar-math-l01 section Show a sound or notification when the app is closed	ok	compiles, runs, every field read
+ciphers-l02 section Show a live camera preview to scan text into the app	ok	compiles, runs, every field read
+color-tools-l01 section Show the camera view so I can point at a color to detect its hex	ok	compiles, runs, every field read
+date-math-l02 section Read my start date automatically from my work calendar app	ok	compiles, runs, every field read
+fitness-calcs-l02 section Show a live camera view to detect how many reps I just did.	ok	compiles, runs, every field read
+flashcards-l02 section Read my textbook pages with the camera to add terms	ok	compiles, runs, every field read
+fuel-log-l02 section Show live map of nearby charging stations	ok	compiles, runs, every field read
+game-clocks-l03 section Show the Scrabble board through the camera so players can verify words	ok	compiles, runs, every field read
+grades-l02 section Take a photo of my transcript and fill in the classes automatically	ok	compiles, runs, every field read
+guess-game-l01 section Show a live camera picture inside the app to entertain me while guessing.	ok	compiles, runs, every field read
+habit-grid-l03 section Send me a reminder notification each evening if I haven't ticked today	ok	compiles, runs, every field read
+language-drill-l01 section Show a live camera picture of my face when I get an answer right	ok	compiles, runs, every field read
+next-due-l02 section Send me a notification when a vaccine becomes due while the app is closed	ok	compiles, runs, every field read
+nutrition-l03 section Scan a food package with the camera to read its sugar content	ok	compiles, runs, every field read
+projections-l03 section Scan my puppy with the camera to estimate its breed	ok	compiles, runs, every field read
+quiz-l01 section Show a live camera view to scan a periodic table from my textbook	ok	compiles, runs, every field read
+tally-l01 section Show a live camera view counting people automatically as they pass the door	ok	compiles, runs, every field read
+tally-l03 section Show a live camera view of my knitting to count stitches automatically	ok	compiles, runs, every field read
+text-tools-l01 section Notify me when the reading time changes while the app is closed	ok	compiles, runs, every field read
+tournament-l01 section Show a live camera view of the ping pong table in the app	ok	compiles, runs, every field read
+workout-builder-l01 section Show a live camera view of my form while I work out	ok	compiles, runs, every field read
+party-games-007 section Use the phone camera to show the movie poster as a clue.	ok	compiles, runs, every field read
+riddles-004 section Read my mind to know if I guessed right	ok	compiles, runs, every field read
+riddles-006 section Pull up a live camera photo of today's puzzle card	ok	compiles, runs, every field read
+riddles-007 section Read the riddle question aloud using the phone speaker automatically.	ok	compiles, runs, every field read
+riddles-010 section Show a live camera view to scan the object I'm guessing	ok	compiles, runs, every field read
+riddles-011 section Show a live photo of the bulb on the upstairs landing to check if it is lit	ok	compiles, runs, every field read
+schedule-gen-005 section Water the plants automatically from my phone	ok	compiles, runs, every field read
+riddles-l02 section Read the riddle aloud with a sound while the app is closed	ok	compiles, runs, every field read
+score-history-l03 section Show Scrabble tile letters from my camera	ok	compiles, runs, every field read
+booking-004 section Show a live photo of the dinner table inside the app	ok	compiles, runs, every field read
+booking-005 section Show a live camera view of which spots are actually empty	ok	compiles, runs, every field read
+decision-006 section Show a live camera photo of each laptop while comparing	ok	compiles, runs, every field read
+decision-009 section Pull live photos of each venue from the web automatically	ok	compiles, runs, every field read
+decision-011 section Show nearby gyms automatically from my location	ok	compiles, runs, every field read
+decision-013 section Look up real coverage data for my area automatically	ok	compiles, runs, every field read
+meal-plan-004 section Show a live photo of my fridge to check what I already have	fail	runs wrong or leaves a field unread
+meal-plan-008 section Show a live camera photo of my fridge contents	ok	compiles, runs, every field read
+meal-plan-009 section Suggest a menu based on photos of my fridge	ok	compiles, runs, every field read
+ratios-010 section Detect how strong the juice is using the phone camera	ok	compiles, runs, every field read
+decision-015 section Show a live camera view of each vacation spot	ok	compiles, runs, every field read
+decision-016 section Pull the car's price and mileage automatically from a listing photo	ok	compiles, runs, every field read
+decision-019 section Show a live photo of the gym from its own camera feed	ok	compiles, runs, every field read
+meal-plan-016 section Show a live photo of my fridge to suggest meals	ok	compiles, runs, every field read
+phone-calendar-016 section Show me the movie's poster pulled from a streaming service	ok	compiles, runs, every field read
+phone-call-016 section Show the contact's live profile photo from my phone's contacts.	ok	compiles, runs, every field read
+decision-l01 section Show a live camera view of each apartment while I walk through it	ok	compiles, runs, every field read
+decision-l02 section Scan a laptop box with my camera to fill in the specs	ok	compiles, runs, every field read
+journal-stats-l01 section Show my phone's location on entries automatically	ok	compiles, runs, every field read
+journal-stats-l02 section Show my GPS route map for each run automatically	ok	compiles, runs, every field read
+word-games-l01 section Show a live camera picture of the word written on paper	ok	compiles, runs, every field read
+baby-log-004 section Show live camera video of the baby sleeping	ok	compiles, runs, every field read
+baby-log-008 section Take a photo with the camera and attach it to a reading	ok	compiles, runs, every field read
+baby-log-010 section Send me a reminder notification every few hours while the app is closed	ok	compiles, runs, every field read
+baby-log-013 section Read the baby's temperature from a thermometer automatically	ok	compiles, runs, every field read
+booking-006 section Sync with my phone calendar automatically	ok	compiles, runs, every field read
+booking-007 section Show live court availability from the club's booking system	ok	compiles, runs, every field read
+booking-008 section Show a live map of nearby volunteer locations around me	ok	compiles, runs, every field read
+branching-story-004 section Read the map aloud with sound while the app is closed	ok	compiles, runs, every field read
+branching-story-009 section Play a suspenseful sound effect while the case is unsolved and the app is closed	ok	compiles, runs, every field read
+branching-story-010 section Show a live jungle camera feed of the trail	ok	compiles, runs, every field read
+branching-story-013 section Show a live camera view of the reef while diving.	ok	compiles, runs, every field read
+calendar-math-005 section Show a live countdown ticking in a notification while the app is closed	ok	compiles, runs, every field read
+calendar-math-011 section Show a live camera view so I can photograph a calendar	ok	compiles, runs, every field read
+calendar-math-012 section Show my exact location and nearby hospitals	ok	compiles, runs, every field read
+color-tools-005 section Pick colors from a photo taken with the camera	ok	compiles, runs, every field read
+color-tools-012 section Pick colors from a live camera view of whatever is in front of me	ok	compiles, runs, every field read
+countdowns-004 section Show a live photo of my vacation destination in the app	ok	compiles, runs, every field read
+countdowns-007 section Send me a notification when a deadline is one day away even if the app is closed	ok	compiles, runs, every field read
+countdowns-011 section Show a live camera snapshot of each destination when adding a trip	ok	compiles, runs, every field read
+countdowns-013 section Send me a reminder notification when a bill is about to be due.	ok	compiles, runs, every field read
+decision-005 section Pull live weather forecasts for each destination	ok	compiles, runs, every field read
+decision-010 section Automatically look up each college's real tuition and rankings from the web	ok	compiles, runs, every field read
+envelopes-005 section Send me a notification when a pot reaches its target while the app is closed	ok	compiles, runs, every field read
+envelopes-006 section Show my real bank account balance in the app.	ok	compiles, runs, every field read
+expiry-004 section Send me a notification when a subscription is about to renew.	ok	compiles, runs, every field read
+expiry-005 section automatically pull return deadlines from my email	ok	compiles, runs, every field read
+expiry-013 section Scan the expiry date from a photo of the carton	ok	compiles, runs, every field read
+fitness-calcs-004 section Show a live camera preview to measure waist automatically	ok	compiles, runs, every field read
+fitness-calcs-008 section Show the person's current location and nearby gyms.	ok	compiles, runs, every field read
+fitness-calcs-011 section Show a live camera preview to scan my heart rate from my finger	ok	compiles, runs, every field read
+fuel-log-006 section Show a live camera view to photograph the firewood stack.	ok	compiles, runs, every field read
+fuel-log-008 section Show a live map of coffee shops near me	ok	compiles, runs, every field read
+game-clocks-005 section Play a chime and vibrate even when the app is closed or in the background	ok	compiles, runs, every field read
+game-clocks-008 section Show a photo of the players using the live camera	ok	compiles, runs, every field read
+game-clocks-010 section Keep the countdown running and beep when the app is closed	ok	compiles, runs, every field read
+game-clocks-012 section Show a live camera view of the dartboard while timing the leg	ok	compiles, runs, every field read
+generators-007 section Show the person's friends' insults from their contacts	ok	compiles, runs, every field read
+generators-012 section Show a live camera view to record doing the dare	ok	compiles, runs, every field read
+gift-exchange-008 section Show a live camera view of the dreidel spinning on a real table	ok	compiles, runs, every field read
+habit-grid-007 section Show my current location so I can tag where I meditated	ok	compiles, runs, every field read
+habit-grid-008 section Send me a reminder notification each evening for unfinished chores	ok	compiles, runs, every field read
+habit-grid-009 section Show a live camera view to confirm the pet actually ate	ok	compiles, runs, every field read
+habit-grid-012 section Send me a push notification at the reminder time when the app is closed	ok	compiles, runs, every field read
+inventory-005 section Send a notification when a tool drops below the threshold while the app is closed	ok	compiles, runs, every field read
+inventory-013 section Send me a notification when a yarn runs low while the app is closed	ok	compiles, runs, every field read
+language-drill-005 section Read the user's German textbook pages through the camera to add new verbs	ok	compiles, runs, every field read
+language-drill-007 section Use the phone camera to scan handwritten hiragana	ok	compiles, runs, every field read
+language-drill-009 section Show a live camera view to practice reading letters from the world	ok	compiles, runs, every field read
+language-drill-010 section Listen to me pronounce the verb and check if I'm correct	ok	compiles, runs, every field read
+language-drill-011 section Listen to me read the syllable aloud and check pronunciation.	ok	compiles, runs, every field read
+math-practice-004 section Play a cheerful sound when a round finishes while the app is closed	ok	compiles, runs, every field read
+math-practice-007 section Send me a push notification when my daily practice streak breaks.	ok	compiles, runs, every field read
+math-practice-009 section Show a live photo of the number written on paper to round.	ok	compiles, runs, every field read
+math-practice-010 section Play a ding sound and vibration alert when the app is closed	ok	compiles, runs, every field read
+meal-plan-013 section Show the weather forecast for my campsite location	ok	compiles, runs, every field read
+money-challenges-004 section Automatically detect my purchases from my card or bank	ok	compiles, runs, every field read
+money-challenges-005 section Notify me each evening if I haven't logged a no-spend day	ok	compiles, runs, every field read
+music-theory-006 section Play the scale out loud so I can hear it	ok	compiles, runs, every field read
+packing-010 section Show nearby hardware stores on a map based on my current location.	ok	compiles, runs, every field read
+packing-012 section Show a live camera view to scan the party invitation	ok	compiles, runs, every field read
+party-games-011 section Show a live camera feed so I can see my friends playing along	ok	compiles, runs, every field read
+player-stats-008 section Show a live camera view of the court while logging points	ok	compiles, runs, every field read
+player-stats-009 section Show a live camera view of the golf course in the app	ok	compiles, runs, every field read
+player-stats-010 section Show a live camera feed of the cricket match in the app	ok	compiles, runs, every field read
+price-compare-004 section Notify me when a cereal box goes on sale at my local store	ok	compiles, runs, every field read
+projections-004 section Show my current location so I can find nearby libraries.	ok	compiles, runs, every field read
+queue-005 section Show a live camera feed of the deli counter	ok	compiles, runs, every field read
+ratios-004 section Show a live photo of my coffee brewing	ok	compiles, runs, every field read
+rewards-004 section Send a notification to remind kids to do chores when the app is closed	ok	compiles, runs, every field read
+rewards-008 section Read my step count from the health app to award points automatically.	ok	compiles, runs, every field read
+rewards-010 section Send a notification when the app is closed	ok	compiles, runs, every field read
+rewards-011 section Send a notification when the app is closed to remind kids to log deposits	ok	compiles, runs, every field read
+riddles-005 section Show a live camera picture of the person laughing	ok	compiles, runs, every field read
+riddles-008 section Show a live camera feed to photograph riddles and solve them.	ok	compiles, runs, every field read
+riddles-012 section Read the riddle aloud using the phone's speaker automatically.	ok	compiles, runs, every field read
+schedule-gen-006 section Automatically read my roommates' shared calendar to fill the schedule	ok	compiles, runs, every field read
+schedule-gen-007 section Show a live camera view of the baby's crib in the app.	ok	compiles, runs, every field read
+schedule-gen-009 section Show who is currently clocked in by reading the cafe's POS system	ok	compiles, runs, every field read
+schedule-gen-013 section Send my flatmate a reminder notification when the app is closed	ok	compiles, runs, every field read
+seating-004 section Show a live photo of the actual bus seats as people board	ok	compiles, runs, every field read
+seating-013 section Send a push notification to members when their locker is assigned.	ok	compiles, runs, every field read
+tally-006 section Take a photo of my pet with the camera for each entry.	ok	compiles, runs, every field read
+tally-008 section Show a live camera picture of each coffee as I log it.	ok	compiles, runs, every field read
+timetable-004 section Send a notification alert when a shift overlap happens while the app is closed	ok	compiles, runs, every field read
+timetable-006 section Show members nearby gyms based on their current location	ok	compiles, runs, every field read
+timetable-012 section Show the live clock updating every second while the app is closed	ok	compiles, runs, every field read
+tournament-005 section Import my team's real league table from the league website automatically	ok	compiles, runs, every field read
+tournament-009 section Show a live video of the office TV playing the games	ok	compiles, runs, every field read
+tournament-013 section Show the real live pairings of a tournament happening near me.	ok	compiles, runs, every field read
+voting-006 section Show the current location of each book club member	ok	compiles, runs, every field read
+voting-007 section Show a live camera photo of each trail in the list	ok	compiles, runs, every field read
+voting-012 section Show live listener counts from the podcast host's server.	ok	compiles, runs, every field read
+workout-builder-004 section Make the timer beep when a hold ends while the app is closed	ok	compiles, runs, every field read
+workout-builder-006 section Shuffle automatically every morning and notify me	ok	compiles, runs, every field read
+calendar-math-014 section Show nearby public holidays for that week	ok	compiles, runs, every field read
+calendar-math-016 section Show the actual constellation stars for your sign in the sky	ok	compiles, runs, every field read
+challenge-013 section Send me a reminder notification every hour when I haven't logged a glass	ok	compiles, runs, every field read
+ciphers-013 section Use the camera to scan a word from a photo	ok	compiles, runs, every field read
+ciphers-015 section Use the phone camera to scan printed text and convert it automatically	ok	compiles, runs, every field read
+ciphers-017 section Read the clipboard automatically to paste text without being asked	ok	compiles, runs, every field read
+ciphers-018 section Scan a photo of a written message with the camera to fill in the text	ok	compiles, runs, every field read
+custom-filter-013 section Send me a notification when I've spent too much	ok	compiles, runs, every field read
+custom-filter-015 section Scan receipts with the camera to add invoices	ok	compiles, runs, every field read
+custom-filter-017 section Add notes by taking a photo with the phone camera	ok	compiles, runs, every field read
+date-math-013 section Show a live webcam of snowy Christmas scenes from around the world	ok	compiles, runs, every field read
+date-math-014 section Show a live photo from my camera of my smoke-free day	ok	compiles, runs, every field read
+date-math-018 section Show a live countdown timer that runs while the app is closed	ok	compiles, runs, every field read
+decision-017 section Show a live photo of each cooked dish from the phone camera	ok	compiles, runs, every field read
+dice-cards-013 section Show a real photo of the physical dice I rolled	ok	compiles, runs, every field read
+dice-cards-014 section Show a live camera view so I can flip a real coin	ok	compiles, runs, every field read
+envelopes-014 section Send me a reminder notification when my holiday budget gets low	ok	compiles, runs, every field read
+fitness-calcs-012 section Show my body fat by scanning me with the camera	ok	compiles, runs, every field read
+fitness-calcs-013 section Show my actual body weight and macros based on my fitness tracker	ok	compiles, runs, every field read
+flashcards-015 section Read my textbook photos and make flashcards from them	ok	compiles, runs, every field read
+flashcards-016 section Show a live map of where each capital city is located	ok	compiles, runs, every field read
+flashcards-018 section Show a live photo of the bird so I can confirm my guess	ok	compiles, runs, every field read
+generators-014 section Show a live camera view of my local tavern on the sign.	ok	compiles, runs, every field read
+generators-016 section Send the compliment to my friend automatically as a text message	ok	compiles, runs, every field read
+generators-017 section Show a live camera view of the user's face reacting to the insult	ok	compiles, runs, every field read
+grades-017 section Import my grades automatically from my school's grading portal	ok	compiles, runs, every field read
+guess-game-014 section Show a live camera feed to scan emojis around you	ok	compiles, runs, every field read
+inventory-016 section Send a notification when gear runs low while the app is closed	ok	compiles, runs, every field read
+journal-stats-013 section Automatically track my workouts from my phone's health app	ok	compiles, runs, every field read
+journal-stats-014 section Show my location so I can see water logged nearby	ok	compiles, runs, every field read
+journal-stats-015 section Show a live camera photo of the book cover with each entry	ok	compiles, runs, every field read
+journal-stats-018 section Send me a reminder notification each morning to log my cups	ok	compiles, runs, every field read
+language-drill-017 section Listen to my pronunciation of the answer and tell me if it sounds right.	ok	compiles, runs, every field read
+language-drill-019 section Read the adjective forms aloud with a voice while I answer	ok	compiles, runs, every field read
+loans-015 section Show current mortgage rates from nearby lenders automatically	ok	compiles, runs, every field read
+loans-016 section Show nearby credit card offers based on my location	ok	compiles, runs, every field read
+meal-plan-014 section Send me a reminder notification when it's time to cook the meals	ok	compiles, runs, every field read
+meal-plan-017 section Show the weather for taco night automatically	ok	compiles, runs, every field read
+meal-plan-019 section Show me which grocery stores near me have these ingredients in stock	ok	compiles, runs, every field read
+memory-games-013 section Show a live camera feed of your pet while you play	ok	compiles, runs, every field read
+memory-games-014 section Make the pads glow in sync with music playing from other apps	ok	compiles, runs, every field read
+money-challenges-012 section Send me a notification every morning while the app is closed.	ok	compiles, runs, every field read
+money-challenges-017 section Send me a reminder notification each evening when the app is closed	ok	compiles, runs, every field read
+next-due-014 section Send me a notification when a filter is due even if the app is closed	ok	compiles, runs, every field read
+next-due-017 section Send me a reminder notification when a refill is due	ok	compiles, runs, every field read
+next-due-018 section Send me a reminder notification when the app is closed	ok	compiles, runs, every field read
+number-tools-019 section Detect the number by pointing the camera at handwritten digits	ok	compiles, runs, every field read
+phone-calendar-013 section Add a bill directly from my phone's camera scanning the bill	ok	compiles, runs, every field read
+phone-calendar-017 section Read my vet's website and fill in the appointment automatically	ok	compiles, runs, every field read
+phone-call-014 section Automatically import missed calls from the phone's call log	ok	compiles, runs, every field read
+phone-call-018 section Show my current GPS location and nearest hospital on the list	ok	compiles, runs, every field read
+phone-maps-013 section Show my real-time GPS location and highlight the closest coffee shop on a live map	ok	compiles, runs, every field read
+phone-maps-016 section Show a live camera view of the inside of each ATM	ok	compiles, runs, every field read
+phone-message-016 section Automatically send the text message to my sister without me tapping send	ok	compiles, runs, every field read
+phone-message-017 section Show a live map of where Dad currently is	ok	compiles, runs, every field read
+phone-settings-017 section Automatically switch themes at sunset based on my location	ok	compiles, runs, every field read
+phone-settings-018 section Show a live camera preview of the phone's orientation	ok	compiles, runs, every field read
+phone-torch-013 section Play a click sound on each beat while the app is closed	ok	compiles, runs, every field read
+phone-torch-016 section Show a live camera view so I can see what the flashlight is lighting up.	ok	compiles, runs, every field read
+phone-vibrate-016 section Show my heart rate from the phone's sensor while I breathe	ok	compiles, runs, every field read
+phone-vibrate-018 section Vibrate automatically when the battery is full while the app is closed	ok	compiles, runs, every field read
+pickers-013 section Notify me when a recipe becomes available again while the app is closed	ok	compiles, runs, every field read
+pickers-014 section Notify me when it's time to study even when the app is closed	ok	compiles, runs, every field read
+pickers-015 section Show nearby restaurants and events on a map	ok	compiles, runs, every field read
+pickers-017 section Automatically read questions from a web page to expand the pool	ok	compiles, runs, every field read
+queue-015 section Show a live camera feed of the wash bays	ok	compiles, runs, every field read
+quiz-014 section Pull up a live photo of the periodic table chart from my camera	ok	compiles, runs, every field read
+rewards-014 section Show the user's current location so study sessions can be tagged by place.	ok	compiles, runs, every field read
+rewards-016 section Send a phone notification when I forget to train	ok	compiles, runs, every field read
+rotation-013 section Send a push notification to each person the night before their turn begins.	ok	compiles, runs, every field read
+rotation-014 section Send everyone a reminder notification on their phones each morning	ok	compiles, runs, every field read
+rotation-017 section Show a live photo of the bathroom so I can check it's clean	ok	compiles, runs, every field read
+seating-017 section Show a live camera view of the actual conference room	ok	compiles, runs, every field read
+seating-019 section Show a live camera view of the actual bus interior	ok	compiles, runs, every field read
+since-last-014 section Send me a notification when the oil change is due	ok	compiles, runs, every field read
+since-last-015 section Send me a reminder notification when it hits 8 weeks	ok	compiles, runs, every field read
+since-last-016 section Send me a reminder notification every morning while the app is closed	ok	compiles, runs, every field read
+since-last-018 section Notify me when a plant needs watering while the app is closed	ok	compiles, runs, every field read
+streak-013 section Track my streak automatically when I meditate using the phone's motion sensors.	ok	compiles, runs, every field read
+streak-016 section Show a live thermometer reading of the actual shower water	ok	compiles, runs, every field read
+streak-017 section Send me a reminder notification when I haven't hit my goal by evening	ok	compiles, runs, every field read
+text-tools-013 section Read the text from my clipboard automatically when the app opens	ok	compiles, runs, every field read
+text-tools-017 section Read my clipboard automatically and reverse what's there	ok	compiles, runs, every field read
+text-tools-018 section Use the phone's camera to scan a printed word and find its anagrams	ok	compiles, runs, every field read
+tournament-014 section Pull live scores from real football matches automatically	ok	compiles, runs, every field read
+tournament-015 section Show live score updates from a real tournament happening elsewhere	ok	compiles, runs, every field read
+tournament-017 section Show a live photo of my gym inside the app	ok	compiles, runs, every field read
+tournament-018 section Show the live camera view to scan a scoreboard	ok	compiles, runs, every field read
+tournament-019 section Show a live camera feed of the tournament bracket	ok	compiles, runs, every field read
+typing-013 section Notify me when I leave the app that my accuracy score is ready	ok	compiles, runs, every field read
+typing-016 section Notify me when the timer ends even if the app is closed	ok	compiles, runs, every field read
+typing-017 section Play a beep and alert even when the app is closed	ok	compiles, runs, every field read
+uneven-split-013 section Add a button that imports everyone's hours from a shared group chat	ok	compiles, runs, every field read
+uneven-split-018 section Show the restaurant's menu and prices from its website	fail	runs wrong or leaves a field unread
+voting-016 section Show a live photo of each destination in the list	ok	compiles, runs, every field read
+voting-018 section Show a live photo from the party venue camera	ok	compiles, runs, every field read
+word-games-015 section Check the typed word against a real dictionary automatically.	ok	compiles, runs, every field read
+word-games-016 section Show a live camera photo of a compound word object as a clue	ok	compiles, runs, every field read
+workout-builder-016 section Use my phone camera to check my stretch form live	ok	compiles, runs, every field read
+baby-log-l03 section Alert me if my baby's sleep drops below normal while the app is closed	ok	compiles, runs, every field read
+booking-l01 section Send parents a text reminder before their meeting time	ok	compiles, runs, every field read
+booking-l02 section Show a live photo of the meeting room so I can see if it's empty	ok	compiles, runs, every field read
+booking-l03 section Send a reminder notification to clients when a slot is booked	ok	compiles, runs, every field read
+branching-story-l01 section Play a scare sound through the speakers while the app is closed	ok	compiles, runs, every field read
+branching-story-l02 section Read the story aloud with a voice when the phone is locked	ok	compiles, runs, every field read
+category-l02 section Show the current wind speed at my location automatically	ok	compiles, runs, every field read
+challenge-l02 section Automatically track my walking distance using phone GPS	ok	compiles, runs, every field read
+ciphers-l01 section Read my clipboard automatically and encode it	ok	compiles, runs, every field read
+color-tools-l02 section Detect the color of objects through my phone camera	ok	compiles, runs, every field read
+countdowns-l01 section Show a live photo of the vacation spot and wedding venue inside the app	ok	compiles, runs, every field read
+countdowns-l02 section Show a live webcam of a snowy Christmas village	ok	compiles, runs, every field read
+countdowns-l03 section Send me a reminder notification when a bill is due	ok	compiles, runs, every field read
+custom-filter-l01 section Use the phone camera to scan a game box barcode	ok	compiles, runs, every field read
+custom-filter-l02 section Show a photo of each finished dish taken live from my camera	ok	compiles, runs, every field read
+dice-cards-l01 section Add a live camera view to show real dice	ok	compiles, runs, every field read
+envelopes-l01 section Send me a notification when I forget to move money each week	ok	compiles, runs, every field read
+envelopes-l02 section Show my bank transactions automatically as I spend	ok	compiles, runs, every field read
+expiry-l02 section Automatically read expiry dates by scanning my passport with the camera	fail	runs wrong or leaves a field unread
+expiry-l03 section Send me a notification when a coupon is about to expire	ok	compiles, runs, every field read
+fitness-calcs-l01 section Show my current location and nearby gyms	ok	compiles, runs, every field read
+flashcards-l01 section Show me a photo of the verb's meaning from my camera	ok	compiles, runs, every field read
+fuel-log-l01 section Show a live camera photo of the odometer to auto-read it	ok	compiles, runs, every field read
+fuel-log-l03 section Show my location and nearby gas stations automatically	ok	compiles, runs, every field read
+game-clocks-l02 section Play a beep while the app is closed	ok	compiles, runs, every field read
+gift-exchange-l03 section Send each person a notification with their secret name when the app is closed.	ok	compiles, runs, every field read
+guess-game-l02 section Play a real animal sound when you guess correctly	ok	compiles, runs, every field read
+habit-grid-l01 section Send a reminder notification each morning if I haven't ticked water yet.	ok	compiles, runs, every field read
+language-drill-l02 section Say the number out loud automatically without me tapping	ok	compiles, runs, every field read
+loans-l02 section Show a live camera feed of my brother paying me back	ok	compiles, runs, every field read
+math-practice-l03 section Read the fraction problems out loud and listen to my spoken answer	ok	compiles, runs, every field read
+memory-games-l01 section Show a live camera view of the player while they play	ok	compiles, runs, every field read
+memory-games-l02 section Show a live camera feed of the player's face while they play.	ok	compiles, runs, every field read
+music-theory-l01 section Play the chord out loud when the app is closed	ok	compiles, runs, every field read
+number-tools-l01 section Show a live camera view to scan a number from a printed page	ok	compiles, runs, every field read
+number-tools-l02 section Use the phone's camera to scan a Roman numeral from a photo	ok	compiles, runs, every field read
+party-games-l03 section Show a live camera preview to record my reaction to each dilemma	ok	compiles, runs, every field read
+phone-call-l01 section Show a live photo of Mom while the call connects	ok	compiles, runs, every field read
+phone-call-l02 section Show a live map of where each contact is right now	ok	compiles, runs, every field read
+phone-maps-l01 section Show my current location on a live map inside the app	ok	compiles, runs, every field read
+phone-maps-l02 section Show a live camera view of the parking spot inside the app.	ok	compiles, runs, every field read
+phone-media-l02 section Automatically play the playlist from inside the timer app itself	ok	compiles, runs, every field read
+phone-message-l02 section Automatically send the message without me confirming in MeeTime	ok	compiles, runs, every field read
+pickers-l01 section Show a live camera view of who is actually near the sink	ok	compiles, runs, every field read
+pickers-l02 section Show the restaurant's live menu from its website	ok	compiles, runs, every field read
+player-stats-l01 section Show a live camera feed to scan the scoreboard	ok	compiles, runs, every field read
+player-stats-l03 section Use the phone's camera to scan the dartboard and read the score automatically	ok	compiles, runs, every field read
+projections-l01 section Show my bank account balance and import my real contributions.	ok	compiles, runs, every field read
+rewards-l01 section Show a live camera feed of the potty so I can check from another room	ok	compiles, runs, every field read
+riddles-l01 section Show a live camera picture of the riddle on a card to scan	ok	compiles, runs, every field read
+riddles-l03 section Show a live camera feed of the person solving the riddle	ok	compiles, runs, every field read
+schedule-gen-l01 section Send me a reminder notification each morning while the app is closed	ok	compiles, runs, every field read
+schedule-gen-l02 section Send me a reminder notification when a plant is due while the app is closed	ok	compiles, runs, every field read
+score-history-l01 section Show a live camera view of the scorecard	ok	compiles, runs, every field read
+score-history-l02 section Use the phone camera to scan the scorecard automatically	ok	compiles, runs, every field read
+seating-l02 section Automatically mark students present when they walk in	ok	compiles, runs, every field read
+since-last-l01 section Show my actual call history from my phone automatically	ok	compiles, runs, every field read
+since-last-l02 section Show a live camera preview so I can check my hair	ok	compiles, runs, every field read
+text-tools-l02 section Show a live camera picture inside the app	ok	compiles, runs, every field read
+typing-l02 section Show a live camera preview of my hands on the keyboard while I type.	ok	compiles, runs, every field read
+voting-l01 section Show a live map of restaurants near me	ok	compiles, runs, every field read

@@ -13,7 +13,7 @@
   "section-edit refine": 2218,
   "section-edit refine-repair": 393,
   "program-edit refine-decline": 365,
-  "section-edit refine-decline": 147,
+  "section-edit refine-decline": 146,
   "program-rewrite refine": 201,
   "catalogue-content first": 86,
   "whole-screen first": 3,
@@ -63,6 +63,7 @@
   "program-edit: in a code fence": 7,
   "section-edit: impossible, refused: unread": 27,
   "section-edit: a SEARCH part not in what it edits": 2,
+  "section-edit: impossible, refused: its section does not work": 1,
   "section-edit: edit markers misspelt": 1,
   "program-edit: Jev does not read the change": 1,
   "program-edit: system prompt without the language": 14,
@@ -92,7 +93,7 @@
  },
  "bySplit": {
   "train": 8211,
-  "test": 1421,
+  "test": 1420,
   "validation": 730
  },
  "byFamily": {
@@ -175,7 +176,7 @@
   "inventory": 163,
   "language-drill": 237,
   "math-practice": 137,
-  "meal-plan": 222,
+  "meal-plan": 221,
   "money-challenges": 139,
   "music-theory": 132,
   "number-tools": 177,

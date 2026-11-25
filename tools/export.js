@@ -213,6 +213,8 @@ function main() {
   const verdictOf = verdicts()
   // tools/refusal-check.js: rules for a program's refusal, a strict judge for a section's; a person's verdict wins.
   const autoOf = verdicts('auto-verdicts.tsv')
+  // tools/recheck-declines.js: whether the section a section refusal keeps compiles, runs and reads every field it sets.
+  const sectionCheckOf = verdicts('section-decline-checks.tsv')
   const rows = {train: [], validation: [], test: []}
   const review = []
   const seen = new Set()
@@ -464,10 +466,17 @@ function main() {
           // A person's word wins; the rules and the judge did not look for a limit put on phones in general.
           const auto = autoOf.get(key) === 'accept' && PHONE_LIMIT.test(last0.reply) ? 'reject' : autoOf.get(key)
           const verdict = verdictOf.get(key) || auto || 'unread'
-          if (verdict === 'accept') {
+          // A section refusal still writes a section beside its <cannot need> tags, which the app does not serve, so the run
+          // never checked it: it is kept only when tools/recheck-declines.js found it compiles, runs and reads its fields.
+          // (A scene or broken edits are let go by keep, as before: they never reached the check.)
+          const keepWouldTake = !SCENE.test(last0.reply) && !SCENE.test(last0.user) && !editFault(last0.user, last0.reply, task)
+          if (verdict === 'accept' && route === 'section' && keepWouldTake && sectionCheckOf.get(key) !== 'ok') {
+            drop(task + ': impossible, refused: its section ' + (sectionCheckOf.has(key) ? 'does not work' : 'not checked'))
+          } else if (verdict === 'accept') {
             keep(family, system, last0.user, last0.reply, {task, turn: 'refine-decline', label, run: path.basename(run), change: edit.change,
               calls: asks.length, teacher: last0.model || TEACHER, usage: last0.usage || null,
-              checks: [verdictOf.has(key) ? 'refusal read' : (route === 'program' ? 'refusal rules' : 'refusal judge')]})
+              checks: [verdictOf.has(key) ? 'refusal read' : (route === 'program' ? 'refusal rules' : 'refusal judge')]
+                .concat(route === 'section' ? ['compiled', 'smoke run', 'every field read'] : [])})
           } else {
             review.push({kind: 'impossible change', verdict, key, label, family, route, change: edit.change,
               cannot: edit.cannot || '', declined: edit.declined || [],
@@ -506,7 +515,7 @@ function main() {
       const turn = repaired ? 'refine-repair' : 'refine'
       keep(family, system, last.user, last.reply, {task, turn, label, run: path.basename(run), change: edit.change, depth: edit.depth || 0,
         calls: asks.length, edits: edit.edits ?? null, rounds: edit.rounds ?? null, teacher: last.model || TEACHER, usage: last.usage || null,
-        checks: ['compiled', 'smoke run', 'Jev reads the change'].concat(route === 'section' ? ['targets found'] : [])})
+        checks: ['compiled', 'smoke run', edit.does ? 'Jev reads the change' : 'the judge reads the change'].concat(route === 'section' ? ['targets found'] : [])})
     }
   }
   for (const run of runs) {
