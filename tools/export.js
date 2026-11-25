@@ -99,6 +99,21 @@ function wholeServed(run, label) {
   return result.route === 'agent' && /; whole screen written in /.test(note) && !/; repaired by edits in \d+ round\(s\); whole screen written in /.test(note)
 }
 
+/**
+ * The widget part of a widget writer's system prompt: languageWith (AgentSurface.ets) puts the card catalogue and the guide
+ * where the language's UI catalogue was, between the same two marks; null when the prompt is not built so.
+ */
+function widgetSystem(system, language) {
+  if (language === null) return null
+  const start = language.indexOf('UI constructors (all return ui.View):')
+  const end = language.indexOf('Clock -- time.')
+  if (start < 0 || end <= start) return null
+  const head = language.slice(0, start)
+  const tail = language.slice(end)
+  if (!system.startsWith(head) || !system.endsWith(tail) || system.length <= head.length + tail.length) return null
+  return system.slice(head.length, system.length - tail.length).trim()
+}
+
 /** A body as the model writes it: cleanBody (VeraHoles.ets) indents every line by two spaces when it keeps it. */
 function asWritten(body) {
   return body.split('\n').map(l => l.replace(/^ {2}/, '')).join('\n')
@@ -265,6 +280,26 @@ function main() {
       teacher: last.model || TEACHER, usage: last.usage || null, checks: ['json read', 'lists in shape']})
   }
   /**
+   * Make widget (agent/AgentWidget.ets's writeWidget; agent-run --home-widget or --widgets-for): kept when the widget
+   * spliced into the program passed its checks (compiled, every handler tapped, the card's checks). The answer is what the
+   * app read out of the last reply (sourceIn, without a fence), and the system prompt is the language's widget part alone:
+   * the card catalogue and the widget guide that languageWith (AgentSurface.ets) puts in place of the UI catalogue.
+   */
+  const widget = (events, family, label, run, language) => {
+    const made = events.find(e => e.kind === 'widget')
+    if (!made) return
+    stats.holes++
+    if (!made.ok) return drop('widget: ' + String(made.failed || 'failed').split(':')[0].slice(0, 60))
+    const asks = events.filter(e => e.kind === 'ask')
+    const last = asks[asks.length - 1]
+    if (!last || last.error) return drop('widget: no answer recorded')
+    const system = widgetSystem(last.system, language)
+    if (system === null) return drop('widget: system prompt not the language with the widget part')
+    keep(family, system, last.user, made.written, {task: 'widget', turn: last.user.includes('\n\nYour previous answer:\n') ? 'repair' : 'first',
+      label, run: path.basename(run), shows: made.shows, calls: asks.length, teacher: last.model || TEACHER, usage: last.usage || null,
+      checks: ['compiled', 'every handler run', 'card checks']})
+  }
+  /**
    * The assembled program repaired by edits (AgentRepair.ets's repairProgram, asked with the language alone, like a program
    * edit's repair): the last of the asks after the last hole, when result.json says the repair mended it.
    */
@@ -356,10 +391,14 @@ function main() {
     const language = fs.existsSync(languageFile) ? fs.readFileSync(languageFile, 'utf8') : null
     for (const label of fs.readdirSync(run).sort()) {
       const file = path.join(run, label, 'asks.jsonl')
-      if (!fs.existsSync(file)) continue
+      const widgetFile = path.join(run, label, 'widget', 'asks.jsonl')
+      // A run of widgets alone (agent-run --widgets-for) has no asks of its own beside them.
+      if (!fs.existsSync(file) && !fs.existsSync(widgetFile)) continue
       stats.requests++
       const family = familyOf.get(label)
       if (!family) { drop('label in no batch file'); continue }
+      if (fs.existsSync(widgetFile)) widget(fs.readFileSync(widgetFile, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l)), family, label, run, language)
+      if (!fs.existsSync(file)) continue
       const refineDir = path.join(run, label, 'refine')
       if (fs.existsSync(refineDir)) {
         // "0", "1", ... a change on the screen as built; "0.1", "0.1.2" the changes after it in a chain (agent-run --chain).
