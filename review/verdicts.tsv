@@ -6,6 +6,31 @@ phone-vibrate-04	accept	true limit: nothing buzzes while the app is closed; offe
 phone-media-02	reject	fills merchant, date and total "as a sample": made-up data, which the rules forbid
 phone-sound-02	reject	AudioRenderer.start was found, so a 440 Hz tone could be written as samples (the rules say so); and its volume slider only records the choice, a control that does nothing
 phone-torch-03	reject	the need is a scene (drawn full screen); scenes are not in v1
-phone-calendar-04	ask	declines a yearly repeat and an alert, though CalendarKit.Calendar.addEvent was found: does addEvent take a recurrence and a reminder?
-phone-message-04	ask	declines the share sheet but keeps a "Share poll" button, which the rules say a declined need must not have
-phone-sound-04	ask	TonePlayer.start was found; declines a beep on each second of the countdown: can a tick call the phone, or is that a real limit?
+phone-calendar-04	reject	no answer from a person on the platform question; rejected by default: declines a yearly repeat and an alert, though CalendarKit.Calendar.addEvent was found: does addEvent take a recurrence and a reminder?
+phone-message-04	reject	no answer from a person on the platform question; rejected by default: declines the share sheet but keeps a "Share poll" button, which the rules say a declined need must not have
+phone-sound-04	reject	no answer from a person on the platform question; rejected by default: TonePlayer.start was found; declines a beep on each second of the countdown: can a tick call the phone, or is that a real limit?
+next-due-006	reject	calls reminderAgentManager.cancelReminder for nothing it explains
+phone-alarm-005	accept	no alarm function found; asks to allow reminders, tests the vibration, says to set the alarm in Clock
+phone-alarm-007	accept	no alarm sound function found; wakes by brightening the screen, and says so
+phone-alarm-008	accept	no way to schedule a notification found; lists the times to set alarms for
+phone-calendar-005	reject	the need missed is a weekly repeat; its refusal talks about something else (confirmation)
+phone-calendar-008	reject	calls reminderAgentManager.cancelAllReminders for nothing it explains
+phone-call-005	reject	TelephonyKit.call.makeCall opens the dialer with the number: the rules say that does the job, so it is not a refusal
+phone-call-010	accept	no way to schedule a notification found; shows the reminder on screen at the lead time
+phone-maps-005	reject	a scene, and example cafés around a made-up centre: made-up data
+phone-maps-012	reject	shows example spots: made-up data
+phone-media-006	reject	a scene; says the shutter opens the Camera app but calls nothing
+phone-media-007	accept	records through the recorder app; no speech-to-text found; the text is typed in
+phone-media-011	reject	tiles named for sound clips play a plain tone: controls that do not do what they say
+phone-message-012	reject	keeps a send button that cannot carry the contact or the text: half a control
+phone-settings-008	accept	switches the setting through the intent found; says what it cannot confirm or apply
+phone-settings-011	accept	no hotspot switch found; opens the hotspot setting for the person
+phone-sound-009	reject	AudioRenderer.start was found, so a tone at a pitch could be written as samples
+phone-sound-010	reject	a scene
+phone-torch-008	accept	no way to watch calls; opens the phone's own flash-on-calls setting, the nearest thing
+phone-vibrate-009	reject	the need missed is a second countdown; its refusal talks about buzzing
+phone-vibrate-012	reject	a live sunrise time from Vera.Ask.text: a guess shown as a fact
+sports-score-005	reject	a frame-by-frame bowling sheet is code the section can write; the limit it gives is false
+word-games-009	accept	the game is built; checks words through Vera.Ask.text and says it may take a moment
+color-tools-002	reject	a scene; swatches from a fixed set while it says they come from the photo
+tournament-003	reject	refuses something nobody asked for (a list in another app)

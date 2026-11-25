@@ -84,6 +84,12 @@ function asWritten(body) {
   return body.split('\n').map(l => l.replace(/^ {2}/, '')).join('\n')
 }
 
+const ASK_TARGET = 'Vera.Ask.text'
+const targetsIn = text => [...text.matchAll(/sdk\.call\(\s*"([^"]+)"/g)].map(m => m[1])
+
+/** The second judge's word on one route of a refine (tools/rejudge.js writes it into the asks as a `judge` event). */
+const judgeOf = (events, route) => events.find(e => e.kind === 'judge' && e.route === route) || null
+
 /** The needs a reply declines one by one, as written in <cannot need="..."> (HTML entities undone). */
 function declinedIn(reply) {
   const entities = {quot: '"', amp: '&', lt: '<', gt: '>', apos: "'", '#39': "'"}
@@ -152,7 +158,18 @@ function main() {
       if (!edit) continue
       stats.holes++
       if (!edit.ok) { drop(task + ': ' + (edit.cannot ? 'declined' : 'failed')); continue }
-      if (!edit.does) { drop(task + ': Jev does not read the change'); continue }
+      // Jev reads edits as lines taken out and put in, and often misses a change they make: a second judge
+      // (tools/rejudge.js, judge.json beside the asks) settles those it did not read.
+      const judged = judgeOf(events, route)
+      if (!edit.does && !(judged && judged.done)) { drop(task + ': Jev does not read the change' + (judged ? ', nor the judge' : '')); continue }
+      // Edits of the whole program are shown no phone functions: a target the program did not call before is made up
+      // (one wrote sdk.call("system.clipboard", ...)), and the compiler does not check targets.
+      if (route === 'program') {
+        const base = fs.existsSync(path.join(run, label, 'program.vera')) ? fs.readFileSync(path.join(run, label, 'program.vera'), 'utf8') : ''
+        const before = new Set(targetsIn(base))
+        const added = targetsIn(edit.source || '').filter(t => !before.has(t) && t !== ASK_TARGET)
+        if (added.length > 0) { drop(task + ': calls a target the program did not'); continue }
+      }
       const last = asks[asks.length - 1]
       if (!last || last.error || last.finish !== 'stop') { drop(task + ': not finished'); continue }
       if (language === null || !last.system.startsWith(language)) { drop(task + ': system prompt without the language'); continue }
